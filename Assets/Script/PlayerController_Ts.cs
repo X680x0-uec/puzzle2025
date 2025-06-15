@@ -10,13 +10,13 @@ public class PlayerController_Ts : MonoBehaviour
     private Vector3 moveDirection;           // 現在の移動方向
     private bool isMoving = false;           // 移動中フラグ
 
-    private Rigidbody rb;
+    private Rigidbody2D rb;
     private Renderer rend;
     private PlayerColor_Ts colorScript;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody2D>();
         rend = GetComponent<Renderer>();
         colorScript = GetComponent<PlayerColor_Ts>();
         // キャラクターの色を初期化
@@ -31,13 +31,13 @@ public class PlayerController_Ts : MonoBehaviour
         {
             // 矢印キーまたはWASDで移動方向を決定
             if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
-                TryMove(Vector3.forward);
+                TryMove(Vector2.up);
             else if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
-                TryMove(Vector3.back);
+                TryMove(Vector2.down);
             else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
-                TryMove(Vector3.left);
+                TryMove(Vector2.left);
             else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
-                TryMove(Vector3.right);
+                TryMove(Vector2.right);
         }
     }
 
