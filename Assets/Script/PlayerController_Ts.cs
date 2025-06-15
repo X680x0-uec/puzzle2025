@@ -3,22 +3,22 @@ using UnityEngine;
 /// <summary>
 /// 2体のキャラクターを同時に操作し、壁に当たるまで移動し続ける制御
 /// </summary>
-public class PlayerController_Tsu : MonoBehaviour
+public class PlayerController_Ts : MonoBehaviour
 {
-    public Wall_Tsu.PlayerType playerType; // プレイヤーのタイプ（色）
+    public Wall_Ts.PlayerType playerType; // プレイヤーのタイプ（色）
     public float moveSpeed = 5f;             // 移動速度
     private Vector3 moveDirection;           // 現在の移動方向
     private bool isMoving = false;           // 移動中フラグ
 
     private Rigidbody rb;
     private Renderer rend;
-    private PlayerColor_Tsu colorScript;
+    private PlayerColor_Ts colorScript;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         rend = GetComponent<Renderer>();
-        colorScript = GetComponent<PlayerColor_Tsu>();
+        colorScript = GetComponent<PlayerColor_Ts>();
         // キャラクターの色を初期化
         if (colorScript != null)
             rend.material.color = colorScript.playerColor;
@@ -60,11 +60,11 @@ public class PlayerController_Tsu : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit, distance))
             {
-                Wall_Tsu wall = hit.collider.GetComponent<Wall_Tsu>();
+                Wall_Ts wall = hit.collider.GetComponent<Wall_Ts>();
                 if (wall != null)
                 {
                     // 共通壁なら止まる
-                    if (wall.interactablePlayer == Wall_Tsu.PlayerType.None)
+                    if (wall.interactablePlayer == Wall_Ts.PlayerType.None)
                         break;
                     // 色付き壁で自分と同じ色ならすり抜ける
                     if (wall.interactablePlayer == playerType)
@@ -94,7 +94,7 @@ public class PlayerController_Tsu : MonoBehaviour
     // キャラクター同士が重なった時に色を混ぜる
     private void OnTriggerEnter(Collider other)
     {
-        var otherChar = other.GetComponent<PlayerColor_Tsu>();
+        var otherChar = other.GetComponent<PlayerColor_Ts>();
         if (otherChar != null && otherChar != this)
         {
             // 色を混ぜる（単純な加算例）

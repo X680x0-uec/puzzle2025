@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class GameManager_Tsu : MonoBehaviour
+public class GameManager_Ts : MonoBehaviour
 {
     // ゲーム全体の管理を行うシングルトン
-    public static GameManager_Tsu Instance { get; private set; }
+    public static GameManager_Ts Instance { get; private set; }
 
     private void Awake()
     {
@@ -31,11 +31,11 @@ public class GameManager_Tsu : MonoBehaviour
     private void InitializePlayers()
     {
         // すべての PlayerColor_Tsu を取得（ソート不要の場合は高速）
-        var players = Object.FindObjectsByType<PlayerColor_Tsu>(FindObjectsSortMode.None);
+        var players = Object.FindObjectsByType<PlayerColor_Ts>(FindObjectsSortMode.None);
         foreach (var player in players)
         {
             // プレイヤーの色とタイプを設定
-            player.SetPlayerType(Wall_Tsu.PlayerType.None);
+            player.SetPlayerType(Wall_Ts.PlayerType.None);
             player.SetColor(Color.white);
         }
     }
@@ -43,11 +43,11 @@ public class GameManager_Tsu : MonoBehaviour
     // 壁の初期化
     private void InitializeWalls()
     {
-        var walls = Object.FindObjectsByType<Wall_Tsu>(FindObjectsSortMode.None);
+        var walls = Object.FindObjectsByType<Wall_Ts>(FindObjectsSortMode.None);
         foreach (var wall in walls)
         {
             // 壁のタイプをランダムに設定
-            wall.interactablePlayer = (Wall_Tsu.PlayerType)Random.Range(0, 3);
+            wall.interactablePlayer = (Wall_Ts.PlayerType)Random.Range(0, 3);
         }
     }
 
