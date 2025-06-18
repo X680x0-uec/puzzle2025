@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 /// <summary>
@@ -22,22 +23,29 @@ public class PlayerController_Ts : MonoBehaviour
         // キャラクターの色を初期化
         if (colorScript != null)
             rend.material.color = colorScript.playerColor;
+
+        // 移動の入力受付を開始
+        StartCoroutine(Moving());
     }
 
-    void Update()
+    IEnumerator Moving()
     {
-        // 移動中でなければ入力を受け付ける
-        if (!isMoving)
+        while (true)
         {
-            // 矢印キーまたはWASDで移動方向を決定
-            if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
-                TryMove(Vector2.up);
-            else if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
-                TryMove(Vector2.down);
-            else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
-                TryMove(Vector2.left);
-            else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
-                TryMove(Vector2.right);
+            // 移動中でなければ入力を受け付ける
+            if (!isMoving)
+            {
+                // 矢印キーまたはWASDで移動方向を決定
+                if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
+                    TryMove(Vector2.up);
+                else if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
+                    TryMove(Vector2.down);
+                else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
+                    TryMove(Vector2.left);
+                else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
+                    TryMove(Vector2.right);
+            }
+            yield return null;
         }
     }
 

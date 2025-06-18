@@ -17,7 +17,7 @@ public class Wall_Ts : MonoBehaviour
             // 色付き壁の場合、同じ色のプレイヤーはすり抜ける
             if (interactablePlayer != PlayerType.None && playerColor.playerType == interactablePlayer)
             {
-                Physics.IgnoreCollision(collision.collider, GetComponent<Collider>());
+                //Physics.IgnoreCollision(collision.collider, GetComponent<Collider>());
             }
         }
     }
