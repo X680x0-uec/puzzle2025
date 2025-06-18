@@ -52,7 +52,7 @@ public class PlayerController_Ts : MonoBehaviour
     // 指定方向に壁に当たるまで進み続ける
     void TryMove(Vector3 direction)
     {
-        moveDirection = direction;
+        moveDirection = direction.normalized;
         isMoving = true;
         StartCoroutine(MoveUntilWall());
     }
@@ -93,14 +93,14 @@ public class PlayerController_Ts : MonoBehaviour
             }
 
             // 1マス進む
-            rb.MovePosition(transform.position + moveDirection);
+            rb.MovePosition(transform.position + moveDirection * distance);
             yield return new WaitForSeconds(0.05f);
         }
         isMoving = false;
     }
 
     // キャラクター同士が重なった時に色を混ぜる
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         var otherChar = other.GetComponent<PlayerColor_Ts>();
         if (otherChar != null && otherChar != this)
