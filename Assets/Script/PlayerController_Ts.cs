@@ -42,16 +42,23 @@ public class PlayerController_Ts : MonoBehaviour
             if (!isMoving && otherPlayer != null && !otherPlayer.isMoving)
             {
                 // 矢印キーまたはWASDで移動方向を決定
-                if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) {
+                if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
+                {
                     TryMove(Vector2.up);
                     otherPlayer.TryMove(Vector2.up);
-                } else if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S)) {
+                }
+                else if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
+                {
                     TryMove(Vector2.down);
                     otherPlayer.TryMove(Vector2.down);
-                } else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A)) {
+                }
+                else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
+                {
                     TryMove(Vector2.left);
                     otherPlayer.TryMove(Vector2.left);
-                } else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D)) {
+                }
+                else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
+                {
                     TryMove(Vector2.right);
                     otherPlayer.TryMove(Vector2.right);
                 }
@@ -94,7 +101,7 @@ public class PlayerController_Ts : MonoBehaviour
                     if (wall.interactablePlayer == PlayerColor_Ts.PlayerType.None)
                         break;
                     // 色付き壁で自分と同じ色ならすり抜ける
-                    if (wall.interactablePlayer == colorScript.mergedPlayerType || 
+                    if (wall.interactablePlayer == colorScript.mergedPlayerType ||
                         wall.interactablePlayer == colorScript.originalPlayerType)
                     {
                         // すり抜けるので進み続ける
@@ -125,13 +132,24 @@ public class PlayerController_Ts : MonoBehaviour
         var otherChar = other.GetComponent<PlayerColor_Ts>();
         if (otherChar != null && otherChar != this)
         {
-            // 色を混ぜる（単純な加算例）
-            Color newColor = (colorScript.playerColor + otherChar.playerColor);
             if (isPlayerA) // プレイヤーAが色を同時に変更させる
             {
+                // 色を混ぜる（単純な加算例）
+                Color newColor = (colorScript.playerColor + otherChar.playerColor);
                 colorScript.SetColor(newColor);
                 otherChar.SetColor(newColor);
             }
+        }
+    }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        // キャラクター同士が離れた時の処理
+        // 例えば、色を元に戻すなど
+        var otherChar = other.GetComponent<PlayerColor_Ts>();
+        if (otherChar != null && otherChar != this)
+        {
+            // 元の色に戻す処理
+            colorScript.SetColorFromType(colorScript.originalPlayerType);
         }
     }
 }
