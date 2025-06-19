@@ -1094,7 +1094,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce33647a24b9ce44a82bd2b94babaa29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerType: 1
+  isPlayerA: 1
   moveSpeed: 5
   isMoving: 0
   otherPlayer: {fileID: 1829554486}
@@ -2183,7 +2183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce33647a24b9ce44a82bd2b94babaa29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerType: 2
+  isPlayerA: 0
   moveSpeed: 5
   isMoving: 0
   otherPlayer: {fileID: 1021232498}

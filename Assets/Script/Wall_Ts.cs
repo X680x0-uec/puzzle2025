@@ -6,7 +6,7 @@ using UnityEngine;
 public class Wall_Ts : MonoBehaviour
 {
     // プレイヤーのタイプを定義
-    public enum PlayerType { None, PlayerA, PlayerB }
+    public enum PlayerType { None, Red, Blue, Purple }
     public PlayerType interactablePlayer = PlayerType.None; // Noneは共通壁
 
     private void OnCollisionEnter(Collision collision)

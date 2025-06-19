@@ -6,7 +6,8 @@ using UnityEngine;
 /// </summary>
 public class PlayerController_Ts : MonoBehaviour
 {
-    public Wall_Ts.PlayerType playerType; // プレイヤーのタイプ（色）
+    //public Wall_Ts.PlayerType playerType; // プレイヤーのタイプ（色）
+    public bool isPlayerA = true; // プレイヤーAかどうか（同時操作用）
     public float moveSpeed = 5f;             // 移動速度
     private Vector3 moveDirection;           // 現在の移動方向
     public bool isMoving = false;           // 移動中フラグ
@@ -21,12 +22,20 @@ public class PlayerController_Ts : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rend = GetComponent<Renderer>();
         colorScript = GetComponent<PlayerColor_Ts>();
+
+        if (isPlayerA == otherPlayer.isPlayerA)
+        {
+            Debug.LogError("isPlayerAは片方のプレイヤーだけTrueにしてください。");
+            return;
+        }
+
         // キャラクターの色を初期化
         if (colorScript != null)
-            rend.material.color = colorScript.playerColor;
+            colorScript.SetColor(colorScript.playerColor);
 
-        // 移動の入力受付を開始
-        StartCoroutine(Moving());
+        // 移動の入力受付を開始(プレイヤーAがプレイヤーBの入力も受け付ける)
+        if (isPlayerA)
+            StartCoroutine(Moving());
     }
 
     IEnumerator Moving()
@@ -37,14 +46,19 @@ public class PlayerController_Ts : MonoBehaviour
             if (!isMoving && otherPlayer != null && !otherPlayer.isMoving)
             {
                 // 矢印キーまたはWASDで移動方向を決定
-                if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
+                if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) {
                     TryMove(Vector2.up);
-                else if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
+                    otherPlayer.TryMove(Vector2.up);
+                } else if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S)) {
                     TryMove(Vector2.down);
-                else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
+                    otherPlayer.TryMove(Vector2.down);
+                } else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A)) {
                     TryMove(Vector2.left);
-                else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
+                    otherPlayer.TryMove(Vector2.left);
+                } else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D)) {
                     TryMove(Vector2.right);
+                    otherPlayer.TryMove(Vector2.right);
+                }
             }
             yield return null;
         }
@@ -54,15 +68,12 @@ public class PlayerController_Ts : MonoBehaviour
     void TryMove(Vector3 direction)
     {
         moveDirection = direction.normalized; // 入力された方向を正規化
-        //isMoving = true; //MoveUntilWallに移動
+        isMoving = true;
         StartCoroutine(MoveUntilWall());
     }
 
     System.Collections.IEnumerator MoveUntilWall()
     {
-        yield return new WaitForSeconds(0.1f); // AとBがどちらも動けるように遅らせる
-        isMoving = true; // 移動中フラグを立てる
-
         int wallLayer = LayerMask.GetMask("Wall"); // "Wall"レイヤーのみ検知
 
         while (true)
@@ -87,7 +98,7 @@ public class PlayerController_Ts : MonoBehaviour
                     if (wall.interactablePlayer == Wall_Ts.PlayerType.None)
                         break;
                     // 色付き壁で自分と同じ色ならすり抜ける
-                    if (wall.interactablePlayer == playerType)
+                    if (wall.interactablePlayer == colorScript.playerType)
                     {
                         // すり抜けるので進み続ける
                     }
@@ -118,8 +129,12 @@ public class PlayerController_Ts : MonoBehaviour
         if (otherChar != null && otherChar != this)
         {
             // 色を混ぜる（単純な加算例）
-            colorScript.playerColor = (colorScript.playerColor + otherChar.playerColor) / 2f;
-            rend.material.color = colorScript.playerColor;
+            Color newColor = (colorScript.playerColor + otherChar.playerColor);
+            if (isPlayerA) // プレイヤーAが色を同時に変更させる
+            {
+                colorScript.SetColor(newColor);
+                otherChar.SetColor(newColor);
+            }
         }
     }
 }
