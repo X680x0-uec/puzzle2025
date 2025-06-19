@@ -9,7 +9,8 @@ public class PlayerController_Ts : MonoBehaviour
     public Wall_Ts.PlayerType playerType; // プレイヤーのタイプ（色）
     public float moveSpeed = 5f;             // 移動速度
     private Vector3 moveDirection;           // 現在の移動方向
-    private bool isMoving = false;           // 移動中フラグ
+    public bool isMoving = false;           // 移動中フラグ
+    public PlayerController_Ts otherPlayer; // もう一方のプレイヤー
 
     private Rigidbody2D rb;
     private Renderer rend;
@@ -33,7 +34,7 @@ public class PlayerController_Ts : MonoBehaviour
         while (true)
         {
             // 移動中でなければ入力を受け付ける
-            if (!isMoving)
+            if (!isMoving && otherPlayer != null && !otherPlayer.isMoving)
             {
                 // 矢印キーまたはWASDで移動方向を決定
                 if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
@@ -52,25 +53,36 @@ public class PlayerController_Ts : MonoBehaviour
     // 指定方向に壁に当たるまで進み続ける
     void TryMove(Vector3 direction)
     {
-        moveDirection = direction.normalized;
-        isMoving = true;
+        moveDirection = direction.normalized; // 入力された方向を正規化
+        //isMoving = true; //MoveUntilWallに移動
         StartCoroutine(MoveUntilWall());
     }
 
     System.Collections.IEnumerator MoveUntilWall()
     {
+        yield return new WaitForSeconds(0.1f); // AとBがどちらも動けるように遅らせる
+        isMoving = true; // 移動中フラグを立てる
+
+        int wallLayer = LayerMask.GetMask("Wall"); // "Wall"レイヤーのみ検知
+
         while (true)
         {
             // Raycastで前方に壁があるか判定
-            Ray ray = new Ray(transform.position, moveDirection);
-            RaycastHit hit;
-            float distance = 0.6f; // 1マス分進む距離
+            Ray2D ray = new Ray2D(transform.position, moveDirection);
+            RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, 0.9f, wallLayer);
+            float distance = 0.5f; // 1マス分進む距離
 
-            if (Physics.Raycast(ray, out hit, distance))
+            Debug.DrawRay(ray.origin, ray.direction * 0.9f, Color.red, 0.05f);
+
+            //if (Physics.Raycast(ray, out hit, distance))
+            if (hit.collider != null)
             {
+                Debug.Log("Hit: " + hit.collider.name);
                 Wall_Ts wall = hit.collider.GetComponent<Wall_Ts>();
                 if (wall != null)
                 {
+                    Debug.Log("Hit Wall: " + wall.name);
+
                     // 共通壁なら止まる
                     if (wall.interactablePlayer == Wall_Ts.PlayerType.None)
                         break;
@@ -87,8 +99,8 @@ public class PlayerController_Ts : MonoBehaviour
                 }
                 else
                 {
-                    // 壁以外のオブジェクトなら止まる
-                    break;
+                    // 壁以外のオブジェクトなら止まる?
+                    //break;
                 }
             }
 
