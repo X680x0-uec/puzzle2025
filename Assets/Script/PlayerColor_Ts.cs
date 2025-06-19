@@ -5,13 +5,40 @@ using UnityEngine;
 /// </summary>
 public class PlayerColor_Ts : MonoBehaviour
 {
+    // プレイヤーのタイプを定義
+    public enum PlayerType { None, Red, Blue, Purple }
     // プレイヤーのタイプ（色）を定義
-    public Wall_Ts.PlayerType playerType;
+    // 初期のプレイヤータイプ（色）
+    public PlayerType firstPlayerType; 
+    // 元のプレイヤータイプ
+    public PlayerType originalPlayerType;
+    // マージされたプレイヤータイプ（色）
+    public PlayerType mergedPlayerType;
     public Color playerColor;
 
-    public void SetPlayerType(Wall_Ts.PlayerType type)
+    private void Start()
     {
-        playerType = type;
+        // 初期のプレイヤータイプに基づいて色を設定
+        SetColorFromType(firstPlayerType);
+    }
+
+    public void SetColorFromType(PlayerType type)
+    {
+        switch (type)
+        {
+            case PlayerType.Red:
+                SetColor(Color.red);
+                break;
+            case PlayerType.Blue:
+                SetColor(Color.blue);
+                break;
+            case PlayerType.Purple:
+                SetColor(Color.magenta); // 紫色
+                break;
+            default:
+                SetColor(Color.white);
+                break;
+        }
     }
 
     public void SetColor(Color newColor)
@@ -27,19 +54,21 @@ public class PlayerColor_Ts : MonoBehaviour
         // 色の近さでPlayerTypeを判定
         if (IsSimilarColor(newColor, Color.red))
         {
-            playerType = Wall_Ts.PlayerType.Red;
+            originalPlayerType = PlayerType.Red;
+            mergedPlayerType = PlayerType.Red;
         }
         else if (IsSimilarColor(newColor, Color.blue))
         {
-            playerType = Wall_Ts.PlayerType.Blue;
+            originalPlayerType = PlayerType.Blue;
+            mergedPlayerType = PlayerType.Blue;
         }
         else if (IsSimilarColor(newColor, Color.magenta))
         {
-            playerType = Wall_Ts.PlayerType.Purple;
+            mergedPlayerType = PlayerType.Purple;
         }
         else
         {
-            playerType = Wall_Ts.PlayerType.None;
+            mergedPlayerType = PlayerType.None;
         }
     }
 

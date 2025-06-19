@@ -29,10 +29,6 @@ public class PlayerController_Ts : MonoBehaviour
             return;
         }
 
-        // キャラクターの色を初期化
-        if (colorScript != null)
-            colorScript.SetColor(colorScript.playerColor);
-
         // 移動の入力受付を開始(プレイヤーAがプレイヤーBの入力も受け付ける)
         if (isPlayerA)
             StartCoroutine(Moving());
@@ -95,10 +91,11 @@ public class PlayerController_Ts : MonoBehaviour
                     Debug.Log("Hit Wall: " + wall.name);
 
                     // 共通壁なら止まる
-                    if (wall.interactablePlayer == Wall_Ts.PlayerType.None)
+                    if (wall.interactablePlayer == PlayerColor_Ts.PlayerType.None)
                         break;
                     // 色付き壁で自分と同じ色ならすり抜ける
-                    if (wall.interactablePlayer == colorScript.playerType)
+                    if (wall.interactablePlayer == colorScript.mergedPlayerType || 
+                        wall.interactablePlayer == colorScript.originalPlayerType)
                     {
                         // すり抜けるので進み続ける
                     }
