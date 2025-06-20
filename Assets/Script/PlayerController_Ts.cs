@@ -102,11 +102,11 @@ public class PlayerController_Ts : MonoBehaviour
             //if (Physics.Raycast(ray, out hit, distance))
             if (hit.collider != null)
             {
-                Debug.Log("Hit: " + hit.collider.name);
+                //Debug.Log("Hit: " + hit.collider.name);
                 Wall_Ts wall = hit.collider.GetComponent<Wall_Ts>();
                 if (wall != null)
                 {
-                    Debug.Log("Hit Wall: " + wall.name);
+                    //Debug.Log("Hit Wall: " + wall.name);
 
                     // 共通壁なら止まる
                     if (wall.interactablePlayer == PlayerColor_Ts.PlayerType.None)
