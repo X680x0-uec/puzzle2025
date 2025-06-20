@@ -6,11 +6,13 @@ using UnityEngine;
 /// </summary>
 public class PlayerController_Ts : MonoBehaviour
 {
-    //public Wall_Ts.PlayerType playerType; // プレイヤーのタイプ（色）
+    public GameObject startPoint; // スタート地点
     public bool isPlayerA = true; // プレイヤーAかどうか（同時操作用）
     public float moveSpeed = 5f;             // 移動速度
     private Vector3 moveDirection;           // 現在の移動方向
     public bool isMoving = false;           // 移動中フラグ
+    public bool isGoal = false; // ゴールに到達したかどうか
+    private float x, y; // 入力値
     public PlayerController_Ts otherPlayer; // もう一方のプレイヤー
 
     private Rigidbody2D rb;
@@ -29,6 +31,11 @@ public class PlayerController_Ts : MonoBehaviour
             return;
         }
 
+        // 初期位置に移動
+        if (startPoint != null)
+            transform.position = startPoint.transform.position;
+        if (isPlayerA)
+            StartCoroutine(GoalCheckCoroutine());
         // 移動の入力受付を開始(プレイヤーAがプレイヤーBの入力も受け付ける)
         if (isPlayerA)
             StartCoroutine(Moving());
@@ -41,23 +48,26 @@ public class PlayerController_Ts : MonoBehaviour
             // 移動中でなければ入力を受け付ける
             if (!isMoving && otherPlayer != null && !otherPlayer.isMoving)
             {
+                Vector2 moveInput = GameManager_Ts.Instance.inputList.Player.Move.ReadValue<Vector2>();
+                x = moveInput.x;
+                y = moveInput.y;
                 // 矢印キーまたはWASDで移動方向を決定
-                if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
+                if (y > 0 && Mathf.Abs(y) > Mathf.Abs(x)) // 上方向
                 {
                     TryMove(Vector2.up);
                     otherPlayer.TryMove(Vector2.up);
                 }
-                else if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
+                else if (y < 0 && Mathf.Abs(y) > Mathf.Abs(x)) // 下方向
                 {
                     TryMove(Vector2.down);
                     otherPlayer.TryMove(Vector2.down);
                 }
-                else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
+                else if (x < 0 && Mathf.Abs(x) > Mathf.Abs(y)) // 左方向
                 {
                     TryMove(Vector2.left);
                     otherPlayer.TryMove(Vector2.left);
                 }
-                else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
+                else if (x > 0 && Mathf.Abs(x) > Mathf.Abs(y)) // 右方向
                 {
                     TryMove(Vector2.right);
                     otherPlayer.TryMove(Vector2.right);
@@ -72,6 +82,7 @@ public class PlayerController_Ts : MonoBehaviour
     {
         moveDirection = direction.normalized; // 入力された方向を正規化
         isMoving = true;
+        isGoal = false; // ゴール状態をリセット
         StartCoroutine(MoveUntilWall());
     }
 
@@ -150,6 +161,21 @@ public class PlayerController_Ts : MonoBehaviour
         {
             // 元の色に戻す処理
             colorScript.SetColorFromType(colorScript.originalPlayerType);
+        }
+    }
+    // ゴールチェックのコルーチン
+    private System.Collections.IEnumerator GoalCheckCoroutine()
+    {
+        while (true)
+        {
+            // ゴール判定
+            if (isGoal && otherPlayer.isGoal)
+            {
+                // ゲーム終了処理
+                GameManager_Ts.Instance.EndGame();
+                yield break; // コルーチンを終了
+            }
+            yield return null;
         }
     }
 }

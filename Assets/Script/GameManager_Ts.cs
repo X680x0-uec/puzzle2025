@@ -4,6 +4,7 @@ public class GameManager_Ts : MonoBehaviour
 {
     // ゲーム全体の管理を行うシングルトン
     public static GameManager_Ts Instance { get; private set; }
+    public InputList inputList; // 入力リスト
 
     private void Awake()
     {
@@ -17,12 +18,14 @@ public class GameManager_Ts : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
+        inputList = new InputList();
+        inputList.Enable();
+    }    
 
     // ゲームの終了
     public void EndGame()
     {
         // 終了処理
-        Debug.Log("Game Over");
+        Debug.Log("Stage Completed!");
     }
 }
