@@ -6,22 +6,26 @@ using UnityEngine;
 /// </summary>
 public class PlayerController_Ts : MonoBehaviour
 {
-    public GameObject startPoint; // スタート地点
+    public GameObject startPoint; // スタート地点を示すオブジェクトをアタッチ
     public bool isPlayerA = true; // プレイヤーAかどうか（同時操作用）
-    public float moveSpeed = 5f;             // 移動速度
-    private Vector3 moveDirection;           // 現在の移動方向
-    public bool isMoving = false;           // 移動中フラグ
+    public float moveSpeed = 5f; // 移動速度
+    private Vector3 moveDirection; // 現在の移動方向
+    public bool isMoving = false; // 移動中かどうかのフラグ
     public bool isGoal = false; // ゴールに到達したかどうか
     private float x, y; // 入力値
-    public PlayerController_Ts otherPlayer; // もう一方のプレイヤー
+    public PlayerController_Ts otherPlayer; // もう一方のプレイヤーをアタッチ
 
     private Rigidbody2D rb;
     private Renderer rend;
     private PlayerColor_Ts colorScript;
 
-    void Start()
+    /// <summary>
+    /// 初期化処理、シーンの開始時に呼ばれる
+    /// </summary>
+    /// <returns></returns>
+    void Start() 
     {
-        rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>(); //このスクリプトがついているオブジェクトに Rigidbody2D コンポーネントがあればそれを取得
         rend = GetComponent<Renderer>();
         colorScript = GetComponent<PlayerColor_Ts>();
 
@@ -34,50 +38,70 @@ public class PlayerController_Ts : MonoBehaviour
         // 初期位置に移動
         if (startPoint != null)
             transform.position = startPoint.transform.position;
+        //ゴールに到達したかどうかチェックを開始
         if (isPlayerA)
             StartCoroutine(GoalCheckCoroutine());
-        // 移動の入力受付を開始(プレイヤーAがプレイヤーBの入力も受け付ける)
+        // 移動の入力受付を開始(プレイヤーAがプレイヤーBの分の入力も受け付ける)
         if (isPlayerA)
             StartCoroutine(Moving());
     }
 
+    /// <summary>
+    /// プレイヤーAのみが起動する関数で、両方のプレイヤーの移動を一括制御する
+    /// </summary>
+    /// <returns></returns>
     IEnumerator Moving()
     {
-        while (true)
+        while (true) // 入力受付ループ
         {
-            // 移動中でなければ入力を受け付ける
+            // どちらも移動中でないなら入力を受け付ける
             if (!isMoving && otherPlayer != null && !otherPlayer.isMoving)
             {
+                // 入力を取得、InputSystemを使用（操作の対応はMaterial->Inputに記載）
                 Vector2 moveInput = GameManager_Ts.Instance.inputList.Player.Move.ReadValue<Vector2>();
                 x = moveInput.x;
                 y = moveInput.y;
-                // 矢印キーまたはWASDで移動方向を決定
+                // 入力値が0でない場合に移動方向を決定
                 if (y > 0 && Mathf.Abs(y) > Mathf.Abs(x)) // 上方向
                 {
-                    TryMove(Vector2.up);
-                    otherPlayer.TryMove(Vector2.up);
+                    MoveDirection(Vector2.up);
                 }
                 else if (y < 0 && Mathf.Abs(y) > Mathf.Abs(x)) // 下方向
                 {
-                    TryMove(Vector2.down);
-                    otherPlayer.TryMove(Vector2.down);
+                    MoveDirection(Vector2.down);
                 }
                 else if (x < 0 && Mathf.Abs(x) > Mathf.Abs(y)) // 左方向
                 {
-                    TryMove(Vector2.left);
-                    otherPlayer.TryMove(Vector2.left);
+                    MoveDirection(Vector2.left);
                 }
                 else if (x > 0 && Mathf.Abs(x) > Mathf.Abs(y)) // 右方向
                 {
-                    TryMove(Vector2.right);
-                    otherPlayer.TryMove(Vector2.right);
+                    MoveDirection(Vector2.right);
                 }
             }
             yield return null;
         }
     }
 
-    // 指定方向に壁に当たるまで進み続ける
+    /// <summary>
+    /// 入力された方向に移動するメソッド
+    /// プレイヤーAしか起動しない関数で、プレイヤーBも同じ方向に移動する
+    /// </summary>
+    /// <param name="direction"></param>
+    void MoveDirection(Vector2 direction)
+    {
+        // 入力された方向に移動
+        if (direction != Vector2.zero)
+        {
+            TryMove(direction); // プレイヤーAの移動
+            otherPlayer.TryMove(direction); // プレイヤーBの移動
+        }
+    }
+
+    /// <summary>
+    /// 指定された方向に移動を試みるメソッド
+    /// </summary>
+    /// <param name="direction"></param>
     void TryMove(Vector3 direction)
     {
         moveDirection = direction.normalized; // 入力された方向を正規化
@@ -85,8 +109,11 @@ public class PlayerController_Ts : MonoBehaviour
         isGoal = false; // ゴール状態をリセット
         StartCoroutine(MoveUntilWall());
     }
-
-    System.Collections.IEnumerator MoveUntilWall()
+    /// <summary>
+    /// 指定された方向に進み続け、壁に当たるまで移動するコルーチン
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator MoveUntilWall()
     {
         int wallLayer = LayerMask.GetMask("Wall"); // "Wall"レイヤーのみ検知
 
@@ -97,13 +124,12 @@ public class PlayerController_Ts : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, 0.9f, wallLayer);
             float distance = 0.5f; // 1マス分進む距離
 
-            Debug.DrawRay(ray.origin, ray.direction * 0.9f, Color.red, 0.05f);
+            Debug.DrawRay(ray.origin, ray.direction * 0.9f, Color.red, 0.05f); // デバッグ用のRayを表示、Gameビューからシーンビューに切り替えると確認可能
 
-            //if (Physics.Raycast(ray, out hit, distance))
             if (hit.collider != null)
             {
                 //Debug.Log("Hit: " + hit.collider.name);
-                Wall_Ts wall = hit.collider.GetComponent<Wall_Ts>();
+                Wall_Ts wall = hit.collider.GetComponent<Wall_Ts>(); //接触したオブジェクトがWall_Tsコンポーネントを持っているなら取得
                 if (wall != null)
                 {
                     //Debug.Log("Hit Wall: " + wall.name);
@@ -119,14 +145,13 @@ public class PlayerController_Ts : MonoBehaviour
                     }
                     else
                     {
-                        // すり抜け不可の壁なら止まる
+                        // すり抜け不可の色付き壁なら止まる
                         break;
                     }
                 }
                 else
                 {
-                    // 壁以外のオブジェクトなら止まる?
-                    //break;
+                    // 壁以外のオブジェクト,自分自身などは無視して進む
                 }
             }
 
@@ -137,25 +162,30 @@ public class PlayerController_Ts : MonoBehaviour
         isMoving = false;
     }
 
-    // キャラクター同士が重なった時に色を混ぜる
+    /// <summary>
+    /// キャラクター同士が重なった時に色を混ぜる
+    /// </summary>
+    /// <param name="other"></param>
     private void OnTriggerEnter2D(Collider2D other)
     {
         var otherChar = other.GetComponent<PlayerColor_Ts>();
-        if (otherChar != null && otherChar != this)
+        if (otherChar != null && otherChar != this) // 他のキャラクターと重なった場合
         {
-            if (isPlayerA) // プレイヤーAが色を同時に変更させる
+            if (isPlayerA) // プレイヤーAがプレイヤーBの分も色を同時に変更させる
             {
                 // 色を混ぜる（単純な加算例）
                 Color newColor = (colorScript.playerColor + otherChar.playerColor);
-                colorScript.SetColor(newColor);
-                otherChar.SetColor(newColor);
+                colorScript.SetColorFromColor(newColor);
+                otherChar.SetColorFromColor(newColor);
             }
         }
     }
+    /// <summary>
+    /// キャラクター同士が重なっていた状態から離れた時の処理
+    /// </summary>
+    /// <param name="other"></param>
     private void OnTriggerExit2D(Collider2D other)
     {
-        // キャラクター同士が離れた時の処理
-        // 例えば、色を元に戻すなど
         var otherChar = other.GetComponent<PlayerColor_Ts>();
         if (otherChar != null && otherChar != this)
         {
@@ -163,7 +193,11 @@ public class PlayerController_Ts : MonoBehaviour
             colorScript.SetColorFromType(colorScript.originalPlayerType);
         }
     }
-    // ゴールチェックのコルーチン
+
+    /// <summary>
+    /// ゴールチェックのコルーチン、プレイヤーAのみ起動
+    /// </summary>
+    /// <returns></returns>
     private System.Collections.IEnumerator GoalCheckCoroutine()
     {
         while (true)

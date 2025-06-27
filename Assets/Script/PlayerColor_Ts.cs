@@ -7,14 +7,10 @@ public class PlayerColor_Ts : MonoBehaviour
 {
     // プレイヤーのタイプを定義
     public enum PlayerType { None, Red, Blue, Purple }
-    // プレイヤーのタイプ（色）を定義
-    // 初期のプレイヤータイプ（色）
-    public PlayerType firstPlayerType; 
-    // 元のプレイヤータイプ
-    public PlayerType originalPlayerType;
-    // マージされたプレイヤータイプ（色）
-    public PlayerType mergedPlayerType;
-    public Color playerColor;
+    public PlayerType firstPlayerType; // 初期のプレイヤータイプ（色）
+    public PlayerType originalPlayerType; // マージ前のプレイヤータイプ（色）
+    public PlayerType mergedPlayerType; // マージ後のプレイヤータイプ（色）
+    public Color playerColor; // プレイヤーの色
 
     private void Start()
     {
@@ -22,26 +18,34 @@ public class PlayerColor_Ts : MonoBehaviour
         SetColorFromType(firstPlayerType);
     }
 
+    /// <summary>
+    /// プレイヤーのタイプに基づいて色を設定
+    /// </summary>
+    /// <param name="type"></param>
     public void SetColorFromType(PlayerType type)
     {
         switch (type)
         {
             case PlayerType.Red:
-                SetColor(Color.red);
+                SetColorFromColor(Color.red);
                 break;
             case PlayerType.Blue:
-                SetColor(Color.blue);
+                SetColorFromColor(Color.blue);
                 break;
             case PlayerType.Purple:
-                SetColor(Color.magenta); // 紫色
+                SetColorFromColor(Color.magenta); // 紫色
                 break;
             default:
-                SetColor(Color.white);
+                SetColorFromColor(Color.white);
                 break;
         }
     }
 
-    public void SetColor(Color newColor)
+    /// <summary>
+    /// プレイヤーの色を直接設定
+    /// </summary>
+    /// <param name="newColor"></param>
+    public void SetColorFromColor(Color newColor)
     {
         playerColor = newColor;
         // もしRendererがあれば、見た目の色も変える
@@ -50,7 +54,7 @@ public class PlayerColor_Ts : MonoBehaviour
         {
             renderer.color = newColor;
         }
-        
+
         // 色の近さでPlayerTypeを判定
         if (IsSimilarColor(newColor, Color.red))
         {
@@ -72,7 +76,13 @@ public class PlayerColor_Ts : MonoBehaviour
         }
     }
 
-    // 色の近さを判定するヘルパー
+    /// <summary>
+    /// 色の近さを判定するヘルパー
+    /// </summary>
+    /// <param name="a"></param>
+    /// <param name="b"></param>
+    /// <param name="threshold"></param>
+    /// <returns></returns>
     private bool IsSimilarColor(Color a, Color b, float threshold = 0.1f)
     {
         return Mathf.Abs(a.r - b.r) < threshold &&
