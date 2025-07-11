@@ -1,0 +1,28 @@
+using UnityEngine;
+
+public class BrokenWall_Ab : MonoBehaviour
+{
+    public GameObject BrokenWallAfter;
+    public GameObject BrokenWallBefore; // BrokenWallを追加
+    void Start()
+    {
+        if (BrokenWallAfter != null) // ②
+        {
+
+            BrokenWallAfter.SetActive(false);
+
+        }
+    }
+
+    public void BreakeWall()
+    {
+        BrokenWallBefore.SetActive(false);
+        Debug.Log("aaaa");
+        if (BrokenWallAfter != null) // ⑥
+        {
+            BrokenWallAfter.SetActive(true); // ⑦
+        }
+
+    }
+
+}
