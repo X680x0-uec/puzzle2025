@@ -119,12 +119,14 @@ public class PlayerController_Ts : MonoBehaviour
 
         while (true)
         {
+            // プレイヤーの前方からRayを出す
+            Vector2 rayOrigin = (Vector2)transform.position + (Vector2)moveDirection * 0.6f;
             // Raycastで前方に壁があるか判定
-            Ray2D ray = new Ray2D(transform.position, moveDirection);
-            RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, 0.9f, wallLayer);
-            float distance = 0.5f; // 1マス分進む距離
+            Ray2D ray = new Ray2D(rayOrigin, moveDirection);
+            RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, 0.8f, wallLayer);
+            float distance = 0.5f; // 0.5マス分進む距離
 
-            Debug.DrawRay(ray.origin, ray.direction * 0.9f, Color.red, 0.05f); // デバッグ用のRayを表示、Gameビューからシーンビューに切り替えると確認可能
+            Debug.DrawRay(ray.origin, ray.direction * 0.8f, Color.red, 0.05f); // デバッグ用のRayを表示、Gameビューからシーンビューに切り替えると確認可能
 
             if (hit.collider != null)
             {
@@ -156,6 +158,8 @@ public class PlayerController_Ts : MonoBehaviour
             }
 
             // 1マス進む
+            rb.MovePosition(transform.position + moveDirection * distance);
+            yield return new WaitForSeconds(0.05f);
             rb.MovePosition(transform.position + moveDirection * distance);
             yield return new WaitForSeconds(0.05f);
         }
