@@ -153,6 +153,16 @@ public class PlayerController_Ts : MonoBehaviour
                 {
                     // 壁以外のオブジェクト,自分自身などは無視して進む
                 }
+
+                //Debug.Log("Hit: " + hit.collider.name);
+                brokenfloor_Is floor = hit.collider.GetComponent<brokenfloor_Is>(); //接触したオブジェクトがbrokenfloor_Isコンポーネントを持っているなら取得
+                if (floor != null)
+                {
+
+                    // 床の状態が崩壊なら止まる
+                    if (floor == brokenfloor_Is.Type.notgo)
+                        break;
+                }
             }
 
             // 1マス進む
