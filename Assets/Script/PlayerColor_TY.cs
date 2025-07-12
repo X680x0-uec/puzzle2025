@@ -3,7 +3,7 @@ using UnityEngine;
 /// <summary>
 /// プレイヤーの色とタイプを管理
 /// </summary>
-public class PlayerColor_Ts : MonoBehaviour
+public class PlayerColor_TY : MonoBehaviour
 {
     // プレイヤーのタイプを定義
     public enum PlayerType { None, Red, Blue, Purple, Button, BrokenWall, DirectionTile, WarpTile }

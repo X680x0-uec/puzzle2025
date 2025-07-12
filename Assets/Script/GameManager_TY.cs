@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class GameManager_Ts : MonoBehaviour
+public class GameManager_TY : MonoBehaviour
 {
     // ゲーム全体の管理を行うシングルトン
-    public static GameManager_Ts Instance { get; private set; }
+    public static GameManager_TY Instance { get; private set; }
     public InputList inputList; // 入力リスト
 
     private void Awake()

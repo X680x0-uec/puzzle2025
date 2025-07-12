@@ -4,7 +4,7 @@ using UnityEngine;
 /// <summary>
 /// 2体のキャラクターを同時に操作し、壁に当たるまで移動し続ける制御
 /// </summary>
-public class PlayerController_Ts : MonoBehaviour
+public class PlayerController_TY : MonoBehaviour
 {
     public GameObject startPoint; // スタート地点を示すオブジェクトをアタッチ
     public bool isPlayerA = true; // プレイヤーAかどうか（同時操作用）
@@ -13,11 +13,11 @@ public class PlayerController_Ts : MonoBehaviour
     public bool isMoving = false; // 移動中かどうかのフラグ
     public bool isGoal = false; // ゴールに到達したかどうか
     private float x, y; // 入力値
-    public PlayerController_Ts otherPlayer; // もう一方のプレイヤーをアタッチ
+    public PlayerController_TY otherPlayer; // もう一方のプレイヤーをアタッチ
 
     private Rigidbody2D rb;
     private Renderer rend;
-    private PlayerColor_Ts colorScript;
+    private PlayerColor_TY colorScript;
 
     /// <summary>
     /// 初期化処理、シーンの開始時に呼ばれる
@@ -27,7 +27,7 @@ public class PlayerController_Ts : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>(); //このスクリプトがついているオブジェクトに Rigidbody2D コンポーネントがあればそれを取得
         rend = GetComponent<Renderer>();
-        colorScript = GetComponent<PlayerColor_Ts>();
+        colorScript = GetComponent<PlayerColor_TY>();
 
         if (isPlayerA == otherPlayer.isPlayerA)
         {
@@ -58,7 +58,7 @@ public class PlayerController_Ts : MonoBehaviour
             if (!isMoving && otherPlayer != null && !otherPlayer.isMoving)
             {
                 // 入力を取得、InputSystemを使用（操作の対応はMaterial->Inputに記載）
-                Vector2 moveInput = GameManager_Ts.Instance.inputList.Player.Move.ReadValue<Vector2>();
+                Vector2 moveInput = GameManager_TY.Instance.inputList.Player.Move.ReadValue<Vector2>();
                 x = moveInput.x;
                 y = moveInput.y;
                 // 入力値が0でない場合に移動方向を決定
@@ -131,13 +131,13 @@ public class PlayerController_Ts : MonoBehaviour
             if (hit.collider != null)
             {
                 //Debug.Log("Hit: " + hit.collider.name);
-                Wall_Ts wall = hit.collider.GetComponent<Wall_Ts>(); //接触したオブジェクトがWall_Tsコンポーネントを持っているなら取得
+                Wall_TY wall = hit.collider.GetComponent<Wall_TY>(); //接触したオブジェクトがWall_TYコンポーネントを持っているなら取得
                 if (wall != null)
                 {
                     //Debug.Log("Hit Wall: " + wall.name);
 
                     // 共通壁なら止まる
-                    if (wall.interactablePlayer == PlayerColor_Ts.PlayerType.None)
+                    if (wall.interactablePlayer == PlayerColor_TY.PlayerType.None)
                         break;
                     // 色付き壁で自分と同じ色ならすり抜ける
                     if (wall.interactablePlayer == colorScript.mergedPlayerType ||
@@ -156,14 +156,14 @@ public class PlayerController_Ts : MonoBehaviour
                     // 壁以外のオブジェクト,自分自身などは無視して進む
                 }
 
-                // 床の判定(IY)
+                // 床の判定(IK)
                 //Debug.Log("Hit: " + hit.collider.name);
-                brokenfloor_Is floor = hit.collider.GetComponent<brokenfloor_Is>(); //接触したオブジェクトがbrokenfloor_Isコンポーネントを持っているなら取得
+                brokenfloor_IK floor = hit.collider.GetComponent<brokenfloor_IK>(); //接触したオブジェクトがbrokenfloor_IKコンポーネントを持っているなら取得
                 if (floor != null)
                 {
 
                     // 床の状態が崩壊なら止まる
-                    if (floor.type == brokenfloor_Is.Type.notgo)
+                    if (floor.type == brokenfloor_IK.Type.notgo)
                         break;
                 }
             }
@@ -183,7 +183,7 @@ public class PlayerController_Ts : MonoBehaviour
     /// <param name="other"></param>
     private void OnTriggerEnter2D(Collider2D other)
     {
-        var otherChar = other.GetComponent<PlayerColor_Ts>();
+        var otherChar = other.GetComponent<PlayerColor_TY>();
         if (otherChar != null && otherChar != this) // 他のキャラクターと重なった場合
         {
             if (isPlayerA) // プレイヤーAがプレイヤーBの分も色を同時に変更させる
@@ -201,7 +201,7 @@ public class PlayerController_Ts : MonoBehaviour
     /// <param name="other"></param>
     private void OnTriggerExit2D(Collider2D other)
     {
-        var otherChar = other.GetComponent<PlayerColor_Ts>();
+        var otherChar = other.GetComponent<PlayerColor_TY>();
         if (otherChar != null && otherChar != this)
         {
             // 元の色に戻す処理
@@ -221,7 +221,7 @@ public class PlayerController_Ts : MonoBehaviour
             if (isGoal && otherPlayer.isGoal)
             {
                 // ゲーム終了処理
-                GameManager_Ts.Instance.EndGame();
+                GameManager_TY.Instance.EndGame();
                 yield break; // コルーチンを終了
             }
             yield return null;

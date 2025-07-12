@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class Button_Ab : MonoBehaviour
+public class Button_AY : MonoBehaviour
 {
-    public BrokenWall_Ab recever;
+    public BrokenWall_AY recever;
     void OnTggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))

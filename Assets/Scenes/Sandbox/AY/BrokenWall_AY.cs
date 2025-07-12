@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BrokenWall_Ab : MonoBehaviour
+public class BrokenWall_AY : MonoBehaviour
 {
     public GameObject BrokenWallAfter;
     public GameObject BrokenWallBefore; // BrokenWallを追加

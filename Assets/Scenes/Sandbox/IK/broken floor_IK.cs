@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class brokenfloor_Is : MonoBehaviour
+public class brokenfloor_IK : MonoBehaviour
 {
     public enum Type { go, notgo }
     
