@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 /// <summary>
 /// シーン遷移のテスト用スクリプト
 /// </summary>
-public class SceneChangeForTest_Ts : MonoBehaviour
+public class SceneChangeForTest_TY : MonoBehaviour
 {
     private void Update()
     {
