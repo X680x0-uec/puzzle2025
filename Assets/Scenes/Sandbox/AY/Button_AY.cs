@@ -3,10 +3,12 @@ using UnityEngine;
 public class Button_AY : MonoBehaviour
 {
     public BrokenWall_AY recever;
-    void OnTggerEnter(Collider other)
+    void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("aaaa");
         if (other.CompareTag("Player"))
-        { if (recever != null)
+        {
+            if (recever != null)
             {
                 recever.BreakeWall();
             }
