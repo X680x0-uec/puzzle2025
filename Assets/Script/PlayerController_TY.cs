@@ -88,7 +88,7 @@ public class PlayerController_TY : MonoBehaviour
     /// プレイヤーAしか起動しない関数で、プレイヤーBも同じ方向に移動する
     /// </summary>
     /// <param name="direction"></param>
-    void MoveDirection(Vector2 direction)
+    public void MoveDirection(Vector2 direction)
     {
         // 入力された方向に移動
         if (direction != Vector2.zero)
