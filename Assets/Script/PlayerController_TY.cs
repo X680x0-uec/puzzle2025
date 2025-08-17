@@ -166,6 +166,7 @@ public class PlayerController_TY : MonoBehaviour
                     if (floor.type == brokenfloor_IK.Type.notgo)
                         break;
                 }
+               
             }
 
             // 1マス進む
