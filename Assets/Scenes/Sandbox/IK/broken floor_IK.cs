@@ -25,6 +25,8 @@ public class brokenfloor_IK : MonoBehaviour
         sr = gameObject.GetComponent<SpriteRenderer>();
         // Animatorコンポーネントを取得
         animator = GetComponent<Animator>();
+
+        sr.sprite = DefaultImage;
     }
 
     // プレイヤーと壁がぶつかったときに一度だけ呼ばれる2D用の関数
