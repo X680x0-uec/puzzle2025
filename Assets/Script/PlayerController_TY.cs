@@ -15,6 +15,8 @@ public class PlayerController_TY : MonoBehaviour
     private float x, y; // 入力値
     public PlayerController_TY otherPlayer; // もう一方のプレイヤーをアタッチ
 
+    public PauseMenu_IK pauseMenuController;  // インスペクターでPauseMenuControllerをアタッチ
+
     private Rigidbody2D rb;
     private Renderer rend;
     private PlayerColor_TY colorScript;
@@ -54,6 +56,16 @@ public class PlayerController_TY : MonoBehaviour
     {
         while (true) // 入力受付ループ
         {
+            //ここから追加
+            // ポーズメニューがアクティブな場合は入力を受け付けない
+            // isPaused状態を外部から取得する
+            if (pauseMenuController.isPaused)
+            {
+                yield return null;
+                continue; // 次のループへ
+            }
+            //ここまで追加
+
             // どちらも移動中でないなら入力を受け付ける
             if (!isMoving && otherPlayer != null && !otherPlayer.isMoving)
             {

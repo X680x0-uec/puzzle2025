@@ -22,6 +22,17 @@ public class GameManager_TY : MonoBehaviour
         inputList.Enable();
     }    
 
+    //ここからが追加部分
+    private void OnDestroy()
+    {
+        //inputListが存在する場合、無効化する
+        if (inputList != null)
+        {
+            inputList.Disable();
+        }
+    }
+    //ここまでが追加部分
+
     // ゲームの終了
     public void EndGame()
     {
