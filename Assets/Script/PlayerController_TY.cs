@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using TMPro;
 
 /// <summary>
 /// 2体のキャラクターを同時に操作し、壁に当たるまで移動し続ける制御
@@ -20,7 +21,7 @@ public class PlayerController_TY : MonoBehaviour
     private Rigidbody2D rb;
     private Renderer rend;
     private PlayerColor_TY colorScript;
-
+    
     /// <summary>
     /// 初期化処理、シーンの開始時に呼ばれる
     /// </summary>
@@ -110,6 +111,7 @@ public class PlayerController_TY : MonoBehaviour
         }
     }
 
+
     /// <summary>
     /// 指定された方向に移動を試みるメソッド
     /// </summary>
@@ -178,7 +180,7 @@ public class PlayerController_TY : MonoBehaviour
                     if (floor.type == brokenfloor_IK.Type.notgo)
                         break;
                 }
-               
+
             }
 
             // 1マス進む
@@ -188,6 +190,13 @@ public class PlayerController_TY : MonoBehaviour
             yield return new WaitForSeconds(0.05f);
         }
         isMoving = false;
+        
+        // 移動が完了した時に、GameManagerにカウントを増やすよう指示
+        if (isPlayerA)
+        {
+            GameManager_TY.Instance.moveCount++;
+            GameManager_TY.Instance.UpdateCountText();
+        }
     }
 
     /// <summary>
