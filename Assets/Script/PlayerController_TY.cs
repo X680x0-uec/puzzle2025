@@ -111,16 +111,12 @@ public class PlayerController_TY : MonoBehaviour
         }
     }
 
-<<<<<<< HEAD
-    void MoveDirection(Vector2 direction)
-=======
     /// <summary>
     /// 入力された方向に移動するメソッド
     /// プレイヤーAしか起動しない関数で、プレイヤーBも同じ方向に移動する
     /// </summary>
     /// <param name="direction"></param>
     public void MoveDirection(Vector2 direction)
->>>>>>> 699fb3f6dc34d2eb09394ecf6fa61394d2a9fee0
     {
         // otherPlayerがnullでないか確認
         if (direction != Vector2.zero && otherPlayer != null)
