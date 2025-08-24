@@ -72,7 +72,10 @@ public class PlayerController_TY : MonoBehaviour
             {
                 // 移動開始前の座標を記録
                 startPosition = transform.position;
-                otherPlayer.startPosition = otherPlayer.transform.position;
+                if (otherPlayer != null)
+                {
+                    otherPlayer.startPosition = otherPlayer.transform.position;
+                }
                 
                 if (y > 0 && Mathf.Abs(y) > Mathf.Abs(x))
                 {
@@ -128,52 +131,66 @@ public class PlayerController_TY : MonoBehaviour
 
     void TryMove(Vector3 direction)
     {
-        moveDirection = direction.normalized;
+        moveDirection = direction.normalized; // 入力された方向を正規化
         isMoving = true;
-        isGoal = false;
+        isGoal = false; // ゴール状態をリセット
         StartCoroutine(MoveUntilWall());
     }
 
     IEnumerator MoveUntilWall()
     {
         Vector3 startPosition = transform.position;
-        int wallLayer = LayerMask.GetMask("Wall");
+        int wallLayer = LayerMask.GetMask("Wall"); // "Wall"レイヤーのみ検知
 
         while (true)
         {
+            // プレイヤーの前方からRayを出す
             Vector2 rayOrigin = (Vector2)transform.position + (Vector2)moveDirection * 0.6f;
+            // Raycastで前方に壁があるか判定
             Ray2D ray = new Ray2D(rayOrigin, moveDirection);
             RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, 0.8f, wallLayer);
-            float distance = 0.5f;
+            float distance = 0.5f; // 0.5マス分進む距離
 
-            Debug.DrawRay(ray.origin, ray.direction * 0.8f, Color.red, 0.05f);
+            Debug.DrawRay(ray.origin, ray.direction * 0.8f, Color.red, 0.05f); // デバッグ用のRayを表示、Gameビューからシーンビューに切り替えると確認可能
 
             if (hit.collider != null)
             {
-                Wall_TY wall = hit.collider.GetComponent<Wall_TY>();
+                //Debug.Log("Hit: " + hit.collider.name);
+                Wall_TY wall = hit.collider.GetComponent<Wall_TY>(); //接触したオブジェクトがWall_TYコンポーネントを持っているなら取得
                 if (wall != null)
                 {
+                    //Debug.Log("Hit Wall: " + wall.name);
+                    // 共通壁なら止まる
                     if (wall.interactablePlayer == PlayerColor_TY.PlayerType.None)
                         break;
+                    // 色付き壁で自分と同じ色ならすり抜ける
                     if (wall.interactablePlayer == colorScript.mergedPlayerType || wall.interactablePlayer == colorScript.originalPlayerType)
                     {
+                        // すり抜けるので進み続ける
                     }
                     else
                     {
+                        // すり抜け不可の色付き壁なら止まる
                         break;
                     }
                 }
                 else
                 {
-                    brokenfloor_IK floor = hit.collider.GetComponent<brokenfloor_IK>();
-                    if (floor != null)
-                    {
-                        if (floor.type == brokenfloor_IK.Type.notgo)
-                            break;
-                    }
+                    // 壁以外のオブジェクト,自分自身などは無視して進む
+                }
+
+                // 床の判定(IK)
+                //Debug.Log("Hit: " + hit.collider.name);
+                brokenfloor_IK floor = hit.collider.GetComponent<brokenfloor_IK>(); //接触したオブジェクトがbrokenfloor_IKコンポーネントを持っているなら取得
+                if (floor != null)
+                {
+                    // 床の状態が崩壊なら止まる
+                    if (floor.type == brokenfloor_IK.Type.notgo)
+                        break;
                 }
             }
 
+            // 1マス進む
             rb.MovePosition(transform.position + moveDirection * distance);
             yield return new WaitForSeconds(0.05f);
             rb.MovePosition(transform.position + moveDirection * distance);
@@ -183,13 +200,18 @@ public class PlayerController_TY : MonoBehaviour
         isMoving = false;
     }
 
+    /// <summary>
+    /// キャラクター同士が重なった時に色を混ぜる
+    /// </summary>
+    /// <param name="other"></param>
     private void OnTriggerEnter2D(Collider2D other)
     {
         var otherChar = other.GetComponent<PlayerColor_TY>();
-        if (otherChar != null && otherChar != this)
+        if (otherChar != null && otherChar != this) // 他のキャラクターと重なった場合
         {
-            if (isPlayerA)
+            if (isPlayerA) // プレイヤーAがプレイヤーBの分も色を同時に変更させる
             {
+                // 色を混ぜる（単純な加算例）
                 Color newColor = (colorScript.playerColor + otherChar.playerColor);
                 colorScript.SetColorFromColor(newColor);
                 otherChar.SetColorFromColor(newColor);
@@ -197,15 +219,24 @@ public class PlayerController_TY : MonoBehaviour
         }
     }
     
+    /// <summary>
+    /// キャラクター同士が重なっていた状態から離れた時の処理
+    /// </summary>
+    /// <param name="other"></param>
     private void OnTriggerExit2D(Collider2D other)
     {
         var otherChar = other.GetComponent<PlayerColor_TY>();
         if (otherChar != null && otherChar != this)
         {
+            // 元の色に戻す処理
             colorScript.SetColorFromType(colorScript.originalPlayerType);
         }
     }
-    
+
+    /// <summary>
+    /// ゴールチェックのコルーチン、プレイヤーAのみ起動
+    /// </summary>
+    /// <returns></returns>
     private System.Collections.IEnumerator GoalCheckCoroutine()
     {
         while (true)
@@ -213,8 +244,9 @@ public class PlayerController_TY : MonoBehaviour
             // otherPlayerがnullでないか確認
             if (otherPlayer != null && isGoal && otherPlayer.isGoal)
             {
+                // ゲーム終了処理
                 GameManager_TY.Instance.EndGame();
-                yield break;
+                yield break; // コルーチンを終了
             }
             yield return null;
         }
