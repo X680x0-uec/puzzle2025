@@ -10,9 +10,6 @@ public class GameManager_TY : MonoBehaviour
     // UIの参照はコードで動的に取得
     public TMPro.TextMeshProUGUI countText;
     
-    // 両方のプレイヤーの移動完了状態を追跡
-    private bool playerAMoveFinished = false;
-    private bool playerBMoveFinished = false;
     private int moveCount = 0;
     
     // プレイヤーの参照もコードで動的に取得
@@ -45,17 +42,14 @@ public class GameManager_TY : MonoBehaviour
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
-    /// <summary>
-    /// シーンの読み込み完了時に呼ばれるメソッド
-    /// </summary>
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-    // ステージ選択画面など、プレイヤーが存在しないシーンでは処理をスキップ
-    if (scene.path.Contains("Assets/Scenes/Sandbox/IK/Title~Select/"))
-    {
-        Debug.Log("『Title~Select』フォルダ内のシーンです。プレイヤーの初期化をスキップします。");
-        return; 
-    }
+        // ステージ選択画面など、プレイヤーが存在しないシーンでは処理をスキップ
+        if (scene.path.Contains("Assets/Scenes/Sandbox/IK/Title~Select/"))
+        {
+            Debug.Log("『Title~Select』フォルダ内のシーンです。プレイヤーの初期化をスキップします。");
+            return; 
+        }
 
         // 新しいシーンのUIとプレイヤーの参照を再取得
         countText = FindAnyObjectByType<TMPro.TextMeshProUGUI>();
@@ -89,8 +83,6 @@ public class GameManager_TY : MonoBehaviour
         // カウントをリセットしてUIを更新
         moveCount = 0;
         UpdateCountText();
-        playerAMoveFinished = false;
-        playerBMoveFinished = false;
     }
     
     public void UpdateCountText()
@@ -106,23 +98,10 @@ public class GameManager_TY : MonoBehaviour
     /// </summary>
     public void ReportMoveFinished(bool isPlayerA)
     {
-        if (isPlayerA)
-        {
-            playerAMoveFinished = true;
-        }
-        else
-        {
-            playerBMoveFinished = true;
-        }
-
-        if (playerAMoveFinished && playerBMoveFinished)
-        {
-            moveCount++;
-            UpdateCountText();
-            
-            playerAMoveFinished = false;
-            playerBMoveFinished = false;
-        }
+        // 無条件でカウントアップ
+        moveCount++;
+        UpdateCountText();
+        Debug.Log("現在の移動回数: " + moveCount);
     }
     
     public void EndGame()

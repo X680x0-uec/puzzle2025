@@ -34,11 +34,11 @@ public class PlayerController_TY : MonoBehaviour
         rend = GetComponent<Renderer>();
         colorScript = GetComponent<PlayerColor_TY>();
 
-         if (isPlayerA == otherPlayer.isPlayerA)
-         {
-             Debug.LogError("isPlayerAは片方のプレイヤーだけTrueにしてください。");
-             return;
-         }
+        if (isPlayerA == otherPlayer.isPlayerA)
+        {
+            Debug.LogError("isPlayerAは片方のプレイヤーだけTrueにしてください。");
+            return;
+        }
 
         if (startPoint != null)
             transform.position = startPoint.transform.position;
@@ -54,18 +54,25 @@ public class PlayerController_TY : MonoBehaviour
     {
         while (true)
         {
+            // 両方のプレイヤーの移動が停止するまで待機する
+            yield return new WaitUntil(() => !isMoving && !otherPlayer.isMoving);
+
             if (pauseMenuController != null && pauseMenuController.isPaused)
             {
                 yield return null;
                 continue;
             }
 
-            // otherPlayerがnullでないか確認
-            if (!isMoving && otherPlayer != null && !otherPlayer.isMoving)
+            Vector2 moveInput = GameManager_TY.Instance.inputList.Player.Move.ReadValue<Vector2>();
+            x = moveInput.x;
+            y = moveInput.y;
+            
+            // 入力があった場合にのみ処理を実行
+            if (x != 0 || y != 0)
             {
-                Vector2 moveInput = GameManager_TY.Instance.inputList.Player.Move.ReadValue<Vector2>();
-                x = moveInput.x;
-                y = moveInput.y;
+                // 移動開始前の座標を記録
+                startPosition = transform.position;
+                otherPlayer.startPosition = otherPlayer.transform.position;
                 
                 if (y > 0 && Mathf.Abs(y) > Mathf.Abs(x))
                 {
@@ -83,7 +90,23 @@ public class PlayerController_TY : MonoBehaviour
                 {
                     MoveDirection(Vector2.right);
                 }
+
+                // 両方のプレイヤーが移動を終えるまで待機する
+                yield return new WaitUntil(() => !isMoving && !otherPlayer.isMoving);
+                
+                // プレイヤーAが、実際に移動が発生した場合にのみカウントを報告する
+                if (isPlayerA)
+                {
+                    if (transform.position != startPosition || (otherPlayer != null && otherPlayer.transform.position != otherPlayer.startPosition))
+                    {
+                        if (GameManager_TY.Instance != null)
+                        {
+                            GameManager_TY.Instance.ReportMoveFinished(isPlayerA);
+                        }
+                    }
+                }
             }
+
             yield return null;
         }
     }
@@ -93,9 +116,6 @@ public class PlayerController_TY : MonoBehaviour
         // otherPlayerがnullでないか確認
         if (direction != Vector2.zero && otherPlayer != null)
         {
-            startPosition = transform.position;
-            otherPlayer.startPosition = otherPlayer.transform.position;
-
             TryMove(direction);
             otherPlayer.TryMove(direction);
         }
@@ -156,15 +176,6 @@ public class PlayerController_TY : MonoBehaviour
         }
 
         isMoving = false;
-        
-        // 移動後の座標が開始時と異なっているかを確認
-        if (transform.position != startPosition || (otherPlayer != null && otherPlayer.transform.position != otherPlayer.startPosition))
-        {
-            if (GameManager_TY.Instance != null)
-            {
-                GameManager_TY.Instance.ReportMoveFinished(isPlayerA);
-            }
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
