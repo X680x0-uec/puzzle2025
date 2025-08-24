@@ -8,7 +8,7 @@ public class BrokenWall_AY : MonoBehaviour
     {
         if (BrokenWallAfter != null) // ②
         {
-            Debug.Log("aaaa");
+
 
             BrokenWallAfter.SetActive(false);
 
