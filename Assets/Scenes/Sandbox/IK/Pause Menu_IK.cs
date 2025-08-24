@@ -74,7 +74,7 @@ public class PauseMenu_IK : MonoBehaviour
         // ゲームの時間を元に戻す
         Time.timeScale = 1f;
         // 「SelectScene」という名前のシーンに遷移
-        SceneManager.LoadScene("SelectScene"); // ここは実際のタイトルシーン名に合わせて変更してください
+        SceneManager.LoadScene("StageSelect_IK"); // ここは実際のタイトルシーン名に合わせて変更してください
     }
 
     // オプションメニューを開く（今回は例としてログを出力）
