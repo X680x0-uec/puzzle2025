@@ -31,7 +31,7 @@ public class GameManager_TY : MonoBehaviour
         }
         inputList = new InputList();
         inputList.Enable();
-    }    
+    }
 
     private void OnDestroy()
     {
