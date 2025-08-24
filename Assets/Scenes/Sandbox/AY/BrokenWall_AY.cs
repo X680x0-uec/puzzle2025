@@ -9,6 +9,7 @@ public class BrokenWall_AY : MonoBehaviour
         if (BrokenWallAfter != null) // ②
         {
 
+
             BrokenWallAfter.SetActive(false);
 
         }
@@ -17,7 +18,6 @@ public class BrokenWall_AY : MonoBehaviour
     public void BreakeWall()
     {
         BrokenWallBefore.SetActive(false);
-        Debug.Log("aaaa");
         if (BrokenWallAfter != null) // ⑥
         {
             BrokenWallAfter.SetActive(true); // ⑦
