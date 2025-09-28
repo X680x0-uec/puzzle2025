@@ -1,31 +1,44 @@
 using System.Collections;
 using UnityEngine;
+using TMPro;
 
 /// <summary>
 /// 2体のキャラクターを同時に操作し、壁に当たるまで移動し続ける制御
 /// </summary>
 public class PlayerController_TY : MonoBehaviour
 {
-    public GameObject startPoint; // スタート地点を示すオブジェクトをアタッチ
-    public bool isPlayerA = true; // プレイヤーAかどうか（同時操作用）
-    public float moveSpeed = 5f; // 移動速度
-    private Vector3 moveDirection; // 現在の移動方向
-    public bool isMoving = false; // 移動中かどうかのフラグ
-    public bool isGoal = false; // ゴールに到達したかどうか
-    private float x, y; // 入力値
-    public PlayerController_TY otherPlayer; // もう一方のプレイヤーをアタッチ
+    public GameObject startPoint;
+    public bool isPlayerA = true;
+    public float moveSpeed = 5f;
+    private Vector3 moveDirection;
+    public bool isMoving = false;
+    public bool isGoal = false;
+    private float x, y;
+    
+    // otherPlayerはGameManagerで設定されるため、インスペクターでの手動設定は不要です。
+    public PlayerController_TY otherPlayer; 
+
+    // PauseMenuの参照は手動で設定
+    public PauseMenu_IK pauseMenuController; 
 
     private Rigidbody2D rb;
     private Renderer rend;
     private PlayerColor_TY colorScript;
 
+<<<<<<< HEAD
     /// <summary>
     /// 初期化処理、シーンの開始時に呼ばれる
     /// </summary>
     /// <returns></returns>
     void Start()
+=======
+    private Vector3 startPosition; 
+    public Vector3 otherPlayerStartPosition; 
+
+    void Start() 
+>>>>>>> 1af4eaf75d5b34a15b0c5a493c869c8c203e333d
     {
-        rb = GetComponent<Rigidbody2D>(); //このスクリプトがついているオブジェクトに Rigidbody2D コンポーネントがあればそれを取得
+        rb = GetComponent<Rigidbody2D>();
         rend = GetComponent<Renderer>();
         colorScript = GetComponent<PlayerColor_TY>();
 
@@ -35,50 +48,76 @@ public class PlayerController_TY : MonoBehaviour
             return;
         }
 
-        // 初期位置に移動
         if (startPoint != null)
             transform.position = startPoint.transform.position;
-        //ゴールに到達したかどうかチェックを開始
+
         if (isPlayerA)
             StartCoroutine(GoalCheckCoroutine());
-        // 移動の入力受付を開始(プレイヤーAがプレイヤーBの分の入力も受け付ける)
+            
         if (isPlayerA)
             StartCoroutine(Moving());
     }
 
-    /// <summary>
-    /// プレイヤーAのみが起動する関数で、両方のプレイヤーの移動を一括制御する
-    /// </summary>
-    /// <returns></returns>
     IEnumerator Moving()
     {
-        while (true) // 入力受付ループ
+        while (true)
         {
-            // どちらも移動中でないなら入力を受け付ける
-            if (!isMoving && otherPlayer != null && !otherPlayer.isMoving)
+            // 両方のプレイヤーの移動が停止するまで待機する
+            yield return new WaitUntil(() => !isMoving && !otherPlayer.isMoving);
+
+            if (pauseMenuController != null && pauseMenuController.isPaused)
             {
-                // 入力を取得、InputSystemを使用（操作の対応はMaterial->Inputに記載）
-                Vector2 moveInput = GameManager_TY.Instance.inputList.Player.Move.ReadValue<Vector2>();
-                x = moveInput.x;
-                y = moveInput.y;
-                // 入力値が0でない場合に移動方向を決定
-                if (y > 0 && Mathf.Abs(y) > Mathf.Abs(x)) // 上方向
+                yield return null;
+                continue;
+            }
+
+            Vector2 moveInput = GameManager_TY.Instance.inputList.Player.Move.ReadValue<Vector2>();
+            x = moveInput.x;
+            y = moveInput.y;
+            
+            // 入力があった場合にのみ処理を実行
+            if (x != 0 || y != 0)
+            {
+                // 移動開始前の座標を記録
+                startPosition = transform.position;
+                if (otherPlayer != null)
+                {
+                    otherPlayer.startPosition = otherPlayer.transform.position;
+                }
+                
+                if (y > 0 && Mathf.Abs(y) > Mathf.Abs(x))
                 {
                     MoveDirection(Vector2.up);
                 }
-                else if (y < 0 && Mathf.Abs(y) > Mathf.Abs(x)) // 下方向
+                else if (y < 0 && Mathf.Abs(y) > Mathf.Abs(x))
                 {
                     MoveDirection(Vector2.down);
                 }
-                else if (x < 0 && Mathf.Abs(x) > Mathf.Abs(y)) // 左方向
+                else if (x < 0 && Mathf.Abs(x) > Mathf.Abs(y))
                 {
                     MoveDirection(Vector2.left);
                 }
-                else if (x > 0 && Mathf.Abs(x) > Mathf.Abs(y)) // 右方向
+                else if (x > 0 && Mathf.Abs(x) > Mathf.Abs(y))
                 {
                     MoveDirection(Vector2.right);
                 }
+
+                // 両方のプレイヤーが移動を終えるまで待機する
+                yield return new WaitUntil(() => !isMoving && !otherPlayer.isMoving);
+                
+                // プレイヤーAが、実際に移動が発生した場合にのみカウントを報告する
+                if (isPlayerA)
+                {
+                    if (transform.position != startPosition || (otherPlayer != null && otherPlayer.transform.position != otherPlayer.startPosition))
+                    {
+                        if (GameManager_TY.Instance != null)
+                        {
+                            GameManager_TY.Instance.ReportMoveFinished(isPlayerA);
+                        }
+                    }
+                }
             }
+
             yield return null;
         }
     }
@@ -90,18 +129,14 @@ public class PlayerController_TY : MonoBehaviour
     /// <param name="direction"></param>
     public void MoveDirection(Vector2 direction)
     {
-        // 入力された方向に移動
-        if (direction != Vector2.zero)
+        // otherPlayerがnullでないか確認
+        if (direction != Vector2.zero && otherPlayer != null)
         {
-            TryMove(direction); // プレイヤーAの移動
-            otherPlayer.TryMove(direction); // プレイヤーBの移動
+            TryMove(direction);
+            otherPlayer.TryMove(direction);
         }
     }
 
-    /// <summary>
-    /// 指定された方向に移動を試みるメソッド
-    /// </summary>
-    /// <param name="direction"></param>
     void TryMove(Vector3 direction)
     {
         moveDirection = direction.normalized; // 入力された方向を正規化
@@ -109,12 +144,10 @@ public class PlayerController_TY : MonoBehaviour
         isGoal = false; // ゴール状態をリセット
         StartCoroutine(MoveUntilWall());
     }
-    /// <summary>
-    /// 指定された方向に進み続け、壁に当たるまで移動するコルーチン
-    /// </summary>
-    /// <returns></returns>
+
     IEnumerator MoveUntilWall()
     {
+        Vector3 startPosition = transform.position;
         int wallLayer = LayerMask.GetMask("Wall"); // "Wall"レイヤーのみ検知
 
         while (true)
@@ -135,13 +168,11 @@ public class PlayerController_TY : MonoBehaviour
                 if (wall != null)
                 {
                     //Debug.Log("Hit Wall: " + wall.name);
-
                     // 共通壁なら止まる
                     if (wall.interactablePlayer == PlayerColor_TY.PlayerType.None)
                         break;
                     // 色付き壁で自分と同じ色ならすり抜ける
-                    if (wall.interactablePlayer == colorScript.mergedPlayerType ||
-                        wall.interactablePlayer == colorScript.originalPlayerType)
+                    if (wall.interactablePlayer == colorScript.mergedPlayerType || wall.interactablePlayer == colorScript.originalPlayerType)
                     {
                         // すり抜けるので進み続ける
                     }
@@ -161,11 +192,11 @@ public class PlayerController_TY : MonoBehaviour
                 brokenfloor_IK floor = hit.collider.GetComponent<brokenfloor_IK>(); //接触したオブジェクトがbrokenfloor_IKコンポーネントを持っているなら取得
                 if (floor != null)
                 {
-
                     // 床の状態が崩壊なら止まる
                     if (floor.type == brokenfloor_IK.Type.notgo)
                         break;
                 }
+<<<<<<< HEAD
 
                 // 向きタイルの判定(FH)
                 DirectionChanger_FH dirChanger = hit.collider.GetComponent<DirectionChanger_FH>();
@@ -179,6 +210,8 @@ public class PlayerController_TY : MonoBehaviour
                     // 向きを変更
                     moveDirection = dirChanger.newDirection_FH.normalized;
                 }
+=======
+>>>>>>> 1af4eaf75d5b34a15b0c5a493c869c8c203e333d
             }
 
             // 1マス進む
@@ -187,6 +220,7 @@ public class PlayerController_TY : MonoBehaviour
             rb.MovePosition(transform.position + moveDirection * distance);
             yield return new WaitForSeconds(0.05f);
         }
+
         isMoving = false;
     }
 
@@ -208,6 +242,7 @@ public class PlayerController_TY : MonoBehaviour
             }
         }
     }
+    
     /// <summary>
     /// キャラクター同士が重なっていた状態から離れた時の処理
     /// </summary>
@@ -230,8 +265,8 @@ public class PlayerController_TY : MonoBehaviour
     {
         while (true)
         {
-            // ゴール判定
-            if (isGoal && otherPlayer.isGoal)
+            // otherPlayerがnullでないか確認
+            if (otherPlayer != null && isGoal && otherPlayer.isGoal)
             {
                 // ゲーム終了処理
                 GameManager_TY.Instance.EndGame();
