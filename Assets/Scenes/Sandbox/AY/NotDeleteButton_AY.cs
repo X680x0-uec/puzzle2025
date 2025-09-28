@@ -10,9 +10,9 @@ public class Button_AY : MonoBehaviour
         {
             if (recever != null)
             {
+                Debug.Log("aaaa");
                 recever.BreakeWall();
             }
         }
-        Destroy(gameObject);
     }
 }
