@@ -25,6 +25,7 @@ public class PlayerController_TY : MonoBehaviour
     private Renderer rend;
     private PlayerColor_TY colorScript;
 
+
     private Vector3 startPosition; 
     public Vector3 otherPlayerStartPosition; 
 
@@ -187,6 +188,19 @@ public class PlayerController_TY : MonoBehaviour
                     // 床の状態が崩壊なら止まる
                     if (floor.type == brokenfloor_IK.Type.notgo)
                         break;
+                }
+
+                // 向きタイルの判定(FH)
+                DirectionChanger_FH dirChanger = hit.collider.GetComponent<DirectionChanger_FH>();
+                if (dirChanger != null)
+                {
+                    // タイルの上まで行く
+                    rb.MovePosition(transform.position + moveDirection * distance);
+                    yield return new WaitForSeconds(0.05f);
+                    rb.MovePosition(transform.position + moveDirection * distance);
+                    yield return new WaitForSeconds(0.05f);
+                    // 向きを変更
+                    moveDirection = dirChanger.newDirection_FH.normalized;
                 }
             }
 
