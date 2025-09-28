@@ -25,18 +25,11 @@ public class PlayerController_TY : MonoBehaviour
     private Renderer rend;
     private PlayerColor_TY colorScript;
 
-<<<<<<< HEAD
-    /// <summary>
-    /// 初期化処理、シーンの開始時に呼ばれる
-    /// </summary>
-    /// <returns></returns>
-    void Start()
-=======
+
     private Vector3 startPosition; 
     public Vector3 otherPlayerStartPosition; 
 
     void Start() 
->>>>>>> 1af4eaf75d5b34a15b0c5a493c869c8c203e333d
     {
         rb = GetComponent<Rigidbody2D>();
         rend = GetComponent<Renderer>();
@@ -196,7 +189,6 @@ public class PlayerController_TY : MonoBehaviour
                     if (floor.type == brokenfloor_IK.Type.notgo)
                         break;
                 }
-<<<<<<< HEAD
 
                 // 向きタイルの判定(FH)
                 DirectionChanger_FH dirChanger = hit.collider.GetComponent<DirectionChanger_FH>();
@@ -210,8 +202,6 @@ public class PlayerController_TY : MonoBehaviour
                     // 向きを変更
                     moveDirection = dirChanger.newDirection_FH.normalized;
                 }
-=======
->>>>>>> 1af4eaf75d5b34a15b0c5a493c869c8c203e333d
             }
 
             // 1マス進む
