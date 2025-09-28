@@ -9,7 +9,7 @@ public class PlayerController_TY : MonoBehaviour
     public GameObject startPoint; // スタート地点を示すオブジェクトをアタッチ
     public bool isPlayerA = true; // プレイヤーAかどうか（同時操作用）
     public float moveSpeed = 5f; // 移動速度
-    public Vector3 moveDirection; // 現在の移動方向
+    private Vector3 moveDirection; // 現在の移動方向
     public bool isMoving = false; // 移動中かどうかのフラグ
     public bool isGoal = false; // ゴールに到達したかどうか
     private float x, y; // 入力値
@@ -23,7 +23,7 @@ public class PlayerController_TY : MonoBehaviour
     /// 初期化処理、シーンの開始時に呼ばれる
     /// </summary>
     /// <returns></returns>
-    void Start()
+    void Start() 
     {
         rb = GetComponent<Rigidbody2D>(); //このスクリプトがついているオブジェクトに Rigidbody2D コンポーネントがあればそれを取得
         rend = GetComponent<Renderer>();
@@ -113,7 +113,6 @@ public class PlayerController_TY : MonoBehaviour
     /// 指定された方向に進み続け、壁に当たるまで移動するコルーチン
     /// </summary>
     /// <returns></returns>
-    /*
     IEnumerator MoveUntilWall()
     {
         int wallLayer = LayerMask.GetMask("Wall"); // "Wall"レイヤーのみ検知
@@ -178,98 +177,7 @@ public class PlayerController_TY : MonoBehaviour
         }
         isMoving = false;
     }
-*/
-    void OnDestroy()
-    {
-        // プレイヤーAのみが入力システムを管理
-        if (isPlayerA)
-        {
-            GameManager_TY.Instance.inputList.Player.Disable();
-        }
-    }
 
-    IEnumerator MoveUntilWall()
-    {
-        int wallLayer = LayerMask.GetMask("Wall");
-        int defaultLayer = LayerMask.GetMask("Default");
-
-
-        while (true)
-        {
-            // プレイヤーの前方からRayを出す
-            Vector2 rayOrigin = (Vector2)transform.position + (Vector2)moveDirection * 0.6f;
-            // Raycastで前方に壁があるか判定
-            Ray2D ray = new Ray2D(rayOrigin, moveDirection);
-            RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, 0.8f, wallLayer | defaultLayer);
-            float distance = 0.5f;// 0.5マス分進む距離
-
-            Debug.DrawRay(ray.origin, ray.direction * 0.8f, Color.red, 0.05f); // デバッグ用のRayを表示、Gameビューからシーンビューに切り替えると確認可能
-
-            if (hit.collider != null)
-            {
-                //Debug.Log("Hit: " + hit.collider.name);
-                Wall_TY wall = hit.collider.GetComponent<Wall_TY>(); //接触したオブジェクトがWall_TYコンポーネントを持っているなら取得
-                if (wall != null)
-                {
-                    //Debug.Log("Hit Wall: " + wall.name);
-
-                    // 共通壁なら止まる
-                    if (wall.interactablePlayer == PlayerColor_TY.PlayerType.None)
-                        break;
-                    // 色付き壁で自分と同じ色ならすり抜ける
-                    if (wall.interactablePlayer == colorScript.mergedPlayerType ||
-                        wall.interactablePlayer == colorScript.originalPlayerType)
-                    {
-                        // すり抜けるので進み続ける
-                    }
-                    else
-                    {
-                        // すり抜け不可の色付き壁なら止まる
-                        break;
-                    }
-                }
-                else
-                {
-                    // 壁以外のオブジェクト,自分自身などは無視して進む
-                }
-
-                // 床の判定(IK)
-                //Debug.Log("Hit: " + hit.collider.name);
-                brokenfloor_IK floor = hit.collider.GetComponent<brokenfloor_IK>(); //接触したオブジェクトがbrokenfloor_IKコンポーネントを持っているなら取得
-                if (floor != null)
-                {
-
-                    // 床の状態が崩壊なら止まる
-                    if (floor.type == brokenfloor_IK.Type.notgo)
-                        break;
-                }
-
-                //ここら辺を主に変更しました。
-                // この下の向き変更の部分しか変えてないと思ってますが
-                // なんか変わってしまっていたらすみません。FH
-                DirectionChanger_FH dirChanger = hit.collider.GetComponent<DirectionChanger_FH>();
-                if (dirChanger != null)
-                {
-                    // 向きを変更
-                    rb.MovePosition(transform.position + moveDirection * distance);
-                    yield return new WaitForSeconds(0.05f);
-                    rb.MovePosition(transform.position + moveDirection * distance);
-                    yield return new WaitForSeconds(0.05f);
-                    moveDirection = dirChanger.newDirection_FH.normalized;
-                }
-
-
-            }
-
-            // 0.5マスずつ、2回に分けて移動
-            rb.MovePosition(transform.position + moveDirection * distance);
-            yield return new WaitForSeconds(0.05f);
-            rb.MovePosition(transform.position + moveDirection * distance);
-            yield return new WaitForSeconds(0.05f);
-        }
-
-        isMoving = false;
-    }
     /// <summary>
     /// キャラクター同士が重なった時に色を混ぜる
     /// </summary>
