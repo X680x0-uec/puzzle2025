@@ -2,22 +2,27 @@ using UnityEngine;
 
 public class BrokenWall_AY : MonoBehaviour
 {
-
+    public GameObject BrokenWallAfter;
     public GameObject BrokenWallBefore; // BrokenWallを追加
-
-
-    public void BreakeWall()
+    void Start()
     {
+        if (BrokenWallAfter != null) // ②
+        {
 
-        if (BrokenWallBefore.activeSelf) // Check if the "before" wall is active
-        {
-            BrokenWallBefore.SetActive(false); // If it is, deactivate it
-        }
-        else
-        {
-            BrokenWallBefore.SetActive(true); // If it's not, activate it
+
+            BrokenWallAfter.SetActive(false);
+
         }
     }
 
-}
+    public void BreakeWall()
+    {
+        BrokenWallBefore.SetActive(false);
+        if (BrokenWallAfter != null) // ⑥
+        {
+            BrokenWallAfter.SetActive(true); // ⑦
+        }
 
+    }
+
+}
