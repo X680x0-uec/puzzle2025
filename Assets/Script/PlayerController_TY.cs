@@ -23,7 +23,7 @@ public class PlayerController_TY : MonoBehaviour
     /// 初期化処理、シーンの開始時に呼ばれる
     /// </summary>
     /// <returns></returns>
-    void Start() 
+    void Start()
     {
         rb = GetComponent<Rigidbody2D>(); //このスクリプトがついているオブジェクトに Rigidbody2D コンポーネントがあればそれを取得
         rend = GetComponent<Renderer>();
@@ -166,7 +166,19 @@ public class PlayerController_TY : MonoBehaviour
                     if (floor.type == brokenfloor_IK.Type.notgo)
                         break;
                 }
-               
+
+                // 向きタイルの判定(FH)
+                DirectionChanger_FH dirChanger = hit.collider.GetComponent<DirectionChanger_FH>();
+                if (dirChanger != null)
+                {
+                    // タイルの上まで行く
+                    rb.MovePosition(transform.position + moveDirection * distance);
+                    yield return new WaitForSeconds(0.05f);
+                    rb.MovePosition(transform.position + moveDirection * distance);
+                    yield return new WaitForSeconds(0.05f);
+                    // 向きを変更
+                    moveDirection = dirChanger.newDirection_FH.normalized;
+                }
             }
 
             // 1マス進む
