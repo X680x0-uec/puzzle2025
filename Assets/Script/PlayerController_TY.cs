@@ -19,12 +19,12 @@ public class PlayerController_TY : MonoBehaviour
     public PlayerController_TY otherPlayer; 
 
     // PauseMenuの参照は手動で設定
-    public PauseMenu_IK pauseMenuController; 
+    public PauseMenu_IK pauseMenuController;
 
     private Rigidbody2D rb;
     private Renderer rend;
     private PlayerColor_TY colorScript;
-
+    private AudioPlayer_TY audioPlayer;
 
     private Vector3 startPosition; 
     public Vector3 otherPlayerStartPosition; 
@@ -34,6 +34,7 @@ public class PlayerController_TY : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rend = GetComponent<Renderer>();
         colorScript = GetComponent<PlayerColor_TY>();
+        audioPlayer = GetComponent<AudioPlayer_TY>();
 
         if (isPlayerA == otherPlayer.isPlayerA)
         {
@@ -125,6 +126,7 @@ public class PlayerController_TY : MonoBehaviour
         // otherPlayerがnullでないか確認
         if (direction != Vector2.zero && otherPlayer != null)
         {
+            if (audioPlayer != null) { audioPlayer.PlayPlayerMoveSound(); }
             TryMove(direction);
             otherPlayer.TryMove(direction);
         }
