@@ -5794,7 +5794,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3aac578600f7624da6d2d6d5c6d2a6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BrokenWallAfter: {fileID: 1431882325}
   BrokenWallBefore: {fileID: 382525697}
 --- !u!483693784 &1775679329
 TilemapRenderer:
