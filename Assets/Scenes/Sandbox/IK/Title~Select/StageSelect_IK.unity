@@ -177,7 +177,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -202,9 +202,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 105589987}
-        m_TargetAssemblyTypeName: StageSelect_IK, Assembly-CSharp
-        m_MethodName: LoadStage
+      - m_Target: {fileID: 601776258}
+        m_TargetAssemblyTypeName: SceneController_IK, Assembly-CSharp
+        m_MethodName: FadeToScene
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -252,50 +252,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 101162707}
   m_CullTransparentMesh: 1
---- !u!1 &105589986
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 105589988}
-  - component: {fileID: 105589987}
-  m_Layer: 0
-  m_Name: StageManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &105589987
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 105589986}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d7b3a0e88c9de1478920b132c5663ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &105589988
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 105589986}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &140851849
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -366,11 +322,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3223675260962732432, guid: 0f2f0afe6aa85fb40b54386779ee3420, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 328.36353
+      value: 188
       objectReference: {fileID: 0}
     - target: {fileID: 3223675260962732432, guid: 0f2f0afe6aa85fb40b54386779ee3420, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -183.3934
+      value: -124
       objectReference: {fileID: 0}
     - target: {fileID: 3223675260962732432, guid: 0f2f0afe6aa85fb40b54386779ee3420, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -388,16 +344,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: Image
       objectReference: {fileID: 0}
+    - target: {fileID: 6088376351676501658, guid: 0f2f0afe6aa85fb40b54386779ee3420, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f2f0afe6aa85fb40b54386779ee3420, type: 3}
---- !u!224 &140851850 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 3223675260962732432, guid: 0f2f0afe6aa85fb40b54386779ee3420, type: 3}
-  m_PrefabInstance: {fileID: 140851849}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &140851851 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5777584532909211753, guid: 0f2f0afe6aa85fb40b54386779ee3420, type: 3}
@@ -604,7 +559,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -628,7 +583,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 193130173}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 601776258}
+        m_TargetAssemblyTypeName: SceneController_IK, Assembly-CSharp
+        m_MethodName: FadeToScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &193130173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -725,7 +692,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -750,9 +717,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 105589987}
-        m_TargetAssemblyTypeName: StageSelect_IK, Assembly-CSharp
-        m_MethodName: LoadStage
+      - m_Target: {fileID: 601776258}
+        m_TargetAssemblyTypeName: SceneController_IK, Assembly-CSharp
+        m_MethodName: FadeToScene
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -895,7 +862,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 424363607}
-  - {fileID: 140851850}
+  - {fileID: 1455322101}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1344,7 +1311,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -1368,7 +1335,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 462522026}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 601776258}
+        m_TargetAssemblyTypeName: SceneController_IK, Assembly-CSharp
+        m_MethodName: FadeToScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 20250827_IK
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &462522026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1608,6 +1587,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e958911b9bb4b0b4fbfca74103e4f293, type: 3}
+--- !u!114 &601776258 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4439223123110913474, guid: e958911b9bb4b0b4fbfca74103e4f293, type: 3}
+  m_PrefabInstance: {fileID: 601776257}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6fd487d5ddcaf04fa3993c6c9be15dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &633052464
 GameObject:
   m_ObjectHideFlags: 0
@@ -1802,7 +1792,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -1826,7 +1816,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 747547357}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 601776258}
+        m_TargetAssemblyTypeName: SceneController_IK, Assembly-CSharp
+        m_MethodName: FadeToScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 20250830-3_IK
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &747547357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1923,7 +1925,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -1947,7 +1949,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 861468555}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 601776258}
+        m_TargetAssemblyTypeName: SceneController_IK, Assembly-CSharp
+        m_MethodName: FadeToScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &861468555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2044,7 +2058,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -2068,7 +2082,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 961564678}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 601776258}
+        m_TargetAssemblyTypeName: SceneController_IK, Assembly-CSharp
+        m_MethodName: FadeToScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &961564678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2165,7 +2191,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -2189,7 +2215,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1035128823}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 601776258}
+        m_TargetAssemblyTypeName: SceneController_IK, Assembly-CSharp
+        m_MethodName: FadeToScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 20250830_IK
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1035128823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2239,6 +2277,7 @@ GameObject:
   - component: {fileID: 1084321403}
   - component: {fileID: 1084321402}
   - component: {fileID: 1084321401}
+  - component: {fileID: 1084321404}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -2289,7 +2328,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 242283106}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &1084321403
@@ -2307,6 +2346,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1084321404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1084321400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 168b64d15b8d21f40a3f1db1373d544c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  navButtons:
+  - {fileID: 242283108}
+  - {fileID: 1328936937}
+  - {fileID: 462522025}
+  - {fileID: 1035128822}
+  - {fileID: 1517016252}
+  - {fileID: 747547356}
+  - {fileID: 1850630795}
+  - {fileID: 961564677}
+  - {fileID: 861468554}
+  - {fileID: 193130172}
+  - {fileID: 101162709}
+  submitKey: 13
+  normalColor: {r: 0.9607844, g: 0.9607844, b: 0.9607844, a: 1}
+  highlightedColor: {r: 0.8490566, g: 0.8490566, b: 0.8490566, a: 1}
 --- !u!1 &1194114300
 GameObject:
   m_ObjectHideFlags: 0
@@ -2909,7 +2975,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -2934,9 +3000,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 105589987}
-        m_TargetAssemblyTypeName: StageSelect_IK, Assembly-CSharp
-        m_MethodName: LoadStage
+      - m_Target: {fileID: 601776258}
+        m_TargetAssemblyTypeName: SceneController_IK, Assembly-CSharp
+        m_MethodName: FadeToScene
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2984,6 +3050,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1328936935}
   m_CullTransparentMesh: 1
+--- !u!224 &1455322101 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3223675260962732432, guid: 0f2f0afe6aa85fb40b54386779ee3420, type: 3}
+  m_PrefabInstance: {fileID: 140851849}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1517016250
 GameObject:
   m_ObjectHideFlags: 0
@@ -3042,7 +3113,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -3066,7 +3137,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1517016253}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 601776258}
+        m_TargetAssemblyTypeName: SceneController_IK, Assembly-CSharp
+        m_MethodName: FadeToScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 20250830-2_IK
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1517016253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3571,7 +3654,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -3595,7 +3678,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1850630796}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 601776258}
+        m_TargetAssemblyTypeName: SceneController_IK, Assembly-CSharp
+        m_MethodName: FadeToScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1850630796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3639,7 +3734,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 178827318}
-  - {fileID: 366602198}
   - {fileID: 1084321403}
   - {fileID: 601776257}
-  - {fileID: 105589988}
+  - {fileID: 366602198}

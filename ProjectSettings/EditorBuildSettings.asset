@@ -17,9 +17,24 @@ EditorBuildSettings:
   - enabled: 1
     path: "Assets/Scenes/Sandbox/IK/Stages/\u58CA\u308C\u308B\u5E8A\u306E\u4F8B_IK.unity"
     guid: 5968a9bde7d1cf9498ff50f9fb8e177e
+  - enabled: 0
+    path: Assets/Scenes/Sandbox/AY/Sandbox_AY.unity
+    guid: 0de2648294b9f924e9b67f5bcf3f2652
   - enabled: 1
     path: Assets/Scenes/Sandbox/IK/Stages/20250821_IK.unity
     guid: 29e4f5ac4ef3a8d4898d26ab54d624b7
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/IK/Stages/20250827_IK.unity
+    guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/IK/Stages/20250830_IK.unity
+    guid: 5c5e4ffcb8cc10b41a57e85f1f070045
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/IK/Stages/20250830-2_IK.unity
+    guid: 447f03e55a750184da272aca39adac65
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/IK/Stages/20250830-3_IK.unity
+    guid: 6a9a6358a39b6f549b3c038f270e122d
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
