@@ -10,6 +10,8 @@ public class PauseMenu_IK : MonoBehaviour
     public bool isPaused = false;
     private bool inputDisabled = false; // 入力を無効化するフラグ
 
+    [SerializeField] private string selectSceneName = "NormalStageSelect_IK"; // 発表用ステージ選択シーンの名前
+
 
     void Update()
     {
@@ -74,7 +76,7 @@ public class PauseMenu_IK : MonoBehaviour
         // ゲームの時間を元に戻す
         Time.timeScale = 1f;
         // 「SelectScene」という名前のシーンに遷移
-        SceneManager.LoadScene("StageSelect_IK"); // ここは実際のタイトルシーン名に合わせて変更してください
+        SceneManager.LoadScene(selectSceneName);
     }
 
     // オプションメニューを開く（今回は例としてログを出力）
