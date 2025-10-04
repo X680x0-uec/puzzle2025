@@ -19,11 +19,12 @@ public class PlayerController_TY : MonoBehaviour
     public PlayerController_TY otherPlayer; 
 
     // PauseMenuの参照は手動で設定
-    public PauseMenu_IK pauseMenuController; 
+    public PauseMenu_IK pauseMenuController;
 
     private Rigidbody2D rb;
     private Renderer rend;
     private PlayerColor_TY colorScript;
+    private AudioPlayer_TY audioPlayer;
 
     private Vector3 startPosition; 
     public Vector3 otherPlayerStartPosition; 
@@ -33,6 +34,7 @@ public class PlayerController_TY : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rend = GetComponent<Renderer>();
         colorScript = GetComponent<PlayerColor_TY>();
+        audioPlayer = GetComponent<AudioPlayer_TY>();
 
         if (isPlayerA == otherPlayer.isPlayerA)
         {
@@ -124,6 +126,7 @@ public class PlayerController_TY : MonoBehaviour
         // otherPlayerがnullでないか確認
         if (direction != Vector2.zero && otherPlayer != null)
         {
+            if (audioPlayer != null) { audioPlayer.PlayPlayerMoveSound(); }
             TryMove(direction);
             otherPlayer.TryMove(direction);
         }
@@ -187,6 +190,19 @@ public class PlayerController_TY : MonoBehaviour
                     // 床の状態が崩壊なら止まる
                     if (floor.type == brokenfloor_IK.Type.notgo)
                         break;
+                }
+
+                // 向きタイルの判定(FH)
+                DirectionChanger_FH dirChanger = hit.collider.GetComponent<DirectionChanger_FH>();
+                if (dirChanger != null)
+                {
+                    // タイルの上まで行く
+                    rb.MovePosition(transform.position + moveDirection * distance);
+                    yield return new WaitForSeconds(0.05f);
+                    rb.MovePosition(transform.position + moveDirection * distance);
+                    yield return new WaitForSeconds(0.05f);
+                    // 向きを変更
+                    moveDirection = dirChanger.newDirection_FH.normalized;
                 }
             }
 
