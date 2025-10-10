@@ -6,11 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Sandbox/IK/Title~Select/StageSelect_IK.unity
-    guid: 00f5e19b43b690f468e55250c3b853ee
-  - enabled: 1
     path: Assets/Scenes/Sandbox/IK/Title~Select/Title_IK.unity
     guid: a2707ac492e1f2a4a9f8fb54319bd4db
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/IK/Title~Select/StageSelect_IK.unity
+    guid: 00f5e19b43b690f468e55250c3b853ee
   - enabled: 1
     path: Assets/Scenes/Sandbox/IK/Title~Select/DifficultySelect_IK.unity
     guid: 58d94ee5e0222ab4b9bf597adef950be
@@ -35,6 +35,72 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Sandbox/IK/Stages/20250830-3_IK.unity
     guid: 6a9a6358a39b6f549b3c038f270e122d
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/TY/Stages_TY/TY_Tutolials_1.unity
+    guid: 8ad64808a26a308409a40b2777fb8ada
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/TY/Stages_TY/TY_Tutolials_2.unity
+    guid: 6fe1089b31bc4924db1363b85dcd10ce
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/TY/Stages_TY/TY_Tutolials_3.unity
+    guid: 7c442d8d02c7d9d4ca2230ca880579fe
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/IK/Title~Select/EasyStageSelect_IK.unity
+    guid: 5db28f18adb0e074e8a01a3792b60159
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/IK/Title~Select/NormalStageSelect_IK.unity
+    guid: a1713851e5671654281af6d77b76f048
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/IK/Stages/20250831_IK.unity
+    guid: 1a423a17694c5244aab1f75866faffbb
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/IK/Stages/20250907-2_IK.unity
+    guid: d237abf84d4a65f4690e66805dc8c12e
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/IK/Stages/20250907_IK.unity
+    guid: f3b8f4136ff20e34a9a26f5d7d874f08
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/IK/Stages/20250908_IK.unity
+    guid: 2ed2c207fff33c34f91a66dc058c41cc
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/IK/Stages/20250909-2_IK.unity
+    guid: 9a76ad01adf327b4c9ec34314f26516e
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/IK/Stages/20250909_IK.unity
+    guid: c75f01a0a6c3c1c479ee4be18259bba5
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/IK/Stages/20250910_IK.unity
+    guid: b847f68ad17a2df4eabd0f53f930501f
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/IK/Stages/20250913_IK.unity
+    guid: b30c0339e0a1645498b66102268f636f
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/IK/Stages/20250914_IK.unity
+    guid: 4ef58e4a83e90c44ca7b672fbbdc07cc
+  - enabled: 1
+    path: "Assets/Scenes/Sandbox/IK/Stages/20250914_IK - \u30B3\u30D4\u30FC.unity"
+    guid: e8281f6b4d5d9434a9cc29d7c7737496
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/IK/Stages/20250921-2_IK.unity
+    guid: 43d7366876ef36d44a9cfc69f48e988a
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/IK/Stages/20250921_IK.unity
+    guid: f7bda287bb7748f44bc0b2ba694dc981
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/IK/Stages/20250922_IK.unity
+    guid: c197cd37b64a71f4d89ebef2d542552f
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/IK/Stages/20250928-2_IK.unity
+    guid: a7f61158be869b9498aecc8f98e277f6
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/IK/Stages/20250928_IK.unity
+    guid: cff483190c42b47419d79f8e3e4307ce
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/IK/Stages/20251003-2_IK.unity
+    guid: 78925349835a0d84694a0550db4b4600
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/IK/Stages/20251003_IK.unity
+    guid: a02cd2e78cc408a42b46604535092b2d
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
