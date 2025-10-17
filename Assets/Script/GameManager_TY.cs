@@ -6,9 +6,10 @@ public class GameManager_TY : MonoBehaviour
 {
     public static GameManager_TY Instance { get; private set; }
     public InputList inputList;
-    
+
     // UIの参照はコードで動的に取得
     public TMPro.TextMeshProUGUI countText;
+    public UnityEngine.UI.Text countTextLegacy;
     
     private int moveCount = 0;
     
@@ -53,6 +54,7 @@ public class GameManager_TY : MonoBehaviour
 
         // 新しいシーンのUIとプレイヤーの参照を再取得
         countText = FindAnyObjectByType<TMPro.TextMeshProUGUI>();
+        countTextLegacy = FindAnyObjectByType<UnityEngine.UI.Text>();
         var players = FindObjectsByType<PlayerController_TY>(FindObjectsSortMode.None);
         
         if (players.Length >= 2)
@@ -90,6 +92,10 @@ public class GameManager_TY : MonoBehaviour
         if (countText != null)
         {
             countText.text = "Moves: " + moveCount.ToString();
+        }
+        if (countTextLegacy != null)
+        {
+            countTextLegacy.text = "手数: " + moveCount.ToString();
         }
     }
 
