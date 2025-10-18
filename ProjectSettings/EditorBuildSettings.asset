@@ -90,7 +90,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Sandbox/IK/Stages/20250922_IK.unity
     guid: c197cd37b64a71f4d89ebef2d542552f
   - enabled: 1
-    path: Assets/Scenes/Sandbox/IK/Stages/20250928-2_IK.unity
+    path: Assets/Scenes/Sandbox/IK/Stages/20251010-3_IK.unity
     guid: a7f61158be869b9498aecc8f98e277f6
   - enabled: 1
     path: Assets/Scenes/Sandbox/IK/Stages/20250928_IK.unity
@@ -99,7 +99,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Sandbox/IK/Stages/20251003-2_IK.unity
     guid: 78925349835a0d84694a0550db4b4600
   - enabled: 1
-    path: Assets/Scenes/Sandbox/IK/Stages/20251003_IK.unity
+    path: Assets/Scenes/Sandbox/IK/Stages/20251003_IK2.unity
     guid: a02cd2e78cc408a42b46604535092b2d
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

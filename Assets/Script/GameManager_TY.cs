@@ -7,6 +7,9 @@ public class GameManager_TY : MonoBehaviour
     public static GameManager_TY Instance { get; private set; }
     public InputList inputList;
     
+//  追加: StageClearManager への参照
+    private StageClearManager_IK stageClearManager;
+
     // UIの参照はコードで動的に取得
     public TMPro.TextMeshProUGUI countText;
     
@@ -49,6 +52,13 @@ public class GameManager_TY : MonoBehaviour
         {
             Debug.Log("『Title~Select』フォルダ内のシーンです。プレイヤーの初期化をスキップします。");
             return; 
+        } 
+
+        // 修正: 新しいシーンの StageClearManager の参照を取得
+        stageClearManager = FindAnyObjectByType<StageClearManager_IK>();
+        if (stageClearManager == null)
+        {
+            Debug.LogWarning("StageClearManagerがシーンに見つかりません。クリア画面の表示はできません。");
         }
 
         // 新しいシーンのUIとプレイヤーの参照を再取得
@@ -104,8 +114,24 @@ public class GameManager_TY : MonoBehaviour
         Debug.Log("現在の移動回数: " + moveCount);
     }
     
-    public void EndGame()
+public void EndGame()
+{
+    Debug.Log("Stage Completed!");
+    
+    if (stageClearManager != null)
     {
-        Debug.Log("Stage Completed!");
+        // ⭐ StageClearManagerのShowClearScreenに現在の移動回数を渡す
+        // stageClearManager.ShowClearScreen(int moves) を呼び出す
+        stageClearManager.ShowClearScreen(moveCount); 
+        
+        if (inputList != null)
+        {
+            inputList.Disable(); 
+        }
     }
+    else
+    {
+         Debug.LogError("StageClearManagerがシーンに存在しないため、クリア画面を表示できませんでした。");
+    }
+}
 }
