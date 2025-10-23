@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerColor_TY : MonoBehaviour
 {
     // プレイヤーのタイプを定義
-    public enum PlayerType { None, Red, Blue, Purple, Button, BrokenWall, DirectionTile, WarpTile }
+    public enum PlayerType { None, Red, Blue, Purple, Yellow, Orange, Green, Button, BrokenWall, DirectionTile, WarpTile }
     public PlayerType firstPlayerType; // 初期のプレイヤータイプ（色）
     public PlayerType originalPlayerType; // マージ前のプレイヤータイプ（色）
     public PlayerType mergedPlayerType; // マージ後のプレイヤータイプ（色）
@@ -34,6 +34,15 @@ public class PlayerColor_TY : MonoBehaviour
                 break;
             case PlayerType.Purple:
                 SetColorFromColor(Color.magenta); // 紫色
+                break;
+            case PlayerType.Yellow:
+                SetColorFromColor(Color.yellow);
+                break;
+            case PlayerType.Orange:
+                SetColorFromColor(new Color(1f, 0.5f, 0f)); // オレンジ色
+                break;
+            case PlayerType.Green:
+                SetColorFromColor(Color.green);
                 break;
             default:
                 SetColorFromColor(Color.white);
@@ -69,6 +78,19 @@ public class PlayerColor_TY : MonoBehaviour
         else if (IsSimilarColor(newColor, Color.magenta))
         {
             mergedPlayerType = PlayerType.Purple;
+        }
+        else if (IsSimilarColor(newColor, Color.yellow))
+        {
+            originalPlayerType = PlayerType.Yellow;
+            mergedPlayerType = PlayerType.Yellow;
+        }
+        else if (IsSimilarColor(newColor, new Color(1f, 0.5f, 0f)))
+        {
+            mergedPlayerType = PlayerType.Orange;
+        }
+        else if (IsSimilarColor(newColor, Color.green))
+        {
+            mergedPlayerType = PlayerType.Green;
         }
         else
         {
