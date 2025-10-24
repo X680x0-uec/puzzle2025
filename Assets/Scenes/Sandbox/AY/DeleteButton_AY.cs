@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class DeleteButton_AY : MonoBehaviour
 {
-    public BrokenWall_AY recever;
+    public BrokenyellowWall_AY recever;
     void OnTriggerEnter2D(Collider2D other)
     {
 
@@ -10,7 +10,7 @@ public class DeleteButton_AY : MonoBehaviour
         {
             if (recever != null)
             {
-                recever.BreakeWall();
+                recever.BreakeyellowWall();
             }
         }
         Destroy(gameObject);

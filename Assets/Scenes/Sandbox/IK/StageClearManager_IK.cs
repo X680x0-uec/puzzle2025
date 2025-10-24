@@ -7,15 +7,13 @@ using UnityEngine.UI;
 public class StageClearManager_IK : MonoBehaviour
 {
     // ⭐ Inspectorから設定するフィールド
-    public string stageSelectSceneName = "StageSelect"; 
+     public string stageSelectSceneName = "StageSelect"; 
     public GameObject clearScreenPanel;              
-    public GameObject firstSelectedButton;           
-
+    public GameObject firstSelectedButton;
     // ⭐ 星の評価に関連するフィールド
     public Image[] starImages;
     public Sprite goldenStarSprite; // 獲得した星のスプライト
     public Sprite dimStarSprite;    // 未獲得の星のスプライト (黒い星)
-    
     // ⭐ 修正: ボタン群の親パネル (Inspectorで設定)
     public GameObject buttonGroupPanel; 
     
@@ -33,7 +31,7 @@ public class StageClearManager_IK : MonoBehaviour
     public void ShowClearScreen(int moves)
     {
         finalMoveCount = moves;
-        
+
         // ⭐ 黒い星の初期化 
         if (starImages != null && dimStarSprite != null)
         {
@@ -42,9 +40,9 @@ public class StageClearManager_IK : MonoBehaviour
                 if (star != null)
                 {
                     // 星のGameObjectを強制的にアクティブにする
-                    star.gameObject.SetActive(true); 
+                    star.gameObject.SetActive(true);
                     // すべて黒い星を設定
-                    star.sprite = dimStarSprite;     
+                    star.sprite = dimStarSprite;
                 }
             }
         }
