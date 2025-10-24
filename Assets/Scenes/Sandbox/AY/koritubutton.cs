@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class Button_AY : MonoBehaviour
+public class korituButton : MonoBehaviour
 {
-    public BrokengreenWall_AY recever;
+    public BrokenkorituWall_AY recever;
     void OnTriggerEnter2D(Collider2D other)
     {
 
@@ -10,8 +10,10 @@ public class Button_AY : MonoBehaviour
         {
             if (recever != null)
             {
-                recever.BreakegreenWall();
+                recever.BreakekorituWall();
             }
         }
     }
 }
+
+
