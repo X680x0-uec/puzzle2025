@@ -8,8 +8,8 @@ public class GameManager_TY : MonoBehaviour
     public InputList inputList;
 
     // UIの参照はコードで動的に取得
-    public TMPro.TextMeshProUGUI countText;
     public UnityEngine.UI.Text countTextLegacy;
+
     
     private int moveCount = 0;
     
@@ -52,9 +52,22 @@ public class GameManager_TY : MonoBehaviour
             return; 
         }
 
-        // 新しいシーンのUIとプレイヤーの参照を再取得
-        countText = FindAnyObjectByType<TMPro.TextMeshProUGUI>();
-        countTextLegacy = FindAnyObjectByType<UnityEngine.UI.Text>();
+        // --- UIの参照取得（ここを変更） ---
+        
+        // 1. まず「UIの窓口」コンポーネントを探す
+        SceneUIReferences_TY uiRefs = FindAnyObjectByType<SceneUIReferences_TY>();
+
+        if (uiRefs != null)
+        {
+            if (uiRefs.moveCountTextLegacy != null)
+                countTextLegacy = uiRefs.moveCountTextLegacy;
+        }
+        else
+        {
+            countTextLegacy = null;
+            Debug.LogWarning("シーン内に SceneUIReferences_TY が見つかりません。");
+        }
+
         var players = FindObjectsByType<PlayerController_TY>(FindObjectsSortMode.None);
         
         if (players.Length >= 2)
@@ -89,10 +102,6 @@ public class GameManager_TY : MonoBehaviour
     
     public void UpdateCountText()
     {
-        if (countText != null)
-        {
-            countText.text = "Moves: " + moveCount.ToString();
-        }
         if (countTextLegacy != null)
         {
             countTextLegacy.text = "手数: " + moveCount.ToString();
