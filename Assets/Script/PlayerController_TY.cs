@@ -220,6 +220,7 @@ public class PlayerController_TY : MonoBehaviour
                 // 相手も同じ方向に動かす
                 if (otherPlayer != null && !otherPlayer.isMoving)
                 {
+                    Debug.Log("相手を動かす");
                     otherPlayer.TryMove(this.moveDirection);
                 }
             }
@@ -227,6 +228,8 @@ public class PlayerController_TY : MonoBehaviour
             // 衝突停止フラグが立っている場合、両方のプレイヤーを停止させる
             if (willStopBoth)
             {
+                Debug.Log("両方停止");
+
                 willStopBoth = false;
                 break;
             }
@@ -242,6 +245,7 @@ public class PlayerController_TY : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (otherPlayer == null) return;
+        if (otherPlayer != other.GetComponent<PlayerController_TY>()) return;
 
         PlayerColor_TY otherColorScript = other.GetComponent<PlayerColor_TY>();
         if (otherColorScript != null && isPlayerA)
@@ -255,28 +259,19 @@ public class PlayerController_TY : MonoBehaviour
         // 相手が停止している
         if (!otherPlayer.isMoving && isMoving)
         {
-            // 自分が今動いてきた方向（moveDirection）で、相手も動かし始める
-            // otherPlayer.TryMove(this.moveDirection);
             // 一緒に動くフラグを立てる
             willTogether = true;
+
+            Debug.Log("相手を動かす予定");
         }
         // 相手も動いている
         else if (otherPlayer.isMoving && isMoving)
         {
-            // 両方が動いている状態で重なったら、両方を停止させる
-            // StopMoving();
-
             // 衝突停止フラグを立てる
             willStopBoth = true;
+
+            Debug.Log("両方止める予定");
         }
-    }
-    
-    // 移動を強制停止させる
-    public void StopMoving()
-    {
-        StopCoroutine("MoveUntilWall"); // 動作中の移動コルーチンを停止
-        isMoving = false;
-        //rb.velocity = Vector2.zero; // 慣性をリセット
     }
     
     /// <summary>
