@@ -15,6 +15,10 @@ public class PauseMenu_IK : MonoBehaviour
 
     void Update()
     {
+        if (!isPaused && Time.timeScale == 0f)
+        {
+            return;
+        }
         // 入力が無効化されていない、かつEscapeキーが押されたら
         if (!inputDisabled && Input.GetKeyDown(KeyCode.Escape))
         {
