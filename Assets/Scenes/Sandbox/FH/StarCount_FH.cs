@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEditor; 
 #endif
 // 【変更点】スクリプト名を StarCount_FH に変更
-[ExecuteInEditMode] 
+[ExecuteInEditMode]
 public class StarCount_FH : MonoBehaviour
 {
     // --- インスペクターで設定する項目 ---
@@ -12,13 +12,13 @@ public class StarCount_FH : MonoBehaviour
     [Header("★ 星型Prefab設定")]
     [Tooltip("ここに星型のPrefabをドラッグ＆ドロップしてください。")]
     // 【変更点】weaponPrefab -> starPrefab
-    public GameObject starPrefab; 
-    
+    public GameObject starPrefab;
+
     // 【変更点】変数を難易度と表示
     [Header("難易度 (星の数) 設定")]
     [Tooltip("この値が生成する星の数として使用されます。1以上の値を設定してください。")]
     // 【変更点】_difficultyLevel -> _starCount
-    [SerializeField] 
+    [SerializeField]
     private int _starCount = 4; // 内部変数：生成する星の数
 
     // 外部から星の数を取得するためのプロパティ (読み取り専用)
@@ -28,12 +28,11 @@ public class StarCount_FH : MonoBehaviour
         // 常に1以上の値を返すように保証
         get { return Mathf.Max(1, _starCount); }
     }
-    
+
     [Header("横方向配置の設定")]
-    // 【変更点】spacing -> spacingX
     public float spacingX = 1.0f;        // 星間の間隔（X軸方向）
-    // 【変更点】verticalOffset -> offsetY
     public float offsetY = -0.5f; // 自機から見て上下方向のオフセット（Y軸）
+    public float spacingY = 1.0f;
 
     // 内部で使用する変数
     // 【変更点】weapons -> stars
@@ -87,10 +86,10 @@ public class StarCount_FH : MonoBehaviour
         if (starPrefab == null)
         {
             Debug.LogWarning("Star Prefabが設定されていません。インスペクターに設定してください。");
-            ClearStars(); 
+            ClearStars();
             return;
         }
-        
+
         // 既存の星を全て削除
         ClearStars();
 
@@ -107,40 +106,65 @@ public class StarCount_FH : MonoBehaviour
             // 星を自機の子オブジェクトとして生成
             // 【変更点】weapon -> star, weaponPrefab -> starPrefab
             GameObject star = Instantiate(starPrefab, transform);
-            star.name = $"Star_{i:00}"; 
+            star.name = $"Star_{i:00}";
             stars.Add(star); // 【変更点】starsリストに追加
 
             // X軸の位置を計算
-            float xOffset = startX + (i * spacingX);
+            float xOffset = startX + (i%5 * spacingX);
 
             // 星の位置を設定
-            SetStarPosition(star, xOffset);
+            SetStarPosition(star, xOffset, offsetY - i / 5 * spacingY);
+
         }
     }
-    
+
     /// <summary>
     /// 単一の星を自機からのオフセット位置に移動させる
     /// </summary>
     // 【変更点】SetWeaponPosition -> SetStarPosition
-    void SetStarPosition(GameObject star, float xOffset)
+    void SetStarPosition(GameObject star, float xOffset, float yOffset)
     {
         // X軸は計算したオフセット、Y軸はoffsetYで高さを調整
         // 【変更点】verticalOffset -> offsetY
-        star.transform.localPosition = new Vector3(xOffset, offsetY, 0f);
-        star.transform.localRotation = Quaternion.identity; 
+        star.transform.localPosition = new Vector3(xOffset, yOffset, 0f);
+        star.transform.localRotation = Quaternion.identity;
     }
 
     /// <summary>
     /// 既存の星オブジェクトを全て削除する
     /// </summary>
     // 【変更点】ClearWeapons -> ClearStars
+    // StarCount_FH.cs
+
+    /// <summary>
+    /// 既存の星オブジェクトを全て削除する
+    /// </summary>
     void ClearStars()
     {
-        // 【変更点】weapons -> stars
-        List<GameObject> toDestroy = new List<GameObject>(stars);
+        // starsリストをクリアしておく
         stars.Clear();
 
-        foreach (GameObject s in toDestroy)
+        // 子オブジェクトを格納するためのリスト
+        List<GameObject> childrenToDestroy = new List<GameObject>();
+
+        // このGameObject（親）の子を全てチェック
+        foreach (Transform child in transform)
+        {
+            // ⭐︎ ここが重要な修正ポイント ⭐︎
+            // DeployStars()で生成した星の名前は "Star_XX" と付けているため、
+            // その名前で始まる子オブジェクトのみを削除対象とする
+            if (child.name.StartsWith("Star_"))
+            {
+                childrenToDestroy.Add(child.gameObject);
+            }
+
+            // 【補足】星以外の特定の子オブジェクト（例: PlayerUI）を除外したい場合は、
+            // else if (child.name == "PlayerUI") { continue; } 
+            // のような除外条件を追加できます。
+        }
+
+        // リストアップした星オブジェクトを削除
+        foreach (GameObject s in childrenToDestroy)
         {
             if (s != null)
             {
@@ -150,6 +174,7 @@ public class StarCount_FH : MonoBehaviour
                 }
                 else
                 {
+                    // エディタモードでの即時削除
                     DestroyImmediate(s);
                 }
             }
