@@ -33,4 +33,14 @@ public class GoalTrigger_TY : MonoBehaviour
             }
         }
     }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        playerController = other.GetComponent<PlayerController_TY>();
+
+        if (playerController != null)
+        {
+            playerController.isGoal = false; // ゴールから離れたらゴール状態を解除
+        }
+    }
 }
