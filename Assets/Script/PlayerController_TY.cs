@@ -138,7 +138,7 @@ public class PlayerController_TY : MonoBehaviour
     {
         moveDirection = direction.normalized; // 入力された方向を正規化
         isMoving = true;
-        isGoal = false; // ゴール状態をリセット
+        //isGoal = false; // GoalTrigger_TYに一任
         StartCoroutine(MoveUntilWall());
     }
 
@@ -296,8 +296,7 @@ public class PlayerController_TY : MonoBehaviour
     {
         while (true)
         {
-            // otherPlayerがnullでないか確認
-            if (otherPlayer != null && isGoal && otherPlayer.isGoal)
+            if (otherPlayer != null && isGoal && otherPlayer.isGoal && !isMoving && !otherPlayer.isMoving)
             {
                 // ゲーム終了処理
                 GameManager_TY.Instance.EndGame();
