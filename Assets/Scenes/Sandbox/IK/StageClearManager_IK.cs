@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 using System.Collections;
 using UnityEngine.UI; 
+using TMPro;
 
 public class StageClearManager_IK : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class StageClearManager_IK : MonoBehaviour
     public Sprite dimStarSprite;    // 未獲得の星のスプライト (黒い星)
     // ⭐ 修正: ボタン群の親パネル (Inspectorで設定)
     public GameObject buttonGroupPanel; 
+
+    public Text targetMoveText;
     
     [System.Serializable]
     public struct RatingThreshold
@@ -80,6 +83,11 @@ public class StageClearManager_IK : MonoBehaviour
             starsEarned = 1;
         }
 
+                targetMoveText.text = $"★★★… {currentStageThreshold.threeStarsMaxMoves} 手以内 \n";
+                targetMoveText.text += $"★★… {currentStageThreshold.twoStarsMaxMoves} 手以内";
+
+        // ⭐ ⭐ 計算ロジックここまで
+        
         Debug.Log("クリア回数: " + moves + " / 評価: " + starsEarned + "つ星を獲得しました。");
         
         // アニメーションコルーチンを直接起動する
