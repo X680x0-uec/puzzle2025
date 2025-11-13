@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3519174665689841408}
   - component: {fileID: 5583502750775601213}
   m_Layer: 0
-  m_Name: ColorChangeFloor
+  m_Name: ColorChangeFloor_red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
