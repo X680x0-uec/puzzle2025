@@ -1039,6 +1039,33 @@ public partial class @InputList: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Hint1"",
+                    ""type"": ""Button"",
+                    ""id"": ""6e20a090-183a-4227-bb33-231553973680"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Hint2"",
+                    ""type"": ""Button"",
+                    ""id"": ""49d71967-c2c4-4220-804b-0bff103308cb"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Hint3"",
+                    ""type"": ""Button"",
+                    ""id"": ""cbe04e39-76d4-4fd0-81f6-1565047b4d0a"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -1877,6 +1904,72 @@ public partial class @InputList: IInputActionCollection2, IDisposable
                     ""action"": ""Left"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e699e2e7-278a-4454-b391-134252a26100"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Hint1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7e01a964-95c8-4a76-ab16-0ae9a64018e4"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Hint1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a4f6b3f0-c893-493a-87f0-c9dc82787c64"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Hint2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cdce4606-dad8-4fbb-832b-da559f50e63f"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Hint2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b55ed766-fdc1-49d4-b4d8-1ef38a97cdb4"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Hint3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6539790b-cf72-4c9f-b2da-fc917e45615e"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Hint3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -1973,6 +2066,9 @@ public partial class @InputList: IInputActionCollection2, IDisposable
         m_UI_Left = m_UI.FindAction("Left", throwIfNotFound: true);
         m_UI_Right = m_UI.FindAction("Right", throwIfNotFound: true);
         m_UI_Pause = m_UI.FindAction("Pause", throwIfNotFound: true);
+        m_UI_Hint1 = m_UI.FindAction("Hint1", throwIfNotFound: true);
+        m_UI_Hint2 = m_UI.FindAction("Hint2", throwIfNotFound: true);
+        m_UI_Hint3 = m_UI.FindAction("Hint3", throwIfNotFound: true);
     }
 
     ~@InputList()
@@ -2264,6 +2360,9 @@ public partial class @InputList: IInputActionCollection2, IDisposable
     private readonly InputAction m_UI_Left;
     private readonly InputAction m_UI_Right;
     private readonly InputAction m_UI_Pause;
+    private readonly InputAction m_UI_Hint1;
+    private readonly InputAction m_UI_Hint2;
+    private readonly InputAction m_UI_Hint3;
     /// <summary>
     /// Provides access to input actions defined in input action map "UI".
     /// </summary>
@@ -2336,6 +2435,18 @@ public partial class @InputList: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @Pause => m_Wrapper.m_UI_Pause;
         /// <summary>
+        /// Provides access to the underlying input action "UI/Hint1".
+        /// </summary>
+        public InputAction @Hint1 => m_Wrapper.m_UI_Hint1;
+        /// <summary>
+        /// Provides access to the underlying input action "UI/Hint2".
+        /// </summary>
+        public InputAction @Hint2 => m_Wrapper.m_UI_Hint2;
+        /// <summary>
+        /// Provides access to the underlying input action "UI/Hint3".
+        /// </summary>
+        public InputAction @Hint3 => m_Wrapper.m_UI_Hint3;
+        /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
         public InputActionMap Get() { return m_Wrapper.m_UI; }
@@ -2406,6 +2517,15 @@ public partial class @InputList: IInputActionCollection2, IDisposable
             @Pause.started += instance.OnPause;
             @Pause.performed += instance.OnPause;
             @Pause.canceled += instance.OnPause;
+            @Hint1.started += instance.OnHint1;
+            @Hint1.performed += instance.OnHint1;
+            @Hint1.canceled += instance.OnHint1;
+            @Hint2.started += instance.OnHint2;
+            @Hint2.performed += instance.OnHint2;
+            @Hint2.canceled += instance.OnHint2;
+            @Hint3.started += instance.OnHint3;
+            @Hint3.performed += instance.OnHint3;
+            @Hint3.canceled += instance.OnHint3;
         }
 
         /// <summary>
@@ -2462,6 +2582,15 @@ public partial class @InputList: IInputActionCollection2, IDisposable
             @Pause.started -= instance.OnPause;
             @Pause.performed -= instance.OnPause;
             @Pause.canceled -= instance.OnPause;
+            @Hint1.started -= instance.OnHint1;
+            @Hint1.performed -= instance.OnHint1;
+            @Hint1.canceled -= instance.OnHint1;
+            @Hint2.started -= instance.OnHint2;
+            @Hint2.performed -= instance.OnHint2;
+            @Hint2.canceled -= instance.OnHint2;
+            @Hint3.started -= instance.OnHint3;
+            @Hint3.performed -= instance.OnHint3;
+            @Hint3.canceled -= instance.OnHint3;
         }
 
         /// <summary>
@@ -2750,5 +2879,26 @@ public partial class @InputList: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnPause(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Hint1" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnHint1(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Hint2" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnHint2(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Hint3" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnHint3(InputAction.CallbackContext context);
     }
 }
