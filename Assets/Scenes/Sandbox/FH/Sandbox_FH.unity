@@ -1200,6 +1200,8 @@ MonoBehaviour:
   isPlayerA: 1
   moveSpeed: 5
   isMoving: 0
+  willTogether: 0
+  willStopBoth: 0
   isGoal: 0
   otherPlayer: {fileID: 1829554486}
   pauseMenuController: {fileID: 0}
@@ -2562,63 +2564,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1001 &1447241838
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1406019687430865070, guid: ad2b64dce5b745f48a0c82635f889f78, type: 3}
-      propertyPath: m_Name
-      value: DownTile (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8247339599622565304, guid: ad2b64dce5b745f48a0c82635f889f78, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1.37
-      objectReference: {fileID: 0}
-    - target: {fileID: 8247339599622565304, guid: ad2b64dce5b745f48a0c82635f889f78, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.62
-      objectReference: {fileID: 0}
-    - target: {fileID: 8247339599622565304, guid: ad2b64dce5b745f48a0c82635f889f78, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8247339599622565304, guid: ad2b64dce5b745f48a0c82635f889f78, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: -0.70710677
-      objectReference: {fileID: 0}
-    - target: {fileID: 8247339599622565304, guid: ad2b64dce5b745f48a0c82635f889f78, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8247339599622565304, guid: ad2b64dce5b745f48a0c82635f889f78, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8247339599622565304, guid: ad2b64dce5b745f48a0c82635f889f78, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 8247339599622565304, guid: ad2b64dce5b745f48a0c82635f889f78, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8247339599622565304, guid: ad2b64dce5b745f48a0c82635f889f78, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8247339599622565304, guid: ad2b64dce5b745f48a0c82635f889f78, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: ad2b64dce5b745f48a0c82635f889f78, type: 3}
 --- !u!1 &1524297533
 GameObject:
   m_ObjectHideFlags: 0
@@ -2648,7 +2593,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dfe85741da590448a0a119090c43860, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countText: {fileID: 0}
   countTextLegacy: {fileID: 0}
 --- !u!4 &1524297535
 Transform:
@@ -3228,6 +3172,8 @@ MonoBehaviour:
   isPlayerA: 0
   moveSpeed: 5
   isMoving: 0
+  willTogether: 0
+  willStopBoth: 0
   isGoal: 0
   otherPlayer: {fileID: 1021232498}
   pauseMenuController: {fileID: 0}
@@ -3613,4 +3559,3 @@ SceneRoots:
   - {fileID: 5029226083147646134}
   - {fileID: 4731386668187052925}
   - {fileID: 118359074368489533}
-  - {fileID: 1447241838}
