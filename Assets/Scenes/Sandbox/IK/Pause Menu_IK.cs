@@ -12,15 +12,27 @@ public class PauseMenu_IK : MonoBehaviour
 
     [SerializeField] private string selectSceneName = "NormalStageSelect_IK"; // 発表用ステージ選択シーンの名前
 
+    private InputList _inputSystem;
+
+    void Start()
+    {
+        _inputSystem = GameManager_TY.Instance.inputList;
+    }
 
     void Update()
     {
         if (!isPaused && Time.timeScale == 0f)
         {
+            
             return;
         }
+        
+        if (_inputSystem.UI.Pause.triggered && isPaused)
+        {
+            ResumeGame();
+        }
         // 入力が無効化されていない、かつEscapeキーが押されたら
-        if (!inputDisabled && Input.GetKeyDown(KeyCode.Escape))
+        if (!inputDisabled && _inputSystem.UI.Pause.triggered)
         {
             if (isPaused)
             {
@@ -43,7 +55,7 @@ public class PauseMenu_IK : MonoBehaviour
         inputDisabled = true; // ポーズ中は入力を無効化
         
         // ナビゲーションスクリプトの初期化メソッドを呼び出す
-        pauseNavigator.SelectInitialButton();
+        StartCoroutine(pauseNavigator.SelectFirstButtonNextFrame());
     }
 
     // ゲームを再開する

@@ -9,14 +9,36 @@ public class PauseMenuNavigator_IK : MonoBehaviour
     public Button[] menuButtons;
     
     // 現在選択されているボタンのインデックス
-    private int selectedIndex = 0;
+    public int selectedIndex = 0;
 
     // ポーズメニューの機能を呼び出すためのコントローラー
     // インスペクターでPauseMenuControllerスクリプトがアタッチされたオブジェクトをアタッチ
     public PauseMenu_IK pauseMenuController;
 
-public void SelectInitialButton()
-{
+    private InputList _inputSystem;
+    public GameObject firstSelectedButton;
+
+    void Start()
+    {
+        _inputSystem = GameManager_TY.Instance.inputList;
+    }
+
+    // StageClearManager_IKからパクリ
+    public IEnumerator SelectFirstButtonNextFrame()
+    {
+        yield return null; 
+
+        if (firstSelectedButton != null && EventSystem.current != null)
+        {
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(firstSelectedButton);
+            Debug.Log("UI操作開始: 最初のボタンにフォーカスを設定しました。");
+        }
+    }
+
+    /*
+    public void SelectInitialButton()
+    {
     // selectedIndexを0にリセット
     selectedIndex = 0;
     
@@ -25,11 +47,11 @@ public void SelectInitialButton()
     {
         menuButtons[selectedIndex].Select();
     }
-}
+    }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (_inputSystem.UI.Up.triggered)
         {
             Navigate(-1);
         }
@@ -66,4 +88,5 @@ public void SelectInitialButton()
         // 新しいボタンを選択状態にする
         menuButtons[selectedIndex].Select();
     }
+    */
 }
