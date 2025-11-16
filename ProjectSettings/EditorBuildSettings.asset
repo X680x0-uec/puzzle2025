@@ -206,6 +206,33 @@ EditorBuildSettings:
   - enabled: 1
     path: "Assets/Scenes/Sandbox/IK/stages2/\u6642\u8A08\u56DE\u308A_IK.unity"
     guid: 2d1665a6b821d2742bdfea61f8a5ee22
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/IK/stages2/replace_IK.unity
+    guid: 095bdf971ce8aaa48949d711a3ecbbf5
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/IK/stages2/parting_IK.unity
+    guid: fc47a6e91a677194dbd5dd50008c87e1
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/IK/stages2/more parting_IK.unity
+    guid: 604091f6ac00d71498969dfe735ec42e
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/IK/stages2/star_IK.unity
+    guid: fed65bb4a35ae734eaa10c4bde0cd487
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/IK/stages2/virus_IK.unity
+    guid: ee0536b267ca6844ea05ecac60cdd8af
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/IK/stages2/grid_IK.unity
+    guid: dd74fd1bbc095c34cb507bf5cf7a084f
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/IK/stages2/grid part.2_IK.unity
+    guid: 2f09fdc68e5f7ac40925a45fb472570b
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/IK/stages2/grid part.3_IK.unity
+    guid: 915729efbdc526c4b910abbda31d2204
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/IK/stages2/Garden of Eden_IK.unity
+    guid: 1e9c38c5d5fe1494e9e9033e63ff392a
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
