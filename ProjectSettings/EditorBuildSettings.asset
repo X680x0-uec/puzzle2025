@@ -20,19 +20,19 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Sandbox/AY/Sandbox_AY.unity
     guid: 0de2648294b9f924e9b67f5bcf3f2652
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Sandbox/IK/Stages/20250821_IK.unity
     guid: 29e4f5ac4ef3a8d4898d26ab54d624b7
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Sandbox/IK/Stages/20250827_IK.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Sandbox/IK/Stages/20250830_IK.unity
     guid: 5c5e4ffcb8cc10b41a57e85f1f070045
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Sandbox/IK/Stages/20250830-2_IK.unity
     guid: 447f03e55a750184da272aca39adac65
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Sandbox/IK/Stages/20250830-3_IK.unity
     guid: 6a9a6358a39b6f549b3c038f270e122d
   - enabled: 1
@@ -50,57 +50,162 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Sandbox/IK/Title~Select/NormalStageSelect_IK.unity
     guid: a1713851e5671654281af6d77b76f048
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Sandbox/IK/Stages/20250831_IK.unity
     guid: 1a423a17694c5244aab1f75866faffbb
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Sandbox/IK/Stages/20250907-2_IK.unity
     guid: d237abf84d4a65f4690e66805dc8c12e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Sandbox/IK/Stages/20250907_IK.unity
     guid: f3b8f4136ff20e34a9a26f5d7d874f08
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Sandbox/IK/Stages/20250908_IK.unity
     guid: 2ed2c207fff33c34f91a66dc058c41cc
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Sandbox/IK/Stages/20250909-2_IK.unity
     guid: 9a76ad01adf327b4c9ec34314f26516e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Sandbox/IK/Stages/20250909_IK.unity
     guid: c75f01a0a6c3c1c479ee4be18259bba5
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Sandbox/IK/Stages/20250910_IK.unity
     guid: b847f68ad17a2df4eabd0f53f930501f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Sandbox/IK/Stages/20250913_IK.unity
     guid: b30c0339e0a1645498b66102268f636f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Sandbox/IK/Stages/20250914_IK.unity
     guid: 4ef58e4a83e90c44ca7b672fbbdc07cc
-  - enabled: 1
+  - enabled: 0
     path: "Assets/Scenes/Sandbox/IK/Stages/20250914_IK - \u30B3\u30D4\u30FC.unity"
     guid: e8281f6b4d5d9434a9cc29d7c7737496
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Sandbox/IK/Stages/20250921-2_IK.unity
     guid: 43d7366876ef36d44a9cfc69f48e988a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Sandbox/IK/Stages/20250921_IK.unity
     guid: f7bda287bb7748f44bc0b2ba694dc981
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Sandbox/IK/Stages/20250922_IK.unity
     guid: c197cd37b64a71f4d89ebef2d542552f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Sandbox/IK/Stages/20251010-3_IK.unity
     guid: a7f61158be869b9498aecc8f98e277f6
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Sandbox/IK/Stages/20250928_IK.unity
     guid: cff483190c42b47419d79f8e3e4307ce
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Sandbox/IK/Stages/20251003-2_IK.unity
     guid: 78925349835a0d84694a0550db4b4600
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Sandbox/IK/Stages/20251003_IK2.unity
     guid: a02cd2e78cc408a42b46604535092b2d
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/IK/stages2/#_IK.unity
+    guid: 736d1775381eb7f4a982e470097516cb
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/IK/stages2/#2_IK.unity
+    guid: 8268646ae9adc6144982c044d5272d6c
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/IK/stages2/#3_IK.unity
+    guid: 454d79e2ca09efd4c99b571f91e3f80d
+  - enabled: 1
+    path: "Assets/Scenes/Sandbox/IK/stages2/7\u30FBL_IK.unity"
+    guid: a14c54a841886ba48a6412c010477d4f
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/IK/stages2/300_IK.unity
+    guid: f7fcc39b45ebb2f4e8c0af0e7fc4382a
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/IK/stages2/1500_IK.unity
+    guid: 8e246e99e25a8e24a8f7e928616cd9fb
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/IK/stages2/2700_IK.unity
+    guid: 568ed37534476b54c8b9e02ebed2215b
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/IK/stages2/anticlockwise_IK.unity
+    guid: 4c075df3faaa7254398d9901c1261ded
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/IK/stages2/brick_IK.unity
+    guid: 8edb485fb95216c489b036f81f2702de
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/IK/stages2/butterfly_IK.unity
+    guid: ee9900373ecf9dc46acd67537eadde3d
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/IK/stages2/calculated_IK.unity
+    guid: 79472ef81e172414a95a63b271094949
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/IK/stages2/checkered pattern_IK.unity
+    guid: db146d26dae686d44984cefa2cd8f22e
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/IK/stages2/Clover Maze_IK.unity
+    guid: 96716db6cc3778344ae6784a9a680143
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/IK/stages2/Clover Maze part.2_IK.unity
+    guid: bcb2521633dea504eb42e3ae67a727cc
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/IK/stages2/Clover Maze part.3_IK.unity
+    guid: 499e736bfce510443948d5bbf72215d2
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/IK/stages2/combination_IK.unity
+    guid: b435c61b847737b44b25be7aeac758a9
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/IK/stages2/crossroad_IK.unity
+    guid: b37e38e09e8fb034597b1bd689abe013
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/IK/stages2/four-hole button_IK.unity
+    guid: 262ce8ffca6c6ea419a49bb706f93bb6
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/IK/stages2/frustrating_IK.unity
+    guid: e51e42b33b9219149b9bf007a6149d0c
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/IK/stages2/knight_IK.unity
+    guid: 63d26813f71a3b44984141fa87423a2f
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/IK/stages2/obstacle_IK.unity
+    guid: d99a51f33f85aca428712a61291825a2
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/IK/stages2/point symmetry_IK.unity
+    guid: 78f3fce2410cd814d8f72a2106463635
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/IK/stages2/pseudo wall_IK.unity
+    guid: 4c0fd4f839dc29b409d88fe62f2491f4
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/IK/stages2/purple maze_IK.unity
+    guid: 0eb7d6895cf63a54582cf42d27d03d4f
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/IK/stages2/QR_IK.unity
+    guid: a84086a0e3592d04e975db44ce77ca9f
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/IK/stages2/replacement_IK.unity
+    guid: 640b59410c8bd9e49a0ea9eddfb3fb06
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/IK/stages2/spiral_IK.unity
+    guid: 3340f15d1c6f2c049b127797fec1253f
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/IK/stages2/think about blue_IK.unity
+    guid: bd682dbba1fd3e04eaa6b54d8ddf5bd7
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/IK/stages2/think about both_IK.unity
+    guid: b75754f7948a9c944bbd11f534743b90
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/IK/stages2/unbroken crossroad_IK.unity
+    guid: 0023c0664d89c0148960f531527a1b89
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/IK/stages2/windmill_IK.unity
+    guid: 27a19759560d7d8459df05a1c78f11a0
+  - enabled: 1
+    path: "Assets/Scenes/Sandbox/IK/stages2/\u300C1\u300D_IK.unity"
+    guid: 1e0c38656b08fb44886430f270bc713d
+  - enabled: 1
+    path: "Assets/Scenes/Sandbox/IK/stages2/\u300C2\u300D_IK.unity"
+    guid: 99c061989c292bf4cac1a303051c00df
+  - enabled: 1
+    path: "Assets/Scenes/Sandbox/IK/stages2/\u300C3\u300D_IK.unity"
+    guid: 5a98a0d10742bc64a9e4a308d9f859fe
+  - enabled: 1
+    path: "Assets/Scenes/Sandbox/IK/stages2/\u6642\u8A08\u56DE\u308A_IK.unity"
+    guid: 2d1665a6b821d2742bdfea61f8a5ee22
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
