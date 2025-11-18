@@ -18,6 +18,7 @@ public class brokenfloor_IK : MonoBehaviour
     SpriteRenderer sr;
 
     private Animator animator;
+    public AudioClip breakSound;
 
     void Start()
     {
@@ -36,6 +37,12 @@ public class brokenfloor_IK : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             Debug.Log("プレイヤーと消える床が衝突しました！");
+
+            if (AudioManager_TY.Instance != null && breakSound != null)
+            {
+                AudioManager_TY.Instance.PlaySFX(breakSound);
+            }
+
             type = Type.notgo;
             // 崩壊後の画像に切り替える
             sr.sprite = BrokenImage;
