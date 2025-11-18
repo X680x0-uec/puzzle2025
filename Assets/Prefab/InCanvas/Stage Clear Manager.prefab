@@ -148,6 +148,7 @@ MonoBehaviour:
   normalScale: {x: 1, y: 1, z: 1}
   highlightedScale: {x: 1.2, y: 1.2, z: 1.2}
   scaleSpeed: 0.15
+  scaleSound: {fileID: 0}
 --- !u!1 &1646305816572122834
 GameObject:
   m_ObjectHideFlags: 0
@@ -450,6 +451,7 @@ MonoBehaviour:
   normalScale: {x: 1, y: 1, z: 1}
   highlightedScale: {x: 1.2, y: 1.2, z: 1.2}
   scaleSpeed: 0.15
+  scaleSound: {fileID: 0}
 --- !u!1 &3385946295831229602
 GameObject:
   m_ObjectHideFlags: 0
@@ -699,6 +701,7 @@ MonoBehaviour:
   dimStarSprite: {fileID: 2019951968972939414, guid: cb16cb4dc96966a4eba64d99ecbb6589, type: 3}
   buttonGroupPanel: {fileID: 7191113789384254868}
   targetMoveText: {fileID: 8687496979484967014}
+  clearSound: {fileID: 8300000, guid: 6d57f7f25c7e000498251725dffc2608, type: 3}
   currentStageThreshold:
     twoStarsMaxMoves: 10
     threeStarsMaxMoves: 1

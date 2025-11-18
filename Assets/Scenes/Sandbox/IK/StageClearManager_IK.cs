@@ -19,6 +19,7 @@ public class StageClearManager_IK : MonoBehaviour
     public GameObject buttonGroupPanel; 
 
     public Text targetMoveText;
+    public AudioClip clearSound;
     
     [System.Serializable]
     public struct RatingThreshold
@@ -33,6 +34,11 @@ public class StageClearManager_IK : MonoBehaviour
     // GameManagerから最終移動回数を受け取り、クリア画面を表示する
     public void ShowClearScreen(int moves)
     {
+        if (AudioManager_TY.Instance != null && clearSound != null)
+        {
+            AudioManager_TY.Instance.PlaySFX(clearSound);
+        }
+
         finalMoveCount = moves;
 
         // ⭐ 黒い星の初期化 
