@@ -7,17 +7,59 @@ public class PlayerColor_TY : MonoBehaviour
 {
     // プレイヤーのタイプを定義
     public enum PlayerType { None, Red, Blue, Purple, Yellow, Orange, Green, Button, BrokenWall, DirectionTile, WarpTile }
+    public Sprite redSprite;
+    public Sprite blueSprite;
+    public Sprite purpleSprite;
+    private SpriteRenderer spriteRenderer;
     public PlayerType firstPlayerType; // 初期のプレイヤータイプ（色）
     public PlayerType originalPlayerType; // マージ前のプレイヤータイプ（色）
     public PlayerType mergedPlayerType; // マージ後のプレイヤータイプ（色）
     public Color playerColor; // プレイヤーの色
 
+    void Awake()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
     private void Start()
     {
         // 初期のプレイヤータイプに基づいて色を設定
-        SetColorFromType(firstPlayerType);
+        SetType(firstPlayerType);
     }
 
+    public void SetType(PlayerType type)
+    {
+        switch (type)
+        {
+            case PlayerType.Red:
+                if(redSprite != null) {
+                    spriteRenderer.sprite = redSprite;
+                    originalPlayerType = PlayerType.Red;
+                    mergedPlayerType = PlayerType.Red;
+                }
+                break;
+            case PlayerType.Blue:
+                if(blueSprite != null) {
+                    spriteRenderer.sprite = blueSprite;
+                    originalPlayerType = PlayerType.Blue;
+                    mergedPlayerType = PlayerType.Blue;
+                }
+                break;
+            case PlayerType.Purple:
+                if(purpleSprite != null) {
+                    spriteRenderer.sprite = purpleSprite;
+                    mergedPlayerType = PlayerType.Purple;
+                }
+                break;
+            // 他のタイプに対するスプライト設定もここに追加可能
+            default:
+            Debug.LogWarning("No sprite assigned for this PlayerType: " + type);
+                break;
+        }
+        spriteRenderer.color = Color.white;
+    }
+
+/*
     /// <summary>
     /// プレイヤーのタイプに基づいて色を設定
     /// </summary>
@@ -111,4 +153,5 @@ public class PlayerColor_TY : MonoBehaviour
                Mathf.Abs(a.g - b.g) < threshold &&
                Mathf.Abs(a.b - b.b) < threshold;
     }
+    */
 }
