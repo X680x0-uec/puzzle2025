@@ -3576,6 +3576,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1829554486}
     - target: {fileID: 5686929326864688342, guid: a0ea76aae2c74c24b98294c3277ece1b, type: 3}
+      propertyPath: playerMoveSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 53737caca27cc23448d7650775799d43, type: 3}
+    - target: {fileID: 5686929326864688342, guid: a0ea76aae2c74c24b98294c3277ece1b, type: 3}
       propertyPath: pauseMenuController
       value: 
       objectReference: {fileID: 931175143}
@@ -3661,6 +3665,10 @@ PrefabInstance:
       propertyPath: otherPlayer
       value: 
       objectReference: {fileID: 1021232498}
+    - target: {fileID: 154361597032658137, guid: 3fbc03fc5ccc4c24aad43477458904bb, type: 3}
+      propertyPath: playerMoveSound
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 154361597032658137, guid: 3fbc03fc5ccc4c24aad43477458904bb, type: 3}
       propertyPath: pauseMenuController
       value: 
