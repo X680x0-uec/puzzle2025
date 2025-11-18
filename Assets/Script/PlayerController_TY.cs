@@ -255,10 +255,15 @@ public class PlayerController_TY : MonoBehaviour
         PlayerColor_TY otherColorScript = other.GetComponent<PlayerColor_TY>();
         if (otherColorScript != null && isPlayerA)
         {
-            // 色を混ぜる（単純な加算例）
-            Color newColor = (colorScript.playerColor + otherColorScript.playerColor);
-            colorScript.SetColorFromColor(newColor);
-            otherColorScript.SetColorFromColor(newColor);
+            var myType = colorScript.mergedPlayerType;
+            var otherType = otherColorScript.mergedPlayerType;
+            if ((myType == PlayerColor_TY.PlayerType.Red && otherType == PlayerColor_TY.PlayerType.Blue)
+            || (myType == PlayerColor_TY.PlayerType.Blue && otherType == PlayerColor_TY.PlayerType.Red))
+            {
+                // 赤と青で紫に変化
+                colorScript.SetType(PlayerColor_TY.PlayerType.Purple);
+                otherColorScript.SetType(PlayerColor_TY.PlayerType.Purple);
+            }
         }
 
         // 相手が停止している
@@ -289,7 +294,7 @@ public class PlayerController_TY : MonoBehaviour
         if (otherChar != null && otherChar != this)
         {
             // 元の色に戻す処理
-            colorScript.SetColorFromType(colorScript.originalPlayerType);
+            colorScript.SetType(colorScript.originalPlayerType);
         }
     }
 

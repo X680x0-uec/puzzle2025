@@ -81,7 +81,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 4721569793947162014, guid: ff574d6b91705ae48886fe62f6c12ac0, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -185,6 +185,7 @@ MonoBehaviour:
   isGoal: 0
   otherPlayer: {fileID: 0}
   pauseMenuController: {fileID: 0}
+  playerMoveSound: {fileID: 0}
   otherPlayerStartPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &7672203858458460552
 MonoBehaviour:
@@ -198,6 +199,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ff24535d7c17cb48bcb5924b1fa5c59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  redSprite: {fileID: 4721569793947162014, guid: ff574d6b91705ae48886fe62f6c12ac0, type: 3}
+  blueSprite: {fileID: 7790004858771951807, guid: 78770572e53223b46b7b811074682dce, type: 3}
+  purpleSprite: {fileID: -2479514447240447625, guid: 390e4ad50ad470e458c2bb35610582fe, type: 3}
   firstPlayerType: 1
   originalPlayerType: 0
   mergedPlayerType: 0
