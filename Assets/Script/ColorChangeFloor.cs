@@ -8,6 +8,7 @@ using UnityEngine;
 public class ColorChangeFloor : MonoBehaviour
 {
     public PlayerColor_TY.PlayerType newColor = PlayerColor_TY.PlayerType.Red;
+    public AudioClip colorChangeSound;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -16,7 +17,11 @@ public class ColorChangeFloor : MonoBehaviour
             PlayerColor_TY player = other.GetComponent<PlayerColor_TY>();
             if (player != null)
             {
-                player.SetColorFromType(newColor);
+                player.SetType(newColor);
+                if (AudioManager_TY.Instance != null && colorChangeSound != null)
+                {
+                    AudioManager_TY.Instance.PlaySFX(colorChangeSound);
+                }
             }
         }
     }

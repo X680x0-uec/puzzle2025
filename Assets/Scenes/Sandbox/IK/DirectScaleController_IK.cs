@@ -8,6 +8,7 @@ public class DirectScaleController_IK : MonoBehaviour, ISelectHandler, IDeselect
     public Vector3 normalScale = new Vector3(1f, 1f, 1f);
     public Vector3 highlightedScale = new Vector3(1.2f, 1.2f, 1.2f); // 1.2倍に拡大
     public float scaleSpeed = 0.15f; // 拡大・縮小にかける時間（秒）
+    public AudioClip scaleSound;
 
     private RectTransform rectTransform;
     private Coroutine scaleCoroutine;
@@ -27,6 +28,10 @@ public class DirectScaleController_IK : MonoBehaviour, ISelectHandler, IDeselect
     // ⭐ キーボード/マウスで選択状態になったとき（拡大）
     public void OnSelect(BaseEventData eventData)
     {
+        if (AudioManager_TY.Instance != null && scaleSound != null)
+        {
+            AudioManager_TY.Instance.PlaySFX(scaleSound);
+        }
         if (scaleCoroutine != null) StopCoroutine(scaleCoroutine);
         // 拡大コルーチンを開始
         scaleCoroutine = StartCoroutine(ScaleTo(highlightedScale, scaleSpeed));
