@@ -148,3 +148,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   newColor: 1
+  colorChangeSound: {fileID: 8300000, guid: 69f7dbb0cb144684099e19aa72834f51, type: 3}

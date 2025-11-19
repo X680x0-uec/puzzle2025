@@ -1,0 +1,559 @@
+fileFormatVersion: 2
+guid: 42fd1e7f22a6a0344bf909c991a2ce64
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4974053587829129521
+    second: warptile_0
+  - first:
+      213: -6521821324125452671
+    second: warptile_1
+  - first:
+      213: -3361684307663581348
+    second: warptile_2
+  - first:
+      213: 1677985829268878913
+    second: warptile_3
+  - first:
+      213: -5746575164316290935
+    second: warptile_4
+  - first:
+      213: -5187673087422582052
+    second: warptile_5
+  - first:
+      213: -1628569539374180693
+    second: warptile_6
+  - first:
+      213: 5131657261880025717
+    second: warptile_7
+  - first:
+      213: 31166165227655763
+    second: warptile_8
+  - first:
+      213: -3047331960230980552
+    second: warptile_9
+  - first:
+      213: 3461684201293233178
+    second: warptile_10
+  - first:
+      213: -5865639566660967415
+    second: warptile_11
+  - first:
+      213: 1716260730219151896
+    second: warptile_12
+  - first:
+      213: -7030752306967697702
+    second: warptile_13
+  - first:
+      213: -7222077939407241747
+    second: warptile_14
+  - first:
+      213: -515863150621200804
+    second: warptile_15
+  - first:
+      213: 7947614803625952738
+    second: warptile_16
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 800
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: warptile_0
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 666
+        width: 20
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fceffa39d9c98fab0800000000000000
+      internalID: -4974053587829129521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: warptile_1
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 645
+        width: 38
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1864fee4f06dd75a0800000000000000
+      internalID: -6521821324125452671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: warptile_2
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 39
+        width: 500
+        height: 604
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5f05b2eee5e851d0800000000000000
+      internalID: -3361684307663581348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: warptile_3
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 637
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 146f5bba837694710800000000000000
+      internalID: 1677985829268878913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: warptile_4
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 637
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98078dfa5501040b0800000000000000
+      internalID: -5746575164316290935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: warptile_5
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 516
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd2b25dffcea108b0800000000000000
+      internalID: -5187673087422582052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: warptile_6
+      rect:
+        serializedVersion: 2
+        x: 631
+        y: 503
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba69499e1a82669e0800000000000000
+      internalID: -1628569539374180693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: warptile_7
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 418
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 572a96b471f473740800000000000000
+      internalID: 5131657261880025717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: warptile_8
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 388
+        width: 38
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 352d76f4679be6000800000000000000
+      internalID: 31166165227655763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: warptile_9
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 393
+        width: 19
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 834dcb54ab3b5b5d0800000000000000
+      internalID: -3047331960230980552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: warptile_10
+      rect:
+        serializedVersion: 2
+        x: 686
+        y: 388
+        width: 36
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1c3aa6b07f5a0030800000000000000
+      internalID: 3461684201293233178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: warptile_11
+      rect:
+        serializedVersion: 2
+        x: 661
+        y: 376
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90462b044ef099ea0800000000000000
+      internalID: -5865639566660967415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: warptile_12
+      rect:
+        serializedVersion: 2
+        x: 737
+        y: 359
+        width: 26
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8124aae7a0261d710800000000000000
+      internalID: 1716260730219151896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: warptile_13
+      rect:
+        serializedVersion: 2
+        x: 771
+        y: 359
+        width: 28
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad6ae6ff600cd6e90800000000000000
+      internalID: -7030752306967697702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: warptile_14
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 329
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ded3279d06606cb90800000000000000
+      internalID: -7222077939407241747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: warptile_15
+      rect:
+        serializedVersion: 2
+        x: 643
+        y: 296
+        width: 17
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5e628a923947d8f0800000000000000
+      internalID: -515863150621200804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: warptile_16
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 207
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e5c2cd3e899b4e60800000000000000
+      internalID: 7947614803625952738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      warptile_0: -4974053587829129521
+      warptile_1: -6521821324125452671
+      warptile_10: 3461684201293233178
+      warptile_11: -5865639566660967415
+      warptile_12: 1716260730219151896
+      warptile_13: -7030752306967697702
+      warptile_14: -7222077939407241747
+      warptile_15: -515863150621200804
+      warptile_16: 7947614803625952738
+      warptile_2: -3361684307663581348
+      warptile_3: 1677985829268878913
+      warptile_4: -5746575164316290935
+      warptile_5: -5187673087422582052
+      warptile_6: -1628569539374180693
+      warptile_7: 5131657261880025717
+      warptile_8: 31166165227655763
+      warptile_9: -3047331960230980552
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

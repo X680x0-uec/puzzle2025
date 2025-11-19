@@ -233,6 +233,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Sandbox/IK/stages2/Garden of Eden_IK.unity
     guid: 1e9c38c5d5fe1494e9e9033e63ff392a
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/IK/stages2/broken wall_IK.unity
+    guid: 1bfd0fd84b9112046bdb0931ebb0126d
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

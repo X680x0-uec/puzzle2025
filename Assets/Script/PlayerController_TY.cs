@@ -22,11 +22,11 @@ public class PlayerController_TY : MonoBehaviour
 
     // PauseMenuの参照は手動で設定
     public PauseMenu_IK pauseMenuController;
+    public AudioClip playerMoveSound;
 
     private Rigidbody2D rb;
     private Renderer rend;
     private PlayerColor_TY colorScript;
-    private AudioPlayer_TY audioPlayer;
 
     private Vector3 startPosition; 
     public Vector3 otherPlayerStartPosition; 
@@ -36,7 +36,6 @@ public class PlayerController_TY : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rend = GetComponent<Renderer>();
         colorScript = GetComponent<PlayerColor_TY>();
-        audioPlayer = GetComponent<AudioPlayer_TY>();
 
         if (isPlayerA == otherPlayer.isPlayerA)
         {
@@ -106,6 +105,11 @@ public class PlayerController_TY : MonoBehaviour
                 {
                     if (transform.position != startPosition || (otherPlayer != null && otherPlayer.transform.position != otherPlayer.startPosition))
                     {
+                        if (AudioManager_TY.Instance != null)
+                        {
+                            AudioManager_TY.Instance.PlaySFX(playerMoveSound);
+                            Debug.Log("再生: プレイヤー移動音");
+                        }
                         if (GameManager_TY.Instance != null)
                         {
                             GameManager_TY.Instance.ReportMoveFinished(isPlayerA);
@@ -128,7 +132,8 @@ public class PlayerController_TY : MonoBehaviour
         // otherPlayerがnullでないか確認
         if (direction != Vector2.zero && otherPlayer != null)
         {
-            if (audioPlayer != null) { audioPlayer.PlayPlayerMoveSound(); }
+            //AudioManager_TY.Instance.PlaySFX(playerMoveSound);
+
             TryMove(direction);
             otherPlayer.TryMove(direction);
         }
@@ -250,10 +255,15 @@ public class PlayerController_TY : MonoBehaviour
         PlayerColor_TY otherColorScript = other.GetComponent<PlayerColor_TY>();
         if (otherColorScript != null && isPlayerA)
         {
-            // 色を混ぜる（単純な加算例）
-            Color newColor = (colorScript.playerColor + otherColorScript.playerColor);
-            colorScript.SetColorFromColor(newColor);
-            otherColorScript.SetColorFromColor(newColor);
+            var myType = colorScript.mergedPlayerType;
+            var otherType = otherColorScript.mergedPlayerType;
+            if ((myType == PlayerColor_TY.PlayerType.Red && otherType == PlayerColor_TY.PlayerType.Blue)
+            || (myType == PlayerColor_TY.PlayerType.Blue && otherType == PlayerColor_TY.PlayerType.Red))
+            {
+                // 赤と青で紫に変化
+                colorScript.SetType(PlayerColor_TY.PlayerType.Purple);
+                otherColorScript.SetType(PlayerColor_TY.PlayerType.Purple);
+            }
         }
 
         // 相手が停止している
@@ -284,7 +294,7 @@ public class PlayerController_TY : MonoBehaviour
         if (otherChar != null && otherChar != this)
         {
             // 元の色に戻す処理
-            colorScript.SetColorFromType(colorScript.originalPlayerType);
+            colorScript.SetType(colorScript.originalPlayerType);
         }
     }
 
