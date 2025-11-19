@@ -312,7 +312,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 178.125, y: -50}
+  m_AnchoredPosition: {x: 249.99998, y: -50}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2146607107857558345
@@ -424,6 +424,8 @@ MonoBehaviour:
   normalScale: {x: 1, y: 1, z: 1}
   highlightedScale: {x: 1.2, y: 1.2, z: 1.2}
   scaleSpeed: 0.15
+  scaleSound: {fileID: 0}
+  scaleSoundScale: 1
 --- !u!1 &1700054361601422964
 GameObject:
   m_ObjectHideFlags: 0
@@ -731,7 +733,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 34.375, y: -50}
+  m_AnchoredPosition: {x: 58.333332, y: -50}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2842467208019730186
@@ -789,7 +791,7 @@ MonoBehaviour:
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 1995513368368863498}
+    m_SelectOnLeft: {fileID: 1910343691071795506}
     m_SelectOnRight: {fileID: 4781201858777100579}
   m_Transition: 0
   m_Colors:
@@ -843,6 +845,8 @@ MonoBehaviour:
   normalScale: {x: 1, y: 1, z: 1}
   highlightedScale: {x: 1.2, y: 1.2, z: 1.2}
   scaleSpeed: 0.15
+  scaleSound: {fileID: 0}
+  scaleSoundScale: 1
 --- !u!1 &4208938738381293921
 GameObject:
   m_ObjectHideFlags: 0
@@ -998,7 +1002,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8205995927491101576
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1129,6 +1133,8 @@ MonoBehaviour:
   normalScale: {x: 1, y: 1, z: 1}
   highlightedScale: {x: 1.2, y: 1.2, z: 1.2}
   scaleSpeed: 0.15
+  scaleSound: {fileID: 0}
+  scaleSoundScale: 1
 --- !u!1 &4894204185340374461
 GameObject:
   m_ObjectHideFlags: 0
@@ -1493,7 +1499,7 @@ MonoBehaviour:
   pausePanel: {fileID: 150317129311672242}
   pauseNavigator: {fileID: 7238991905702049502}
   isPaused: 0
-  selectSceneName: EasyStageSelect_IK
+  selectSceneName: NormalStageSelect_IK
 --- !u!1 &6150949615062446269
 GameObject:
   m_ObjectHideFlags: 0
@@ -2080,7 +2086,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 321.875, y: -50}
+  m_AnchoredPosition: {x: 441.66666, y: -50}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &132453815067998807
@@ -2139,7 +2145,7 @@ MonoBehaviour:
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 4781201858777100579}
-    m_SelectOnRight: {fileID: 1995513368368863498}
+    m_SelectOnRight: {fileID: 8668730812845972146}
   m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -2192,6 +2198,8 @@ MonoBehaviour:
   normalScale: {x: 1, y: 1, z: 1}
   highlightedScale: {x: 1.2, y: 1.2, z: 1.2}
   scaleSpeed: 0.15
+  scaleSound: {fileID: 0}
+  scaleSoundScale: 1
 --- !u!1 &8044779716121434014
 GameObject:
   m_ObjectHideFlags: 0

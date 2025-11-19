@@ -325,7 +325,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: EasyStageSelect_IK
+          m_StringArgument: NormalStageSelect_IK
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &244084528
@@ -633,7 +633,7 @@ MonoBehaviour:
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 1301453796}
     m_SelectOnDown: {fileID: 1301453796}
-    m_SelectOnLeft: {fileID: 1301453796}
+    m_SelectOnLeft: {fileID: 1448776372}
     m_SelectOnRight: {fileID: 244084527}
   m_Transition: 0
   m_Colors:
@@ -669,7 +669,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: StageSelect_IK
+          m_StringArgument: TutorialStageSelect_IK
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &532348753
@@ -1559,7 +1559,7 @@ MonoBehaviour:
     m_SelectOnUp: {fileID: 1301453796}
     m_SelectOnDown: {fileID: 1301453796}
     m_SelectOnLeft: {fileID: 244084527}
-    m_SelectOnRight: {fileID: 1301453796}
+    m_SelectOnRight: {fileID: 532348752}
   m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -1594,7 +1594,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: NormalStageSelect_IK
+          m_StringArgument: SpecialStageSelect_IK
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1448776373
