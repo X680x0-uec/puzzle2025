@@ -78,8 +78,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -712631045867808456, guid: b670ab75dde984907b8570040daa08c5, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 1448678493172346257, guid: d461ff41cbd2a1f41a01bf0a92496c09, type: 3}
+  m_Color: {r: 1, g: 0.49371064, b: 0.49371064, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -127,7 +127,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 0.8828125}
+    oldSize: {x: 0.9166667, y: 0.8333333}
     newSize: {x: 1, y: 0.8828125}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -149,3 +149,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newColor: 1
   colorChangeSound: {fileID: 8300000, guid: 69f7dbb0cb144684099e19aa72834f51, type: 3}
+  spriteA: {fileID: 1448678493172346257, guid: d461ff41cbd2a1f41a01bf0a92496c09, type: 3}
+  colorA: {r: 1, g: 0.49411765, b: 0.49411765, a: 1}
+  spriteB: {fileID: 1448678493172346257, guid: d461ff41cbd2a1f41a01bf0a92496c09, type: 3}
+  colorB: {r: 1, g: 0.49411765, b: 0.49411765, a: 1}
+  switchInterval: 0.5

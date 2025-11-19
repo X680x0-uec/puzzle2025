@@ -19,10 +19,13 @@ public Sprite spriteA; // 1つ目の画像（例：光ってない画像）
     public float switchInterval = 0.5f; // 切り替わる秒数
 
     private SpriteRenderer spriteRenderer;
+    private Quaternion initialRotation;
 
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+
+        initialRotation = transform.localRotation;
         
         // 画像が設定されていればアニメーションを開始
         if (spriteA != null && spriteB != null)
@@ -41,11 +44,13 @@ public Sprite spriteA; // 1つ目の画像（例：光ってない画像）
             // パターンA
             spriteRenderer.sprite = spriteA;
             spriteRenderer.color = colorA;
+            transform.localRotation = initialRotation;
             yield return new WaitForSeconds(switchInterval);
 
             // パターンB
             spriteRenderer.sprite = spriteB;
             spriteRenderer.color = colorB;
+            transform.localRotation = initialRotation * Quaternion.Euler(0, 0, 180f);
             yield return new WaitForSeconds(switchInterval);
         }
     }
