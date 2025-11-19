@@ -5,7 +5,6 @@ using System.Collections;
 
 public class ButtonManager : MonoBehaviour
 {
-    /*
     // Unityエディタからボタンを割り当てるためのリスト
     public Button[] navButtons;
     // Enterキーで実行するイベント
@@ -16,31 +15,12 @@ public class ButtonManager : MonoBehaviour
     public Color highlightedColor = Color.yellow;
 
     private int currentIndex = 0;
-    */
-
-    public GameObject firstSelectedButton;
+    private InputList _inputSystem;
 
     void Start()
     {
-        StartCoroutine(SelectFirstButtonNextFrame());
-    }
+        _inputSystem = GameManager_TY.Instance.inputList;
 
-    // StageClearManager_IKからパクリ
-    public IEnumerator SelectFirstButtonNextFrame()
-    {
-        yield return null; 
-
-        if (firstSelectedButton != null && EventSystem.current != null)
-        {
-            EventSystem.current.SetSelectedGameObject(null);
-            EventSystem.current.SetSelectedGameObject(firstSelectedButton);
-            Debug.Log("UI操作開始: 最初のボタンにフォーカスを設定しました。");
-        }
-    }
-
-    /*
-    void Start()
-    {
         // すべてのボタンのクリックを無効にし、TransitionをNoneに設定
         foreach (var button in navButtons)
         {
@@ -57,19 +37,19 @@ public class ButtonManager : MonoBehaviour
     void Update()
     {
         // 左右キーの入力を検出
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        if (_inputSystem.UI.Left.triggered)
         {
             currentIndex = (currentIndex - 1 + navButtons.Length) % navButtons.Length;
             SelectButton(currentIndex);
         }
-        else if (Input.GetKeyDown(KeyCode.RightArrow))
+        else if (_inputSystem.UI.Right.triggered)
         {
             currentIndex = (currentIndex + 1) % navButtons.Length;
             SelectButton(currentIndex);
         }
 
         // Enterキーの入力を検出し、現在選択されているボタンのonClickイベントを実行
-        if (Input.GetKeyDown(submitKey))
+        if (_inputSystem.UI.Submit.triggered)
         {
             navButtons[currentIndex].onClick.Invoke();
         }
@@ -86,5 +66,4 @@ public class ButtonManager : MonoBehaviour
         // 現在選択されているボタンの色をハイライトカラーに変更
         navButtons[index].GetComponent<Image>().color = highlightedColor;
     }
-    */
 }
