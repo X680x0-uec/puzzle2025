@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8081430022002607847}
   - component: {fileID: 7966020733813060462}
   - component: {fileID: 1743889093440223163}
+  - component: {fileID: 7494374783564449198}
   m_Layer: 0
   m_Name: GoalB
   m_TagString: Untagged
@@ -139,3 +140,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goalType: 2
   isGoalUsed: 0
+--- !u!95 &7494374783564449198
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1056016653594001658}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ee403b19419fbb64ca8ac87c2ec054f4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
