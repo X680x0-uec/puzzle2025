@@ -17,11 +17,17 @@ public class SceneReloader_IK : MonoBehaviour
 
     // リスタート時の画面演出に使うためのフラグ（オプション）
     private bool isHolding = false; 
+    private InputList _inputSystem;
+
+    void Start()
+    {
+        _inputSystem = GameManager_TY.Instance.inputList;
+    }
 
     void Update()
     {
         // 1. Rキーが押され始めたか
-        if (Input.GetKeyDown(KeyCode.R))
+        if (_inputSystem.UI.Reload.triggered)
         {
             // 長押しを開始
             isHolding = true;
@@ -30,7 +36,7 @@ public class SceneReloader_IK : MonoBehaviour
         }
 
         // 2. Rキーが押されている間
-        if (Input.GetKey(KeyCode.R) && isHolding)
+        if (_inputSystem.UI.Reload.IsPressed() && isHolding)
         {
             // 時間を蓄積
             holdTime += Time.deltaTime; 
@@ -49,7 +55,7 @@ public class SceneReloader_IK : MonoBehaviour
         }
 
         // 4. Rキーが離されたか
-        if (Input.GetKeyUp(KeyCode.R))
+        if (_inputSystem.UI.Reload.WasReleasedThisFrame())
         {
             // 長押しを中断
             isHolding = false;
