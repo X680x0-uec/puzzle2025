@@ -12,12 +12,13 @@ public class WarpPair
 /// <summary>
 /// プレイヤーがワープタイルに触れた時に、指定した別のタイルにワープさせるスクリプト
 /// 移動中でもワープでき、ワープ後も同じ方向に移動を継続します
+/// 複数プレイヤーが同時にワープタイル上にいても、それぞれワープできます
 /// </summary>
 public class warptile : MonoBehaviour
 {
     public List<WarpPair> warpPairs = new List<WarpPair>(); // ワープペアのリスト
     public float warpThreshold = 0.1f; // プレイヤーがタイルの中心にどれだけ近づいたらワープするかの閾値
-    private bool hasWarped = false; // 同じプレイヤーが連続してワープするのを防ぐフラグ
+    private HashSet<Collider2D> warpedPlayers = new HashSet<Collider2D>(); // このフレームでワープしたプレイヤーを追跡
     private Grid grid; // グリッドの参照
 
     private void Start()
@@ -32,11 +33,8 @@ public class warptile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // 新しいトリガーに入ったときにワープフラグをリセット
-        hasWarped = false;
-
         // プレイヤーがタイルに触れた瞬間に即ワープさせる
-        if (other.CompareTag("Player") && grid != null && !hasWarped)
+        if (other.CompareTag("Player") && grid != null && !warpedPlayers.Contains(other))
         {
             // プレイヤーが現在いるセル座標を取得
             Vector3Int currentCell = grid.WorldToCell(other.transform.position);
@@ -50,7 +48,7 @@ public class warptile : MonoBehaviour
                     Vector3 offset = other.transform.position - currentCellCenter;
                     Vector3 destCenter = grid.GetCellCenterWorld(pair.destinationCell);
                     other.transform.position = destCenter + offset;
-                    hasWarped = true;
+                    warpedPlayers.Add(other);
                     return;
                 }
             }
@@ -59,7 +57,7 @@ public class warptile : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && !hasWarped && grid != null)
+        if (other.CompareTag("Player") && !warpedPlayers.Contains(other) && grid != null)
         {
             PlayerController_TY player = other.GetComponent<PlayerController_TY>();
             if (player != null)
@@ -84,7 +82,7 @@ public class warptile : MonoBehaviour
                             Vector3 destCenter = grid.GetCellCenterWorld(pair.destinationCell);
                             other.transform.position = destCenter + offset;
                             
-                            hasWarped = true; // ワープ完了
+                            warpedPlayers.Add(other); // このプレイヤーをワープ済みに記録
                             return; // ループを抜ける
                         }
                     }
@@ -95,10 +93,10 @@ public class warptile : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        // トリガーから出たときにワープフラグをリセット
+        // トリガーから出たときにプレイヤーをワープ済みリストから削除
         if (other.CompareTag("Player"))
         {
-            hasWarped = false;
+            warpedPlayers.Remove(other);
         }
     }
 
