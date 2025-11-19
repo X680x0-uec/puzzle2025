@@ -20,6 +20,7 @@ public class StageClearManager_IK : MonoBehaviour
 
     public Text targetMoveText;
     public AudioClip clearSound;
+    [Range(0f, 1f)] public float clearSoundScale = 1.0f;
     
     [System.Serializable]
     public struct RatingThreshold
@@ -36,7 +37,7 @@ public class StageClearManager_IK : MonoBehaviour
     {
         if (AudioManager_TY.Instance != null && clearSound != null)
         {
-            AudioManager_TY.Instance.PlaySFX(clearSound);
+            AudioManager_TY.Instance.PlaySFX(clearSound, clearSoundScale);
         }
 
         finalMoveCount = moves;

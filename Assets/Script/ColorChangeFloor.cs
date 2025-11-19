@@ -9,6 +9,7 @@ public class ColorChangeFloor : MonoBehaviour
 {
     public PlayerColor_TY.PlayerType newColor = PlayerColor_TY.PlayerType.Red;
     public AudioClip colorChangeSound;
+    [Range(0f, 1f)] public float colorChangeSoundScale = 1.0f;
 
 public Sprite spriteA; // 1つ目の画像（例：光ってない画像）
     public Color colorA = Color.white; // 1つ目の色
@@ -65,7 +66,7 @@ public Sprite spriteA; // 1つ目の画像（例：光ってない画像）
                 player.SetType(newColor);
                 if (AudioManager_TY.Instance != null && colorChangeSound != null)
                 {
-                    AudioManager_TY.Instance.PlaySFX(colorChangeSound);
+                    AudioManager_TY.Instance.PlaySFX(colorChangeSound, colorChangeSoundScale);
                 }
             }
         }

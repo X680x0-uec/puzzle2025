@@ -149,6 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newColor: 1
   colorChangeSound: {fileID: 8300000, guid: 69f7dbb0cb144684099e19aa72834f51, type: 3}
+  colorChangeSoundScale: 0.085
   spriteA: {fileID: 1448678493172346257, guid: d461ff41cbd2a1f41a01bf0a92496c09, type: 3}
   colorA: {r: 1, g: 0.49411765, b: 0.49411765, a: 1}
   spriteB: {fileID: 1448678493172346257, guid: d461ff41cbd2a1f41a01bf0a92496c09, type: 3}

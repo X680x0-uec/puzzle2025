@@ -287,8 +287,8 @@ MonoBehaviour:
   m_Navigation:
     m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnUp: {fileID: 1301453796}
+    m_SelectOnDown: {fileID: 1301453796}
     m_SelectOnLeft: {fileID: 532348752}
     m_SelectOnRight: {fileID: 1448776372}
   m_Transition: 0
@@ -382,6 +382,7 @@ MonoBehaviour:
   highlightedScale: {x: 1.2, y: 1.2, z: 1.2}
   scaleSpeed: 0.15
   scaleSound: {fileID: 0}
+  scaleSoundScale: 1
 --- !u!1001 &341922442
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -630,8 +631,8 @@ MonoBehaviour:
   m_Navigation:
     m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnUp: {fileID: 1301453796}
+    m_SelectOnDown: {fileID: 1301453796}
     m_SelectOnLeft: {fileID: 1301453796}
     m_SelectOnRight: {fileID: 244084527}
   m_Transition: 0
@@ -725,6 +726,7 @@ MonoBehaviour:
   highlightedScale: {x: 1.2, y: 1.2, z: 1.2}
   scaleSpeed: 0.15
   scaleSound: {fileID: 0}
+  scaleSoundScale: 1
 --- !u!1001 &701242549
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1187,8 +1189,8 @@ MonoBehaviour:
   m_Navigation:
     m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnUp: {fileID: 244084527}
+    m_SelectOnDown: {fileID: 244084527}
     m_SelectOnLeft: {fileID: 1448776372}
     m_SelectOnRight: {fileID: 532348752}
   m_Transition: 0
@@ -1282,6 +1284,7 @@ MonoBehaviour:
   highlightedScale: {x: 1.2, y: 1.2, z: 1.2}
   scaleSpeed: 0.15
   scaleSound: {fileID: 0}
+  scaleSoundScale: 1
 --- !u!1 &1415779936
 GameObject:
   m_ObjectHideFlags: 0
@@ -1553,8 +1556,8 @@ MonoBehaviour:
   m_Navigation:
     m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnUp: {fileID: 1301453796}
+    m_SelectOnDown: {fileID: 1301453796}
     m_SelectOnLeft: {fileID: 244084527}
     m_SelectOnRight: {fileID: 1301453796}
   m_Transition: 0
@@ -1648,6 +1651,7 @@ MonoBehaviour:
   highlightedScale: {x: 1.2, y: 1.2, z: 1.2}
   scaleSpeed: 0.15
   scaleSound: {fileID: 0}
+  scaleSoundScale: 1
 --- !u!1 &1458207806
 GameObject:
   m_ObjectHideFlags: 0

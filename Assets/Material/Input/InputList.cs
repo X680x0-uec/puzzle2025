@@ -927,7 +927,7 @@ public partial class @InputList: IInputActionCollection2, IDisposable
                     ""name"": ""Cancel"",
                     ""type"": ""Button"",
                     ""id"": ""7df8bda4-3c30-4ff6-8c84-e6b6fa0a2a57"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -1041,6 +1041,15 @@ public partial class @InputList: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""Esc"",
+                    ""type"": ""Button"",
+                    ""id"": ""95a643ea-080a-46b9-a05f-bfd6a40c419e"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""Hint1"",
                     ""type"": ""Button"",
                     ""id"": ""6e20a090-183a-4227-bb33-231553973680"",
@@ -1062,6 +1071,15 @@ public partial class @InputList: IInputActionCollection2, IDisposable
                     ""name"": ""Hint3"",
                     ""type"": ""Button"",
                     ""id"": ""cbe04e39-76d4-4fd0-81f6-1565047b4d0a"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Any"",
+                    ""type"": ""Button"",
+                    ""id"": ""a5ea81cc-0d31-46c7-a672-44dfb9b1488b"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -1730,6 +1748,28 @@ public partial class @InputList: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
+                    ""name"": """",
+                    ""id"": ""feeb17e5-d8cd-44ab-b4f5-8da50a0bf971"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Esc"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a77b5855-9f12-4620-ba02-67eebc89df25"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Esc"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
                     ""name"": ""Gamepad"",
                     ""id"": ""6cfbf509-40a4-43b2-876e-81e88ef4450c"",
                     ""path"": ""2DVector"",
@@ -1992,6 +2032,61 @@ public partial class @InputList: IInputActionCollection2, IDisposable
                     ""action"": ""Hint3"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""18bffb2a-de38-44f1-9192-088c71a01ad7"",
+                    ""path"": ""<Mouse>/press"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Any"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cd81e2e9-5c2d-4efb-ba80-5bf425164d04"",
+                    ""path"": ""<Keyboard>/anyKey"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Any"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e2cfd309-7ba6-437c-ad0b-470ac905161f"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Any"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""efebb049-2bbc-4406-a2a6-dc5b23c29666"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Any"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""46b73210-04ac-43bc-b6ae-18c7a21df6ae"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Any"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -2088,9 +2183,11 @@ public partial class @InputList: IInputActionCollection2, IDisposable
         m_UI_Left = m_UI.FindAction("Left", throwIfNotFound: true);
         m_UI_Right = m_UI.FindAction("Right", throwIfNotFound: true);
         m_UI_Pause = m_UI.FindAction("Pause", throwIfNotFound: true);
+        m_UI_Esc = m_UI.FindAction("Esc", throwIfNotFound: true);
         m_UI_Hint1 = m_UI.FindAction("Hint1", throwIfNotFound: true);
         m_UI_Hint2 = m_UI.FindAction("Hint2", throwIfNotFound: true);
         m_UI_Hint3 = m_UI.FindAction("Hint3", throwIfNotFound: true);
+        m_UI_Any = m_UI.FindAction("Any", throwIfNotFound: true);
     }
 
     ~@InputList()
@@ -2382,9 +2479,11 @@ public partial class @InputList: IInputActionCollection2, IDisposable
     private readonly InputAction m_UI_Left;
     private readonly InputAction m_UI_Right;
     private readonly InputAction m_UI_Pause;
+    private readonly InputAction m_UI_Esc;
     private readonly InputAction m_UI_Hint1;
     private readonly InputAction m_UI_Hint2;
     private readonly InputAction m_UI_Hint3;
+    private readonly InputAction m_UI_Any;
     /// <summary>
     /// Provides access to input actions defined in input action map "UI".
     /// </summary>
@@ -2457,6 +2556,10 @@ public partial class @InputList: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @Pause => m_Wrapper.m_UI_Pause;
         /// <summary>
+        /// Provides access to the underlying input action "UI/Esc".
+        /// </summary>
+        public InputAction @Esc => m_Wrapper.m_UI_Esc;
+        /// <summary>
         /// Provides access to the underlying input action "UI/Hint1".
         /// </summary>
         public InputAction @Hint1 => m_Wrapper.m_UI_Hint1;
@@ -2468,6 +2571,10 @@ public partial class @InputList: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "UI/Hint3".
         /// </summary>
         public InputAction @Hint3 => m_Wrapper.m_UI_Hint3;
+        /// <summary>
+        /// Provides access to the underlying input action "UI/Any".
+        /// </summary>
+        public InputAction @Any => m_Wrapper.m_UI_Any;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -2539,6 +2646,9 @@ public partial class @InputList: IInputActionCollection2, IDisposable
             @Pause.started += instance.OnPause;
             @Pause.performed += instance.OnPause;
             @Pause.canceled += instance.OnPause;
+            @Esc.started += instance.OnEsc;
+            @Esc.performed += instance.OnEsc;
+            @Esc.canceled += instance.OnEsc;
             @Hint1.started += instance.OnHint1;
             @Hint1.performed += instance.OnHint1;
             @Hint1.canceled += instance.OnHint1;
@@ -2548,6 +2658,9 @@ public partial class @InputList: IInputActionCollection2, IDisposable
             @Hint3.started += instance.OnHint3;
             @Hint3.performed += instance.OnHint3;
             @Hint3.canceled += instance.OnHint3;
+            @Any.started += instance.OnAny;
+            @Any.performed += instance.OnAny;
+            @Any.canceled += instance.OnAny;
         }
 
         /// <summary>
@@ -2604,6 +2717,9 @@ public partial class @InputList: IInputActionCollection2, IDisposable
             @Pause.started -= instance.OnPause;
             @Pause.performed -= instance.OnPause;
             @Pause.canceled -= instance.OnPause;
+            @Esc.started -= instance.OnEsc;
+            @Esc.performed -= instance.OnEsc;
+            @Esc.canceled -= instance.OnEsc;
             @Hint1.started -= instance.OnHint1;
             @Hint1.performed -= instance.OnHint1;
             @Hint1.canceled -= instance.OnHint1;
@@ -2613,6 +2729,9 @@ public partial class @InputList: IInputActionCollection2, IDisposable
             @Hint3.started -= instance.OnHint3;
             @Hint3.performed -= instance.OnHint3;
             @Hint3.canceled -= instance.OnHint3;
+            @Any.started -= instance.OnAny;
+            @Any.performed -= instance.OnAny;
+            @Any.canceled -= instance.OnAny;
         }
 
         /// <summary>
@@ -2902,6 +3021,13 @@ public partial class @InputList: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnPause(InputAction.CallbackContext context);
         /// <summary>
+        /// Method invoked when associated input action "Esc" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnEsc(InputAction.CallbackContext context);
+        /// <summary>
         /// Method invoked when associated input action "Hint1" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
@@ -2922,5 +3048,12 @@ public partial class @InputList: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnHint3(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Any" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnAny(InputAction.CallbackContext context);
     }
 }

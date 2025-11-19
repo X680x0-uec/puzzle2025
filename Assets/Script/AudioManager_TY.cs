@@ -54,10 +54,10 @@ public class AudioManager_TY : MonoBehaviour
     /// <summary>
     /// 効果音（SFX）を一度だけ再生する
     /// </summary>
-    public void PlaySFX(AudioClip clip)
+    public void PlaySFX(AudioClip clip, float volumeScale = 1.0f)
     {
         if (clip == null) return;
-        sfxSource.PlayOneShot(clip);
+        sfxSource.PlayOneShot(clip, volumeScale);
     }
 
     // --- 将来の音量調整のために、ミキサーの値を変更する関数 ---
