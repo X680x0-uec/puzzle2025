@@ -1,9 +1,11 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using System.Collections;
 
 public class ButtonManager : MonoBehaviour
 {
+    /*
     // Unityエディタからボタンを割り当てるためのリスト
     public Button[] navButtons;
     // Enterキーで実行するイベント
@@ -14,7 +16,29 @@ public class ButtonManager : MonoBehaviour
     public Color highlightedColor = Color.yellow;
 
     private int currentIndex = 0;
+    */
 
+    public GameObject firstSelectedButton;
+
+    void Start()
+    {
+        StartCoroutine(SelectFirstButtonNextFrame());
+    }
+
+    // StageClearManager_IKからパクリ
+    public IEnumerator SelectFirstButtonNextFrame()
+    {
+        yield return null; 
+
+        if (firstSelectedButton != null && EventSystem.current != null)
+        {
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(firstSelectedButton);
+            Debug.Log("UI操作開始: 最初のボタンにフォーカスを設定しました。");
+        }
+    }
+
+    /*
     void Start()
     {
         // すべてのボタンのクリックを無効にし、TransitionをNoneに設定
@@ -62,4 +86,5 @@ public class ButtonManager : MonoBehaviour
         // 現在選択されているボタンの色をハイライトカラーに変更
         navButtons[index].GetComponent<Image>().color = highlightedColor;
     }
+    */
 }
