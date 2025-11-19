@@ -23,6 +23,7 @@ public class PlayerController_TY : MonoBehaviour
     // PauseMenuの参照は手動で設定
     public PauseMenu_IK pauseMenuController;
     public AudioClip playerMoveSound;
+    [Range(0f, 1f)] public float moveSoundScale = 1.0f;
 
     private Rigidbody2D rb;
     private Renderer rend;
@@ -107,7 +108,7 @@ public class PlayerController_TY : MonoBehaviour
                     {
                         if (AudioManager_TY.Instance != null)
                         {
-                            AudioManager_TY.Instance.PlaySFX(playerMoveSound);
+                            AudioManager_TY.Instance.PlaySFX(playerMoveSound, moveSoundScale);
                             Debug.Log("再生: プレイヤー移動音");
                         }
                         if (GameManager_TY.Instance != null)

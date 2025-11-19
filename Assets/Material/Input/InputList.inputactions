@@ -841,7 +841,7 @@
                     "name": "Cancel",
                     "type": "Button",
                     "id": "7df8bda4-3c30-4ff6-8c84-e6b6fa0a2a57",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -955,6 +955,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Esc",
+                    "type": "Button",
+                    "id": "95a643ea-080a-46b9-a05f-bfd6a40c419e",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Hint1",
                     "type": "Button",
                     "id": "6e20a090-183a-4227-bb33-231553973680",
@@ -976,6 +985,15 @@
                     "name": "Hint3",
                     "type": "Button",
                     "id": "cbe04e39-76d4-4fd0-81f6-1565047b4d0a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Any",
+                    "type": "Button",
+                    "id": "a5ea81cc-0d31-46c7-a672-44dfb9b1488b",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -1644,6 +1662,28 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "",
+                    "id": "feeb17e5-d8cd-44ab-b4f5-8da50a0bf971",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Esc",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a77b5855-9f12-4620-ba02-67eebc89df25",
+                    "path": "<Gamepad>/select",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Esc",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
                     "name": "Gamepad",
                     "id": "6cfbf509-40a4-43b2-876e-81e88ef4450c",
                     "path": "2DVector",
@@ -1904,6 +1944,61 @@
                     "processors": "",
                     "groups": "",
                     "action": "Hint3",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "18bffb2a-de38-44f1-9192-088c71a01ad7",
+                    "path": "<Mouse>/press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Any",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cd81e2e9-5c2d-4efb-ba80-5bf425164d04",
+                    "path": "<Keyboard>/anyKey",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Any",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e2cfd309-7ba6-437c-ad0b-470ac905161f",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Any",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "efebb049-2bbc-4406-a2a6-dc5b23c29666",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Any",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "46b73210-04ac-43bc-b6ae-18c7a21df6ae",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Any",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
