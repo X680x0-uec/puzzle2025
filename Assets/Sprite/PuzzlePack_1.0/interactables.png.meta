@@ -409,7 +409,19 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      interactables_0: -2982174614601005911
+      interactables_1: 7733518535329509877
+      interactables_10: 8575252627071208847
+      interactables_11: -6210868087198528426
+      interactables_2: -205315919927946841
+      interactables_3: -4319757314422059909
+      interactables_4: 4470201793527994961
+      interactables_5: 2186137845575322916
+      interactables_6: -4973337946501942013
+      interactables_7: -3490026118196430791
+      interactables_8: 5155071074158098156
+      interactables_9: 348766662639067796
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
