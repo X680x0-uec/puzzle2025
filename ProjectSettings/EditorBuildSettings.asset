@@ -117,13 +117,13 @@ EditorBuildSettings:
     path: Assets/Scenes/Sandbox/IK/Stages/20251003_IK2.unity
     guid: a02cd2e78cc408a42b46604535092b2d
   - enabled: 1
-    path: Assets/Scenes/Sandbox/IK/stages2/#_IK.unity
+    path: Assets/Scenes/Sandbox/IK/stages2/#3_IK.unity
     guid: 736d1775381eb7f4a982e470097516cb
   - enabled: 1
     path: Assets/Scenes/Sandbox/IK/stages2/#2_IK.unity
     guid: 8268646ae9adc6144982c044d5272d6c
   - enabled: 1
-    path: Assets/Scenes/Sandbox/IK/stages2/#3_IK.unity
+    path: Assets/Scenes/Sandbox/IK/stages2/#_IK.unity
     guid: 454d79e2ca09efd4c99b571f91e3f80d
   - enabled: 1
     path: "Assets/Scenes/Sandbox/IK/stages2/7\u30FBL_IK.unity"
@@ -138,10 +138,10 @@ EditorBuildSettings:
     path: Assets/Scenes/Sandbox/IK/stages2/2700_IK.unity
     guid: 568ed37534476b54c8b9e02ebed2215b
   - enabled: 1
-    path: Assets/Scenes/Sandbox/IK/stages2/anticlockwise_IK.unity
+    path: "Assets/Scenes/Sandbox/IK/stages2/\u53CD\u6642\u8A08\u56DE\u308A_IK.unity"
     guid: 4c075df3faaa7254398d9901c1261ded
   - enabled: 1
-    path: Assets/Scenes/Sandbox/IK/stages2/brick_IK.unity
+    path: "Assets/Scenes/Sandbox/IK/stages2/\u30EC\u30F3\u30AC_IK.unity"
     guid: 8edb485fb95216c489b036f81f2702de
   - enabled: 1
     path: Assets/Scenes/Sandbox/IK/stages2/butterfly_IK.unity
@@ -192,16 +192,16 @@ EditorBuildSettings:
     path: Assets/Scenes/Sandbox/IK/stages2/QR_IK.unity
     guid: a84086a0e3592d04e975db44ce77ca9f
   - enabled: 1
-    path: Assets/Scenes/Sandbox/IK/stages2/replacement_IK.unity
+    path: Assets/Scenes/Sandbox/IK/stages2/more replace_IK.unity
     guid: 640b59410c8bd9e49a0ea9eddfb3fb06
   - enabled: 1
     path: Assets/Scenes/Sandbox/IK/stages2/spiral_IK.unity
     guid: 3340f15d1c6f2c049b127797fec1253f
   - enabled: 1
-    path: Assets/Scenes/Sandbox/IK/stages2/think about blue_IK.unity
+    path: "Assets/Scenes/Sandbox/IK/stages2/\u8FD1\u9053_IK.unity"
     guid: bd682dbba1fd3e04eaa6b54d8ddf5bd7
   - enabled: 1
-    path: Assets/Scenes/Sandbox/IK/stages2/think about both_IK.unity
+    path: "Assets/Scenes/Sandbox/IK/stages2/\u9060\u56DE\u308A_IK.unity"
     guid: b75754f7948a9c944bbd11f534743b90
   - enabled: 1
     path: Assets/Scenes/Sandbox/IK/stages2/unbroken crossroad_IK.unity
@@ -249,7 +249,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Sandbox/IK/stages2/Garden of Eden_IK.unity
     guid: 1e9c38c5d5fe1494e9e9033e63ff392a
   - enabled: 1
-    path: Assets/Scenes/Sandbox/IK/stages2/broken floor_IK.unity
+    path: "Assets/Scenes/Sandbox/IK/stages2/\u58CA\u308C\u308B\u5E8A_IK.unity"
     guid: 1bfd0fd84b9112046bdb0931ebb0126d
   - enabled: 1
     path: Assets/Scenes/Sandbox/AY/stage/SW.unity
