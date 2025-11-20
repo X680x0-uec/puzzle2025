@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using System.Collections;
 
 public class ButtonManager : MonoBehaviour
 {
@@ -14,10 +15,26 @@ public class ButtonManager : MonoBehaviour
     public Color highlightedColor = Color.yellow;
 
     private int currentIndex = 0;
+    private InputList _inputSystem;
 
-    void Start()
+   void Start()
     {
-        // すべてのボタンのクリックを無効にし、TransitionをNoneに設定
+        // 1. Input Systemへの参照を取得
+        // ⭐ GameManager_TY.Instance がこのシーンで確実に存在していることを前提とする
+        if (GameManager_TY.Instance == null)
+        {
+            Debug.LogError("GameManager_TY.Instanceが見つかりません。");
+            return;
+        }
+        _inputSystem = GameManager_TY.Instance.inputList;
+        
+        // ⭐ ⭐ 追加: シーンがロードされたら、入力システムを有効化
+       if (_inputSystem != null)
+        {
+        _inputSystem.Enable();
+        }
+
+        // 2. ボタンの初期設定
         foreach (var button in navButtons)
         {
             if (button != null)
@@ -26,26 +43,28 @@ public class ButtonManager : MonoBehaviour
                 button.transition = Selectable.Transition.None;
             }
         }
-        // ゲーム開始時に最初のボタンを選択状態にする
+        
+        // 3. 最初のボタンを選択状態にする
         SelectButton(currentIndex);
     }
+
 
     void Update()
     {
         // 左右キーの入力を検出
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        if (_inputSystem.UI.Left.triggered)
         {
             currentIndex = (currentIndex - 1 + navButtons.Length) % navButtons.Length;
             SelectButton(currentIndex);
         }
-        else if (Input.GetKeyDown(KeyCode.RightArrow))
+        else if (_inputSystem.UI.Right.triggered)
         {
             currentIndex = (currentIndex + 1) % navButtons.Length;
             SelectButton(currentIndex);
         }
 
         // Enterキーの入力を検出し、現在選択されているボタンのonClickイベントを実行
-        if (Input.GetKeyDown(submitKey))
+        if (_inputSystem.UI.Submit.triggered)
         {
             navButtons[currentIndex].onClick.Invoke();
         }

@@ -19,6 +19,7 @@ public class brokenfloor_IK : MonoBehaviour
 
     private Animator animator;
     public AudioClip breakSound;
+    [Range(0f, 1f)] public float breakSoundScale = 1.0f;
 
     void Start()
     {
@@ -40,7 +41,7 @@ public class brokenfloor_IK : MonoBehaviour
 
             if (AudioManager_TY.Instance != null && breakSound != null)
             {
-                AudioManager_TY.Instance.PlaySFX(breakSound);
+                AudioManager_TY.Instance.PlaySFX(breakSound, breakSoundScale);
             }
 
             type = Type.notgo;

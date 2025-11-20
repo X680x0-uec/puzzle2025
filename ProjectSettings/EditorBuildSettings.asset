@@ -9,11 +9,17 @@ EditorBuildSettings:
     path: Assets/Scenes/Sandbox/IK/Title~Select/Title_IK.unity
     guid: a2707ac492e1f2a4a9f8fb54319bd4db
   - enabled: 1
-    path: Assets/Scenes/Sandbox/IK/Title~Select/StageSelect_IK.unity
+    path: Assets/Scenes/Sandbox/IK/Title~Select/PastSpeStageSelect_IK.unity
     guid: 00f5e19b43b690f468e55250c3b853ee
   - enabled: 1
     path: Assets/Scenes/Sandbox/IK/Title~Select/DifficultySelect_IK.unity
     guid: 58d94ee5e0222ab4b9bf597adef950be
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/IK/Title~Select/TutorialStageSelect_IK.unity
+    guid: 0e8bc7bc893992d4b9aac9f50eddee0a
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/IK/Title~Select/SpecialStageSelect_IK.unity
+    guid: 508355a1cac55bc42849b8f543025e2f
   - enabled: 1
     path: "Assets/Scenes/Sandbox/IK/Stages/\u58CA\u308C\u308B\u5E8A\u306E\u4F8B_IK.unity"
     guid: 5968a9bde7d1cf9498ff50f9fb8e177e
@@ -37,15 +43,24 @@ EditorBuildSettings:
     guid: 6a9a6358a39b6f549b3c038f270e122d
   - enabled: 1
     path: Assets/Scenes/Sandbox/TY/Stages_TY/TY_Tutolials_1.unity
-    guid: 8ad64808a26a308409a40b2777fb8ada
+    guid: e60e1610f7c694341970c8918103eec9
   - enabled: 1
     path: Assets/Scenes/Sandbox/TY/Stages_TY/TY_Tutolials_2.unity
-    guid: 6fe1089b31bc4924db1363b85dcd10ce
+    guid: 3716f54703c12024491d7a902e363c44
   - enabled: 1
     path: Assets/Scenes/Sandbox/TY/Stages_TY/TY_Tutolials_3.unity
+    guid: 0520ae8b635082a4a86e36ee1c7eb207
+  - enabled: 0
+    path: Assets/Scenes/Sandbox/TY/Stages_TY/Past/_TY_Tutolials_1.unity
+    guid: 8ad64808a26a308409a40b2777fb8ada
+  - enabled: 0
+    path: Assets/Scenes/Sandbox/TY/Stages_TY/Past/_TY_Tutolials_2.unity
+    guid: 6fe1089b31bc4924db1363b85dcd10ce
+  - enabled: 0
+    path: Assets/Scenes/Sandbox/TY/Stages_TY/Past/_TY_Tutolials_3.unity
     guid: 7c442d8d02c7d9d4ca2230ca880579fe
   - enabled: 1
-    path: Assets/Scenes/Sandbox/IK/Title~Select/EasyStageSelect_IK.unity
+    path: Assets/Scenes/Sandbox/IK/Title~Select/PastStageSelect_IK.unity
     guid: 5db28f18adb0e074e8a01a3792b60159
   - enabled: 1
     path: Assets/Scenes/Sandbox/IK/Title~Select/NormalStageSelect_IK.unity
@@ -234,8 +249,44 @@ EditorBuildSettings:
     path: Assets/Scenes/Sandbox/IK/stages2/Garden of Eden_IK.unity
     guid: 1e9c38c5d5fe1494e9e9033e63ff392a
   - enabled: 1
-    path: Assets/Scenes/Sandbox/IK/stages2/broken wall_IK.unity
+    path: Assets/Scenes/Sandbox/IK/stages2/broken floor_IK.unity
     guid: 1bfd0fd84b9112046bdb0931ebb0126d
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/AY/stage/SW.unity
+    guid: fb9694cbf44212c4893570cf8e5dce47
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/AY/stage/StageTemplate_TY 2.unity
+    guid: a520f7e2eb63a0e41b21641c6fca5a76
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/AY/stage/StageTemplate_TY 3.unity
+    guid: d37a0868333673d40bc62d3ee1352c5b
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/AY/stage/StageTemplate_TY 4.unity
+    guid: a65a9f78287165443bcff252dbf56322
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/AY/stage/StageTemplate_TY 5.unity
+    guid: 96375c34f25ec5447b6f9d059dbd538a
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/AY/stage/StageTemplate_TY 7.unity
+    guid: 7a3f595de84625841916bd19a983b809
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/AY/stage/StageTemplate_TY 8.unity
+    guid: b317f5cbbb3c3f7469c22fb31e495dda
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/AY/stage/StageTemplate_TY 9.unity
+    guid: ae6f33a20e40e024d81fdbc42f7f1614
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/FH/stage1_step9.unity
+    guid: 00deb3cee1857064c9c8756d040d254d
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/FH/stage2_step39.unity
+    guid: 7e18053e35938534bb72fba400f061ca
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/FH/stage3_step3.unity
+    guid: e66c6be50fe56744ea278b216d6fdf10
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/SY/stage_1_SY.unity
+    guid: b19574c9bf581e84a9d49f26532204c4
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

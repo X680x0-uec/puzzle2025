@@ -9,6 +9,7 @@ public class DirectScaleController_IK : MonoBehaviour, ISelectHandler, IDeselect
     public Vector3 highlightedScale = new Vector3(1.2f, 1.2f, 1.2f); // 1.2倍に拡大
     public float scaleSpeed = 0.15f; // 拡大・縮小にかける時間（秒）
     public AudioClip scaleSound;
+    [Range(0f, 1f)] public float scaleSoundScale = 1.0f;
 
     private RectTransform rectTransform;
     private Coroutine scaleCoroutine;
@@ -30,7 +31,7 @@ public class DirectScaleController_IK : MonoBehaviour, ISelectHandler, IDeselect
     {
         if (AudioManager_TY.Instance != null && scaleSound != null)
         {
-            AudioManager_TY.Instance.PlaySFX(scaleSound);
+            AudioManager_TY.Instance.PlaySFX(scaleSound, scaleSoundScale);
         }
         if (scaleCoroutine != null) StopCoroutine(scaleCoroutine);
         // 拡大コルーチンを開始

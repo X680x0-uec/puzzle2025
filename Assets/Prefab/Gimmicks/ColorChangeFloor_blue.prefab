@@ -53,6 +53,26 @@ PrefabInstance:
       value: ColorChangeFloor_blue
       objectReference: {fileID: 0}
     - target: {fileID: 5583502750775601213, guid: 3f5955d129b2cd7429641d72379509c4, type: 3}
+      propertyPath: colorA.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5583502750775601213, guid: 3f5955d129b2cd7429641d72379509c4, type: 3}
+      propertyPath: colorA.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5583502750775601213, guid: 3f5955d129b2cd7429641d72379509c4, type: 3}
+      propertyPath: colorB.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5583502750775601213, guid: 3f5955d129b2cd7429641d72379509c4, type: 3}
+      propertyPath: colorB.g
+      value: 0.49411768
+      objectReference: {fileID: 0}
+    - target: {fileID: 5583502750775601213, guid: 3f5955d129b2cd7429641d72379509c4, type: 3}
+      propertyPath: colorB.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5583502750775601213, guid: 3f5955d129b2cd7429641d72379509c4, type: 3}
       propertyPath: newColor
       value: 2
       objectReference: {fileID: 0}

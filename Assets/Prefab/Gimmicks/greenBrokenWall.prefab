@@ -12,14 +12,9 @@ GameObject:
   - component: {fileID: 8950539435950414859}
   - component: {fileID: 1530149244600270681}
   - component: {fileID: 5216721307252935200}
-<<<<<<< HEAD
   - component: {fileID: -6072753460631778732}
   - component: {fileID: 5103053811421750297}
   m_Layer: 0
-=======
-  - component: {fileID: 8551679293767455124}
-  m_Layer: 8
->>>>>>> 22dadbdbc5ced541df995f0059f513965bef2e4e
   m_Name: greenBrokenWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,7 +117,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   greenBrokenWall: {fileID: 3727458062772776409}
-<<<<<<< HEAD
 --- !u!1839735485 &-6072753460631778732
 Tilemap:
   m_ObjectHideFlags: 0
@@ -163,11 +157,6 @@ Tilemap:
     e33: 1
 --- !u!19719996 &5103053811421750297
 TilemapCollider2D:
-=======
-  switchSound: {fileID: 8300000, guid: c71c44d9416c6674da08419664731d64, type: 3}
---- !u!61 &8551679293767455124
-BoxCollider2D:
->>>>>>> 22dadbdbc5ced541df995f0059f513965bef2e4e
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -196,29 +185,11 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-<<<<<<< HEAD
   m_IsTrigger: 1
-=======
-  m_IsTrigger: 0
->>>>>>> 22dadbdbc5ced541df995f0059f513965bef2e4e
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-<<<<<<< HEAD
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
-=======
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
->>>>>>> 22dadbdbc5ced541df995f0059f513965bef2e4e
