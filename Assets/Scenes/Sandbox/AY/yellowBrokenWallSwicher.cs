@@ -21,8 +21,7 @@ public class BrokenyellowWall_AY : MonoBehaviour
         }
         else
         {
-            //紫で通ったときにボタンは消えるが壁が残ってしまう不具合修正
-            //yellowBrokenWall.SetActive(true);
+            yellowBrokenWall.SetActive(true);
         }
     }
 
