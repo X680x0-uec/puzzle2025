@@ -3648,6 +3648,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7813271501709470755, guid: e5064f2392d071d42aa03a74838c7cd9, type: 3}
+      propertyPath: currentStageThreshold.twoStarsMaxMoves
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 7813271501709470755, guid: e5064f2392d071d42aa03a74838c7cd9, type: 3}
+      propertyPath: currentStageThreshold.threeStarsMaxMoves
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7945576708119395111, guid: e5064f2392d071d42aa03a74838c7cd9, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -3862,11 +3870,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1010704972939001801, guid: 7935e09b7af8cb141834c41cde955cb0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.44
+      value: -3.5
       objectReference: {fileID: 0}
     - target: {fileID: 1010704972939001801, guid: 7935e09b7af8cb141834c41cde955cb0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.54
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 1010704972939001801, guid: 7935e09b7af8cb141834c41cde955cb0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4041,11 +4049,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2431022510108550122, guid: 594a5f67ec74e204fb2842e64a072944, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.58
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 2431022510108550122, guid: 594a5f67ec74e204fb2842e64a072944, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.51
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 2431022510108550122, guid: 594a5f67ec74e204fb2842e64a072944, type: 3}
       propertyPath: m_LocalPosition.z
