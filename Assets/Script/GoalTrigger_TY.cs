@@ -25,7 +25,7 @@ public class GoalTrigger_TY : MonoBehaviour
         {
             // ゴールできるプレイヤーのタイプと一致するか確認
             if (goalType == PlayerColor_TY.PlayerType.None ||
-                playerColorScript.mergedPlayerType == goalType) // Noneは共通ゴール
+                playerColorScript.originalPlayerType == goalType) // Noneは共通ゴール
             {
                 if (!playerController.isMoving)
                 {
