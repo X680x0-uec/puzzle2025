@@ -3793,6 +3793,10 @@ PrefabInstance:
       value: "\u2192"
       objectReference: {fileID: 0}
     - target: {fileID: 7813271501709470755, guid: e5064f2392d071d42aa03a74838c7cd9, type: 3}
+      propertyPath: stageSelectSceneName
+      value: SpecialStageSelect_IK
+      objectReference: {fileID: 0}
+    - target: {fileID: 7813271501709470755, guid: e5064f2392d071d42aa03a74838c7cd9, type: 3}
       propertyPath: currentStageThreshold.twoStarsMaxMoves
       value: 8
       objectReference: {fileID: 0}
@@ -3803,6 +3807,10 @@ PrefabInstance:
     - target: {fileID: 7945576708119395111, guid: e5064f2392d071d42aa03a74838c7cd9, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 8328907283515352509, guid: e5064f2392d071d42aa03a74838c7cd9, type: 3}
+      propertyPath: selectSceneName
+      value: SpecialStageSelect_IK
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
