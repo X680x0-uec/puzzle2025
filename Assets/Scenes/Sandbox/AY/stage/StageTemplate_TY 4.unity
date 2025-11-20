@@ -3648,6 +3648,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7279179644768089943, guid: e5064f2392d071d42aa03a74838c7cd9, type: 3}
+      propertyPath: stageDisplayName
+      value: "\u62BC\u3057\u3066\u3082\u6D88\u3048\u306A\u3044\u30DC\u30BF\u30F3"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7813271501709470755, guid: e5064f2392d071d42aa03a74838c7cd9, type: 3}
+      propertyPath: stageSelectSceneName
+      value: SpecialStageSelect_IK
+      objectReference: {fileID: 0}
     - target: {fileID: 7813271501709470755, guid: e5064f2392d071d42aa03a74838c7cd9, type: 3}
       propertyPath: currentStageThreshold.twoStarsMaxMoves
       value: 11
@@ -3659,6 +3667,10 @@ PrefabInstance:
     - target: {fileID: 7945576708119395111, guid: e5064f2392d071d42aa03a74838c7cd9, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 8328907283515352509, guid: e5064f2392d071d42aa03a74838c7cd9, type: 3}
+      propertyPath: selectSceneName
+      value: SpecialStageSelect_IK
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
