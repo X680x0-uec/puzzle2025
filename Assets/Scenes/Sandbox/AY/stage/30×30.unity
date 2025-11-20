@@ -15961,11 +15961,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7813271501709470755, guid: e5064f2392d071d42aa03a74838c7cd9, type: 3}
       propertyPath: currentStageThreshold.twoStarsMaxMoves
-      value: 100
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 7813271501709470755, guid: e5064f2392d071d42aa03a74838c7cd9, type: 3}
       propertyPath: currentStageThreshold.threeStarsMaxMoves
-      value: 64
+      value: 43
       objectReference: {fileID: 0}
     - target: {fileID: 7945576708119395111, guid: e5064f2392d071d42aa03a74838c7cd9, type: 3}
       propertyPath: m_Name
