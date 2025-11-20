@@ -129,24 +129,34 @@ public class GameManager_TY : MonoBehaviour
         Debug.Log("現在の移動回数: " + moveCount);
     }
     
-public void EndGame()
-{
-    Debug.Log("Stage Completed!");
-    
-    if (stageClearManager != null)
+// 外部からはこのメソッドが呼ばれる
+    public void EndGame()
     {
-        // ⭐ StageClearManagerのShowClearScreenに現在の移動回数を渡す
-        // stageClearManager.ShowClearScreen(int moves) を呼び出す
-        stageClearManager.ShowClearScreen(moveCount); 
-        
-        if (inputList != null)
+        // 直接処理せず、コルーチンを開始してタイミングを遅らせる
+        StartCoroutine(ProcessEndGameWithDelay());
+    }
+
+    // 0.1秒待ってから実際にクリア処理を行うコルーチン
+    private System.Collections.IEnumerator ProcessEndGameWithDelay()
+    {
+        // ⏳ ここで0.1秒待つ（これで moveCount++ が実行される隙を与える）
+        yield return new WaitForSeconds(0.1f);
+
+        Debug.Log("Stage Completed! (Delayed)");
+
+        if (stageClearManager != null)
         {
-            inputList.Disable(); 
+            // 0.1秒待ったので、moveCount は最新の値（最後の一手込み）になっているはず
+            stageClearManager.ShowClearScreen(moveCount);
+
+            if (inputList != null)
+            {
+                inputList.Disable();
+            }
+        }
+        else
+        {
+            Debug.LogError("StageClearManagerがシーンに存在しないため、クリア画面を表示できませんでした。");
         }
     }
-    else
-    {
-         Debug.LogError("StageClearManagerがシーンに存在しないため、クリア画面を表示できませんでした。");
-    }
-}
 }
