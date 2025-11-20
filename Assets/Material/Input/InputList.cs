@@ -1084,6 +1084,15 @@ public partial class @InputList: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Reload"",
+                    ""type"": ""Button"",
+                    ""id"": ""8bedd12e-8b10-4ff3-8e24-35f177047c24"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -2087,6 +2096,50 @@ public partial class @InputList: IInputActionCollection2, IDisposable
                     ""action"": ""Any"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f2a91447-34c9-4977-a373-600d20050732"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Reload"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a684b3e0-554d-4185-b55f-2da2108a015b"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Reload"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4649aa49-3659-4b65-8db4-4210d7f4de0f"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Reload"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f399a90c-65d7-4a8c-bb75-9181ddc013da"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Reload"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -2188,6 +2241,7 @@ public partial class @InputList: IInputActionCollection2, IDisposable
         m_UI_Hint2 = m_UI.FindAction("Hint2", throwIfNotFound: true);
         m_UI_Hint3 = m_UI.FindAction("Hint3", throwIfNotFound: true);
         m_UI_Any = m_UI.FindAction("Any", throwIfNotFound: true);
+        m_UI_Reload = m_UI.FindAction("Reload", throwIfNotFound: true);
     }
 
     ~@InputList()
@@ -2484,6 +2538,7 @@ public partial class @InputList: IInputActionCollection2, IDisposable
     private readonly InputAction m_UI_Hint2;
     private readonly InputAction m_UI_Hint3;
     private readonly InputAction m_UI_Any;
+    private readonly InputAction m_UI_Reload;
     /// <summary>
     /// Provides access to input actions defined in input action map "UI".
     /// </summary>
@@ -2576,6 +2631,10 @@ public partial class @InputList: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @Any => m_Wrapper.m_UI_Any;
         /// <summary>
+        /// Provides access to the underlying input action "UI/Reload".
+        /// </summary>
+        public InputAction @Reload => m_Wrapper.m_UI_Reload;
+        /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
         public InputActionMap Get() { return m_Wrapper.m_UI; }
@@ -2661,6 +2720,9 @@ public partial class @InputList: IInputActionCollection2, IDisposable
             @Any.started += instance.OnAny;
             @Any.performed += instance.OnAny;
             @Any.canceled += instance.OnAny;
+            @Reload.started += instance.OnReload;
+            @Reload.performed += instance.OnReload;
+            @Reload.canceled += instance.OnReload;
         }
 
         /// <summary>
@@ -2732,6 +2794,9 @@ public partial class @InputList: IInputActionCollection2, IDisposable
             @Any.started -= instance.OnAny;
             @Any.performed -= instance.OnAny;
             @Any.canceled -= instance.OnAny;
+            @Reload.started -= instance.OnReload;
+            @Reload.performed -= instance.OnReload;
+            @Reload.canceled -= instance.OnReload;
         }
 
         /// <summary>
@@ -3055,5 +3120,12 @@ public partial class @InputList: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnAny(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Reload" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnReload(InputAction.CallbackContext context);
     }
 }
