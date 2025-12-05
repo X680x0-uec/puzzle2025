@@ -117,13 +117,13 @@ EditorBuildSettings:
     path: Assets/Scenes/Sandbox/IK/Stages/20251003_IK2.unity
     guid: a02cd2e78cc408a42b46604535092b2d
   - enabled: 1
-    path: Assets/Scenes/Sandbox/IK/stages2/#_IK.unity
+    path: Assets/Scenes/Sandbox/IK/stages2/#3_IK.unity
     guid: 736d1775381eb7f4a982e470097516cb
   - enabled: 1
     path: Assets/Scenes/Sandbox/IK/stages2/#2_IK.unity
     guid: 8268646ae9adc6144982c044d5272d6c
   - enabled: 1
-    path: Assets/Scenes/Sandbox/IK/stages2/#3_IK.unity
+    path: Assets/Scenes/Sandbox/IK/stages2/#_IK.unity
     guid: 454d79e2ca09efd4c99b571f91e3f80d
   - enabled: 1
     path: "Assets/Scenes/Sandbox/IK/stages2/7\u30FBL_IK.unity"
@@ -249,7 +249,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Sandbox/IK/stages2/Garden of Eden_IK.unity
     guid: 1e9c38c5d5fe1494e9e9033e63ff392a
   - enabled: 1
-    path: "Assets/Scenes/Sandbox/IK/stages2/\u58CA\u308C\u308B\u5E8A_IK.unity"
+    path: "Assets/Scenes/Sandbox/IK/stages2/Tutorial/\u58CA\u308C\u308B\u5E8A_IK.unity"
     guid: 1bfd0fd84b9112046bdb0931ebb0126d
   - enabled: 1
     path: Assets/Scenes/Sandbox/AY/stage/SW.unity
@@ -311,6 +311,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Sandbox/AY/stage/StageTemplate_TY 11.unity
     guid: 8ac2f6e3741ed114b88113e1ead16729
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/IK/stages2/Tutorial/colorwalltutorial2_IK.unity
+    guid: 6ab66c59b80bf7441b05ce074770858b
+  - enabled: 1
+    path: Assets/Scenes/Sandbox/IK/stages2/Tutorial/colorwalltutorial3_IK.unity
+    guid: 59e633abaeba724499f693f4f11f2326
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
