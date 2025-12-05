@@ -149,6 +149,7 @@ MonoBehaviour:
   highlightedScale: {x: 1.2, y: 1.2, z: 1.2}
   scaleSpeed: 0.15
   scaleSound: {fileID: 0}
+  scaleSoundScale: 1
 --- !u!1 &1646305816572122834
 GameObject:
   m_ObjectHideFlags: 0
@@ -452,6 +453,7 @@ MonoBehaviour:
   highlightedScale: {x: 1.2, y: 1.2, z: 1.2}
   scaleSpeed: 0.15
   scaleSound: {fileID: 0}
+  scaleSoundScale: 1
 --- !u!1 &3385946295831229602
 GameObject:
   m_ObjectHideFlags: 0
@@ -697,11 +699,12 @@ MonoBehaviour:
   - {fileID: 5362842144833897947}
   - {fileID: 9110747174318332991}
   - {fileID: 8116232888949248958}
-  goldenStarSprite: {fileID: 5199979006384268662, guid: af608f4ec84c53b4f92d6775719171d2, type: 3}
-  dimStarSprite: {fileID: 2019951968972939414, guid: cb16cb4dc96966a4eba64d99ecbb6589, type: 3}
+  goldenStarSprite: {fileID: 5199979006384268662, guid: 174cd13a4c04d4944a6e414d9e3987f4, type: 3}
+  dimStarSprite: {fileID: 3005929310566700257, guid: 9f03fc993c0d77649a6089f3c9eab21a, type: 3}
   buttonGroupPanel: {fileID: 7191113789384254868}
   targetMoveText: {fileID: 8687496979484967014}
   clearSound: {fileID: 8300000, guid: 6d57f7f25c7e000498251725dffc2608, type: 3}
+  clearSoundScale: 1
   currentStageThreshold:
     twoStarsMaxMoves: 10
     threeStarsMaxMoves: 1
