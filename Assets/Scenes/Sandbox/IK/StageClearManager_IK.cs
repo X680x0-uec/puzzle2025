@@ -97,6 +97,20 @@ public class StageClearManager_IK : MonoBehaviour
         
         Debug.Log("クリア回数: " + moves + " / 評価: " + starsEarned + "つ星を獲得しました。");
         
+        // TY
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        // 過去の最高記録を取得（なければ0）
+        int bestStars = PlayerPrefs.GetInt(currentSceneName + "_Stars", 0);
+        
+        // 今回の記録が過去最高なら更新して保存
+        if (starsEarned > bestStars)
+        {
+            PlayerPrefs.SetInt(currentSceneName + "_Stars", starsEarned);
+            PlayerPrefs.Save(); // 保存を確定
+            Debug.Log($"セーブ完了: {currentSceneName} = {starsEarned} Stars");
+        }
+        // TY ここまで
+
         // アニメーションコルーチンを直接起動する
         StartCoroutine(AnimateStarRating(starsEarned));
     }

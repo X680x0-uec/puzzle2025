@@ -63,6 +63,17 @@ public class ButtonManager : MonoBehaviour
             }
         }
 
+        // TY
+        if (GameManager_TY.Instance != null && GameManager_TY.Instance.lastSelectedStageIndex != -1)
+        {
+            // 配列の範囲内かチェックしてから適用
+            if (GameManager_TY.Instance.lastSelectedStageIndex < navButtons.Length)
+            {
+                currentIndex = GameManager_TY.Instance.lastSelectedStageIndex;
+            }
+        }
+        // TY ここまで
+
         SelectButton(currentIndex);
     }
 
@@ -133,6 +144,12 @@ public class ButtonManager : MonoBehaviour
         {
             if (currentIndex >= 0 && currentIndex < navButtons.Length && navButtons[currentIndex] != null)
             {
+                //TY
+                if (GameManager_TY.Instance != null)
+                {
+                    GameManager_TY.Instance.lastSelectedStageIndex = currentIndex;
+                }
+                //TY ここまで
                 navButtons[currentIndex].onClick.Invoke();
             }
         }

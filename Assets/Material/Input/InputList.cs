@@ -2056,7 +2056,7 @@ public partial class @InputList: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""cd81e2e9-5c2d-4efb-ba80-5bf425164d04"",
-                    ""path"": ""<Keyboard>/anyKey"",
+                    ""path"": ""<Keyboard>/{Submit}"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

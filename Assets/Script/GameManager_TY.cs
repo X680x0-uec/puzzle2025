@@ -19,6 +19,8 @@ public class GameManager_TY : MonoBehaviour
     // プレイヤーの参照もコードで動的に取得
     private PlayerController_TY playerA;
     private PlayerController_TY playerB;
+    // 最後に選択されたステージのインデックスを保存する変数
+    public int lastSelectedStageIndex = -1;
     
     private void Awake()
     {
