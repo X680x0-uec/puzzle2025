@@ -16,11 +16,22 @@ public class EnterKeyActivator : MonoBehaviour
 
         if (_inputSystem.UI.Esc.triggered)
         {
-            myButton.onClick.Invoke();
+            QuitGame();
         }
-        else if (Input.anyKeyDown || _inputSystem.UI.Submit.triggered || _inputSystem.UI.Any.triggered)
+        else if (_inputSystem.UI.Submit.triggered || _inputSystem.UI.Any.triggered)
         {
             myButton.onClick.Invoke();
         }
+    }
+
+    void QuitGame()
+    {
+        Debug.Log("ゲーム終了！");
+        
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false; // エディタでの停止
+        #else
+            Application.Quit(); // 本番ビルドでの終了
+        #endif
     }
 }

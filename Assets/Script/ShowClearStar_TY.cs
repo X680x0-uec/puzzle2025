@@ -25,8 +25,8 @@ public class ShowClearStar_TY : MonoBehaviour
     private int _starCount = 0;
 
     [Header("位置調整")]
-    public Vector3 offset = new Vector3(0, 50, 0); 
-    public float scale = 1.0f; 
+    public Vector3 offset = new Vector3(0, 30, -1); 
+    public float scale = 20.0f; 
 
     // 画像の色（基本は白でOKですが、必要なら変えてください）
     public Color baseColor = Color.white;

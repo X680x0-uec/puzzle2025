@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// 現在未使用のはず
+/// </summary>
 public class TitleExit_TY : MonoBehaviour
 {
     public float requiredHoldTime = 0.5f; // 0.5秒長押し
