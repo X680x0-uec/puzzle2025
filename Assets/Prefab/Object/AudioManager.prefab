@@ -50,6 +50,7 @@ MonoBehaviour:
   bgmSource: {fileID: 4297367348225970814}
   sfxSource: {fileID: 4046124328114348744}
   mainBGM: {fileID: 8300000, guid: 9c56eb9ce7b9a114b813cbd22777e626, type: 3}
+  bgmVolume: 0.35
 --- !u!82 &4297367348225970814
 AudioSource:
   m_ObjectHideFlags: 0

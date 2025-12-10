@@ -14,6 +14,7 @@ public class AudioManager_TY : MonoBehaviour
 
     [Header("BGM")]
     public AudioClip mainBGM; // メインのBGMをアタッチ
+    [Range(0f, 1f)] public float bgmVolume = 1.0f;
 
     private void Awake()
     {
@@ -39,6 +40,7 @@ public class AudioManager_TY : MonoBehaviour
     {
         // メインBGMの再生
         PlayBGM(mainBGM);
+        bgmSource.volume = bgmVolume;
     }
 
     /// <summary>

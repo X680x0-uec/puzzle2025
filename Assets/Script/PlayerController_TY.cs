@@ -24,6 +24,8 @@ public class PlayerController_TY : MonoBehaviour
     public PauseMenu_IK pauseMenuController;
     public AudioClip playerMoveSound;
     [Range(0f, 1f)] public float moveSoundScale = 1.0f;
+    public AudioClip arrowMoveSound;
+    [Range(0f, 1f)] public float arrowMoveSoundScale = 1.0f;
 
     private Rigidbody2D rb;
     private Renderer rend;
@@ -211,6 +213,10 @@ public class PlayerController_TY : MonoBehaviour
                     yield return new WaitForSeconds(0.05f);
                     // 向きを変更
                     moveDirection = dirChanger.newDirection_FH.normalized;
+                    if (AudioManager_TY.Instance != null)
+                    {
+                        AudioManager_TY.Instance.PlaySFX(arrowMoveSound, arrowMoveSoundScale);
+                    }
                 }
             }
 

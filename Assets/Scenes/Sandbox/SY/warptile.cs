@@ -21,6 +21,9 @@ public class warptile : MonoBehaviour
     private HashSet<Collider2D> warpedPlayers = new HashSet<Collider2D>(); // このフレームでワープしたプレイヤーを追跡
     private Grid grid; // グリッドの参照
 
+    public AudioClip warpSound;
+    [Range(0f, 1f)] public float warpSoundScale = 1.0f;
+
     private void Start()
     {
         // 親オブジェクトからGridコンポーネントを取得
@@ -45,6 +48,11 @@ public class warptile : MonoBehaviour
             {
                 if (pair.sourceCell == currentCell)
                 {
+                    // ワープ音を再生
+                    if (AudioManager_TY.Instance != null && warpSound != null)
+                    {
+                        AudioManager_TY.Instance.PlaySFX(warpSound, warpSoundScale);
+                    }
                     Vector3 offset = other.transform.position - currentCellCenter;
                     Vector3 destCenter = grid.GetCellCenterWorld(pair.destinationCell);
                     other.transform.position = destCenter + offset;
@@ -77,6 +85,11 @@ public class warptile : MonoBehaviour
                         // プレイヤーがいるセルが、リスト内のどれかの「ワープ元」と一致するか？
                         if (pair.sourceCell == currentCell)
                         {
+                            // ワープ音を再生
+                            if (AudioManager_TY.Instance != null && warpSound != null)
+                            {
+                                AudioManager_TY.Instance.PlaySFX(warpSound, warpSoundScale);
+                            }
                             // 一致したら、ペアの「ワープ先」に移動
                             Vector3 offset = other.transform.position - currentCellCenter;
                             Vector3 destCenter = grid.GetCellCenterWorld(pair.destinationCell);

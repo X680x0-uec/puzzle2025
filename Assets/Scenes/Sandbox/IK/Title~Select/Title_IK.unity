@@ -538,6 +538,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myButton: {fileID: 949011378}
+  submitSound: {fileID: 8300000, guid: fc834729ea7925d4e82a63b9439b6cb7, type: 3}
+  soundVolume: 0.25
 --- !u!1001 &1189973713
 PrefabInstance:
   m_ObjectHideFlags: 0
