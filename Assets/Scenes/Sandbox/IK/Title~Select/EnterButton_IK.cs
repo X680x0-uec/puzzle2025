@@ -4,6 +4,8 @@ using UnityEngine.UI;
 public class EnterKeyActivator : MonoBehaviour
 {
     public Button myButton;
+    public AudioClip submitSound;
+    [Range(0f, 1f)] public float soundVolume = 1.0f;
     private InputList _inputSystem;
 
     void Start()
@@ -20,6 +22,10 @@ public class EnterKeyActivator : MonoBehaviour
         }
         else if (_inputSystem.UI.Submit.triggered || _inputSystem.UI.Any.triggered)
         {
+            if (AudioManager_TY.Instance != null && submitSound != null)
+            {
+                AudioManager_TY.Instance.PlaySFX(submitSound, soundVolume);
+            }
             myButton.onClick.Invoke();
         }
     }

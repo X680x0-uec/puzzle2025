@@ -186,6 +186,9 @@ MonoBehaviour:
   otherPlayer: {fileID: 0}
   pauseMenuController: {fileID: 0}
   playerMoveSound: {fileID: 0}
+  moveSoundScale: 1
+  arrowMoveSound: {fileID: 8300000, guid: 3d953da3f54d98d4ab61ddf86e770607, type: 3}
+  arrowMoveSoundScale: 0.25
   otherPlayerStartPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &7672203858458460552
 MonoBehaviour:

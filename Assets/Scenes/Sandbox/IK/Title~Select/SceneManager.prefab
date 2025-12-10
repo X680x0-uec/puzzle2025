@@ -44,3 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6fd487d5ddcaf04fa3993c6c9be15dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blackScreen: {fileID: 0}
+  fadeSpeed: 1
+  submitSound: {fileID: 8300000, guid: fc834729ea7925d4e82a63b9439b6cb7, type: 3}
+  soundVolume: 0.25

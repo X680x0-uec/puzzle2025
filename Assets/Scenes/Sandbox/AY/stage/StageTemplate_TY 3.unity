@@ -2946,8 +2946,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   yellowBrokenWall: {fileID: 1619619417}
-  switchSound: {fileID: 0}
-  switchSoundScale: 1
+  switchSound: {fileID: 8300000, guid: c71c44d9416c6674da08419664731d64, type: 3}
+  switchSoundScale: 0.1
 --- !u!1 &1659829827
 GameObject:
   m_ObjectHideFlags: 0

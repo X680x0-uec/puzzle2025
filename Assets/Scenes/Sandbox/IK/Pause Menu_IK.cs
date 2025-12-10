@@ -11,6 +11,8 @@ public class PauseMenu_IK : MonoBehaviour
     private bool inputDisabled = false; // 入力を無効化するフラグ
 
     [SerializeField] private string selectSceneName = "NormalStageSelect_IK"; // 発表用ステージ選択シーンの名前
+    public AudioClip submitSound;
+    [Range(0f, 1f)] public float soundVolume = 1.0f;
 
     private InputList _inputSystem;
 
@@ -61,6 +63,10 @@ public class PauseMenu_IK : MonoBehaviour
     // ゲームを再開する
     public void ResumeGame()
     {
+        if (AudioManager_TY.Instance != null && submitSound != null)
+        {
+            AudioManager_TY.Instance.PlaySFX(submitSound, soundVolume);
+        }
         // ポーズメニューを非表示...
         pausePanel.SetActive(false);
         Time.timeScale = 1f;
@@ -81,6 +87,10 @@ public class PauseMenu_IK : MonoBehaviour
     // ゲームをリスタートする
     public void RestartGame()
     {
+        if (AudioManager_TY.Instance != null && submitSound != null)
+        {
+            AudioManager_TY.Instance.PlaySFX(submitSound, soundVolume);
+        }
         // ゲームの時間を元に戻す
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -89,6 +99,10 @@ public class PauseMenu_IK : MonoBehaviour
     // ステージ選択に戻る
     public void GoToSelect()
     {
+        if (AudioManager_TY.Instance != null && submitSound != null)
+        {
+            AudioManager_TY.Instance.PlaySFX(submitSound, soundVolume);
+        }
         // ゲームの時間を元に戻す
         Time.timeScale = 1f;
         // 「SelectScene」という名前のシーンに遷移
@@ -98,6 +112,10 @@ public class PauseMenu_IK : MonoBehaviour
     // オプションメニューを開く（今回は例としてログを出力）
     public void OpenOptions()
     {
+        if (AudioManager_TY.Instance != null && submitSound != null)
+        {
+            AudioManager_TY.Instance.PlaySFX(submitSound, soundVolume);
+        }
         Debug.Log("Open Options Menu");
         // ここにオプションメニューを表示する処理を追加します
     }

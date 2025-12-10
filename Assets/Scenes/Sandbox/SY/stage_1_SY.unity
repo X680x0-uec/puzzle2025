@@ -1635,6 +1635,8 @@ MonoBehaviour:
   - sourceCell: {x: 0, y: -5, z: 0}
     destinationCell: {x: 1, y: 5, z: 0}
   warpThreshold: 0.1
+  warpSound: {fileID: 8300000, guid: 3d953da3f54d98d4ab61ddf86e770607, type: 3}
+  warpSoundScale: 0.75
 --- !u!483693784 &1279795118
 TilemapRenderer:
   m_ObjectHideFlags: 0

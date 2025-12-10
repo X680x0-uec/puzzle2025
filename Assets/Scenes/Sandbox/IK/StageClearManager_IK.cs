@@ -21,6 +21,8 @@ public class StageClearManager_IK : MonoBehaviour
     public Text targetMoveText;
     public AudioClip clearSound;
     [Range(0f, 1f)] public float clearSoundScale = 1.0f;
+    public AudioClip buttonSubmitSound;
+    [Range(0f, 1f)] public float buttonSubmitSoundScale = 1.0f;
     
     [System.Serializable]
     public struct RatingThreshold
@@ -190,6 +192,10 @@ public class StageClearManager_IK : MonoBehaviour
     // 「リトライ」ボタンに割り当てるメソッド
     public void RestartStage()
     {
+            if (AudioManager_TY.Instance != null && buttonSubmitSound != null)
+            {
+                AudioManager_TY.Instance.PlaySFX(buttonSubmitSound, buttonSubmitSoundScale);
+            }
         Time.timeScale = 1f; 
         if (GameManager_TY.Instance != null && GameManager_TY.Instance.inputList != null)
         {
@@ -202,6 +208,10 @@ public class StageClearManager_IK : MonoBehaviour
     // 「ステージ選択へ」ボタンに割り当てるメソッド
     public void LoadStageSelect()
     {
+            if (AudioManager_TY.Instance != null && buttonSubmitSound != null)
+            {
+                AudioManager_TY.Instance.PlaySFX(buttonSubmitSound, buttonSubmitSoundScale);
+            }
         Time.timeScale = 1f;
         SceneManager.LoadScene(stageSelectSceneName);
     }
